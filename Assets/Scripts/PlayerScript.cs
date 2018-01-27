@@ -15,23 +15,25 @@ public class PlayerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-
-        //If absorb -> gain 1 HP
-
         OnDeath();
     }
 
-    void OnTriggerEnter(Collision other)
+    void OnCollisionEnter(Collision other)
     {
         if (other.collider.CompareTag("Antibiotic"))
         {
-            m_health = m_health - 2;
+            TakeDamageAntibiotic();
         }
-        else //if (other.collider.CompareTag("Bacteria"))
+        else if (other.collider.CompareTag("BadBacteria"))
         {
-            m_health--;
+            TakeDamageBacteria();
+        }
+        else
+        {
+            GainHealth();
         }
 
+        Destroy(other.gameObject);
     }
 
     void OnDeath()
@@ -40,5 +42,20 @@ public class PlayerScript : MonoBehaviour {
         {
             //SceneManager.LoadScene("GameOver");
         }
+    }
+
+    void GainHealth()
+    {
+        m_health++;
+    }
+
+    void TakeDamageBacteria()
+    {
+        m_health--;
+    }
+
+    void TakeDamageAntibiotic()
+    {
+        m_health = m_health - 2;
     }
 }
