@@ -332,9 +332,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1210eeb2b862ed42891aad83486b7a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  armPrefab: {fileID: 1217974347246262, guid: 950460e4d6bb9fc49bacc86992bf3313, type: 2}
+  armPrefab: {fileID: 114198721921374900, guid: 950460e4d6bb9fc49bacc86992bf3313,
+    type: 2}
   maxArmLength: 10
-  oneTenticalLength: 1
+  distanceOfTentacles: 1
   currentSpeed: 3
   rotationSpeed: 3
   minDisBetweenArmParts: 1
