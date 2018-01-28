@@ -19,23 +19,20 @@ public class GestureTrigger : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerExit(Collider other)
     {
-        Debug.Log("GestureTrigger OnTriggerEnter reached");
+        // Avoid triggering in the first second of play
+      //  if (Time.timeSinceLevelLoad < 1)
+        //    return;
+
+
+        Debug.Log("GestureTrigger OnTriggerExit reached");
         // Trigger events are only sent if one of the Colliders also has a Rigidbody attached. Kinematic is OK
         audioSource = GetComponent<AudioSource>();
         AudioClip attackSound = stretchAttackSounds[Random.Range(0, stretchAttackSounds.Length)];
         audioSource.PlayOneShot(attackSound);
     }
 
-    void OnTriggerStay(Collider other)
-    {
-
-    }
-    void OnTriggerExit(Collider other)
-    {
-
-    }
 
     //GestureTriggerPrefab is a gameobject a prefab
     //GestureTrigger.cs
