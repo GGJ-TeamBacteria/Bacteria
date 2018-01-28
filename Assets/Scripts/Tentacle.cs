@@ -85,7 +85,12 @@ public class Tentacle : MonoBehaviour
     public void CalcMaxLength()
     {
         int currentHealth = playerRef.GetHealth();
-        currentMaxLength = currentHealth * 2;
+
+        int nextMaxLength = currentHealth * 2;
+        if (nextMaxLength <= maxArmLength)
+        {
+            currentMaxLength = nextMaxLength;
+        }
 
         // Longer than max length
         if (armParts.Count > currentMaxLength)
