@@ -32,24 +32,37 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1529777890449428
+--- !u!1 &1177644977996014
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4897420388514780}
-  - component: {fileID: 33536296715707596}
-  - component: {fileID: 23161659067379244}
-  - component: {fileID: 95526795238322592}
+  - component: {fileID: 4511076673852664}
+  - component: {fileID: 33236052546035914}
+  - component: {fileID: 23484937587720312}
+  - component: {fileID: 95663386702129406}
   m_Layer: 0
-  m_Name: GREENBACTERIA
+  m_Name: greenbacteria
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4511076673852664
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1177644977996014}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_Children: []
+  m_Father: {fileID: 4518333734120820}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4518333734120820
 Transform:
   m_ObjectHideFlags: 1
@@ -60,29 +73,16 @@ Transform:
   m_LocalPosition: {x: 1.9, y: 0, z: 1.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4897420388514780}
+  - {fileID: 4511076673852664}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4897420388514780
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1529777890449428}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.012506561, y: 0.030274402, z: -0.012846875}
-  m_LocalScale: {x: 20, y: 20, z: 20}
-  m_Children: []
-  m_Father: {fileID: 4518333734120820}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23161659067379244
+--- !u!23 &23484937587720312
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1529777890449428}
+  m_GameObject: {fileID: 1177644977996014}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -91,8 +91,8 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4a8ad813886f34dd68dbf738eddeda82, type: 3}
-  - {fileID: 2100002, guid: 4a8ad813886f34dd68dbf738eddeda82, type: 3}
+  - {fileID: 2100000, guid: 5b5c7000403895f47b78fd9bc6eec87d, type: 3}
+  - {fileID: 2100002, guid: 5b5c7000403895f47b78fd9bc6eec87d, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,13 +112,13 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33536296715707596
+--- !u!33 &33236052546035914
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1529777890449428}
-  m_Mesh: {fileID: 4300000, guid: 4a8ad813886f34dd68dbf738eddeda82, type: 3}
+  m_GameObject: {fileID: 1177644977996014}
+  m_Mesh: {fileID: 4300000, guid: 5b5c7000403895f47b78fd9bc6eec87d, type: 3}
 --- !u!54 &54913700589027878
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -214,15 +214,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!95 &95526795238322592
+--- !u!95 &95663386702129406
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1529777890449428}
+  m_GameObject: {fileID: 1177644977996014}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 4a8ad813886f34dd68dbf738eddeda82, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 5b5c7000403895f47b78fd9bc6eec87d, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552291c1f689244a4801d4ea8889bc3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio1: {fileID: 0}
+  audio1: {fileID: 1341174125754842, guid: 351644f8d9b92466db3f71c4ec70b215, type: 2}
 --- !u!135 &135026536229331196
 SphereCollider:
   m_ObjectHideFlags: 1
