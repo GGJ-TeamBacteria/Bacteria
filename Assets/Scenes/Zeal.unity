@@ -150,7 +150,7 @@ MonoBehaviour:
   numOfBacteria: 50
   ratioDifficulty: 3
   waveWait: 1
-  chanceOfAntibiotic: 30
+  chanceOfAntibiotic: 10
 --- !u!4 &134313671
 Transform:
   m_ObjectHideFlags: 0
@@ -244,6 +244,48 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!1001 &178712100
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4173436724853170, guid: 64f09d245bc9f4baeb469ea6008db1e0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173436724853170, guid: 64f09d245bc9f4baeb469ea6008db1e0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173436724853170, guid: 64f09d245bc9f4baeb469ea6008db1e0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173436724853170, guid: 64f09d245bc9f4baeb469ea6008db1e0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173436724853170, guid: 64f09d245bc9f4baeb469ea6008db1e0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173436724853170, guid: 64f09d245bc9f4baeb469ea6008db1e0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173436724853170, guid: 64f09d245bc9f4baeb469ea6008db1e0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4173436724853170, guid: 64f09d245bc9f4baeb469ea6008db1e0, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 64f09d245bc9f4baeb469ea6008db1e0, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1250066345
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,6 +530,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_health: 3
+--- !u!1 &1969852355 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1610821370550482, guid: 64f09d245bc9f4baeb469ea6008db1e0,
+    type: 2}
+  m_PrefabInternal: {fileID: 178712100}
+--- !u!114 &1969852356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1969852355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b080412f1976c42a286a447267eb4fac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1977693234
 GameObject:
   m_ObjectHideFlags: 0

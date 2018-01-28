@@ -23,4 +23,5 @@ public class MoveTowardPlayer : MonoBehaviour {
 		GetComponent<Rigidbody> ().velocity = new Vector3 (direction.x, direction.y, direction.z) * speed * Time.deltaTime;
 	}
 
+
 }
