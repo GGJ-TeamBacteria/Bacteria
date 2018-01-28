@@ -18,12 +18,12 @@ public class BacteriaLifeSound : MonoBehaviour {
 
     void PlaySound()
     {
-        // play sound only 1 percent
-        if (Random.Range(0, 100) < 1)
-            return;
+        //// play sound only 1 percent
+        //if (Random.Range(0, 100) < 1)
+        //    return;
 
-        if (audioSources != null || audioSources.Count > 0)
-            Instantiate(audioSources[Random.Range(0, audioSources.Count)], transform.position, Quaternion.identity);
+        //if (audioSources != null || audioSources.Count > 0)
+        //    Instantiate(audioSources[Random.Range(0, audioSources.Count)], transform.position, Quaternion.identity);
 
     }
 }

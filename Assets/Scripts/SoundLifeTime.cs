@@ -17,6 +17,7 @@ public class SoundLifeTime : MonoBehaviour {
         lifeTime += Time.deltaTime;
         if (lifeTime >= maxLifeTime)
         {
+            Debug.Log(lifeTime);
             Destroy(gameObject);
         }
 	}

@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4262864772068722}
   - component: {fileID: 82142131601861982}
+  - component: {fileID: 114992019390035780}
   m_Layer: 0
   m_Name: BatStationarySound2
   m_TagString: Untagged
@@ -120,3 +121,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114992019390035780
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1327920702830176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35fba8a00eb1aa45bb807ceca0a093d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLifeTime: 1

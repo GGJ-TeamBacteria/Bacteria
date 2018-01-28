@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4801361754204196}
   - component: {fileID: 82997870217385394}
+  - component: {fileID: 114985473241339204}
   m_Layer: 0
   m_Name: BatDeath1
   m_TagString: Untagged
@@ -120,3 +121,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114985473241339204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1341174125754842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35fba8a00eb1aa45bb807ceca0a093d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLifeTime: 5
