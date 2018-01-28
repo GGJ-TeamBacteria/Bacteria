@@ -18,17 +18,17 @@ public class TentacleSegment : MonoBehaviour {
         {
             // Tell player to take damage from BadBacteria
             rootTentacle.playerRef.TakeDamageBacteria();
-            Destroy(other.gameObject);
+            BacteriaDestroy otherScript = other.GetComponent<BacteriaDestroy>();
+            otherScript.Death();
+            //Destroy(other.gameObject);
         }
-        else if (other.CompareTag("GoodBacteria"))// GoodBacteria
+        else if (other.CompareTag("GoodBacteria"))
         {
             //Call GainHealth() from Player
-            rootTentacle.playerRef.TakeDamageBacteria();//TODO
-            //Call ExtendTentacle()
-            Destroy(other.gameObject);
+            rootTentacle.playerRef.GainHealth();
+
+            //Destroy(other.gameObject);
         }
-
-
     }
 }
 

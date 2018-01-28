@@ -14,6 +14,7 @@ public class Tentacle : MonoBehaviour
     public float tenticalExtendingSpeed;
 
     internal PlayerScript playerRef;
+    private int currentMaxLength;
     private List<TentacleSegment> armParts;
     private TentacleSegment currentBodyPart;
     private TentacleSegment prevBodyPart;
@@ -28,12 +29,14 @@ public class Tentacle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // changes max length depends on player health
+        CalcMaxLength();
 
         // extending arm
         if (Input.GetKey("1"))
         {
 
-            if (armParts.Count >= maxArmLength)
+            if (armParts.Count >= currentMaxLength)
             {
                 return;
             }
@@ -78,9 +81,32 @@ public class Tentacle : MonoBehaviour
         ManageAllTentacleFollowHandMovement();
     }
 
+    public void CalcMaxLength()
+    {
+        int currentHealth = playerRef.GetHealth();
+        currentMaxLength = currentHealth + 2;
+
+        if (armParts.Count > currentMaxLength)
+        {
+            Shorten(1);
+        }
+    }
+
+    public void Shorten(int times)
+    {
+        for (int i = 0; i < times || i <= armParts.Count; i++)
+        {
+            TentacleSegment target = armParts[armParts.Count - 1];
+
+            armParts.Remove(target);
+            Destroy(target.gameObject);
+        }
+
+    }
+
     public void OnPlayerControllTenatacle(Transform controllerLocation, Vector3 direction)
     {
-        if (armParts.Count >= maxArmLength)
+        if (armParts.Count >= currentMaxLength)
         {
             return;
         }
@@ -102,16 +128,6 @@ public class Tentacle : MonoBehaviour
         currentSegment.gameObject.transform.SetParent(transform);
         armParts.Add(currentSegment);
         currentSegment.distanceFromPlayer = (currentSegment.transform.position - gameObject.transform.position).magnitude;
-    }
-
-    public void TakeDamage()
-    {
-
-        // get new health from player to set max tentacle length
-        // Shorten tentacle
-
-        // Change the name
-        // do this in update
     }
 
     private void MoveHand()
