@@ -20,6 +20,7 @@ public class Tentacle : MonoBehaviour
     private TentacleSegment currentBodyPart;
     private TentacleSegment prevBodyPart;
     private Transform controller;
+    private bool isShrinking;
 
     // Use this for initialization
     void Start()
@@ -84,6 +85,18 @@ public class Tentacle : MonoBehaviour
 
     public void CalcMaxLength()
     {
+        // if it is shrinking, don't extend
+        if (isShrinking)
+        {
+            if (armParts.Count > currentMaxLength)
+            {
+                Shorten(1);
+                return;
+            } else {
+                isShrinking = false;
+            }
+        }
+
         int currentHealth = playerRef.GetHealth();
 
         int nextMaxLength = currentHealth * 2;
@@ -137,7 +150,7 @@ public class Tentacle : MonoBehaviour
 
     public void OnPlayerShrinkMortion()
     {
-        currentMaxLength = 0;
+        isShrinking = true;
     }
 
     private void Extend(Transform spawnPoint, Vector3 direction)
