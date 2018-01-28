@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 114506101485919046}
   - component: {fileID: 114045109738344172}
   m_Layer: 0
-  m_Name: BacteriaBad
+  m_Name: BacteriaBadBlue
   m_TagString: BadBacteria
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -475,7 +475,7 @@ Transform:
   m_GameObject: {fileID: 1720712253701256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4448852054124088}
   m_Father: {fileID: 0}

@@ -143,9 +143,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BacteriaGood: {fileID: 1075965286047008, guid: bec5e3b91388c45ab995a478ebd4d828,
     type: 2}
-  BacteriaBad: {fileID: 1720712253701256, guid: 46412290e827045a4a771de2a7a765d1,
+  BacteriaBadBlue: {fileID: 1720712253701256, guid: 46412290e827045a4a771de2a7a765d1,
+    type: 2}
+  BacteriaBadOrange: {fileID: 1911138053373858, guid: bb05fc3835f63b24d8e3aa728a7104f7,
+    type: 2}
+  BacteriaBadPurple: {fileID: 1893230967937152, guid: 73668dce71e3cfc42962edfc24ce9e43,
     type: 2}
   Antibiotic: {fileID: 1610821370550482, guid: 64f09d245bc9f4baeb469ea6008db1e0, type: 2}
+  BacteriaShoot: {fileID: 1398765135925952, guid: ddfe785c77e1c49b492dbfbf5f92cf94,
+    type: 2}
   worldSize: {x: 30, y: 15, z: 30}
   numOfBacteria: 50
   ratioDifficulty: 3

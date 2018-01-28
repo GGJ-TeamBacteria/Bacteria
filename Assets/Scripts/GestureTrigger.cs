@@ -8,9 +8,13 @@ public class GestureTrigger : MonoBehaviour
     public GameObject player;
     public GameObject playerBody;
     public AudioClip[] stretchAttackSounds;
+    public AudioClip[] retractSounds;
     AudioSource audioSource;
 
     private Tentacle tentacle;
+
+    // Don't try to retract before we've ever extended
+    private bool extendedAtLeastOnce = false;
 
     // Use this for initialization
     void Start()
@@ -24,14 +28,31 @@ public class GestureTrigger : MonoBehaviour
 
     }
 
+    // Retract tentacle
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!extendedAtLeastOnce)
+            return;
+
+        audioSource = GetComponent<AudioSource>();
+        AudioClip retractSound = retractSounds[Random.Range(0, retractSounds.Length)];
+        audioSource.PlayOneShot(retractSound);
+
+        print("GestureTrigger TriggerEnter retracting");
+        //tentacle.whateverTheNameWillBe(other.gameObject.transform);
+    }
+
+    // Extend tentacle
     void OnTriggerExit(Collider other)
     {
         // Avoid triggering in the first second of play
-      //  if (Time.timeSinceLevelLoad < 1)
+        //  if (Time.timeSinceLevelLoad < 1)
         //    return;
 
-
         // Trigger events are only sent if one of the Colliders also has a Rigidbody attached. Kinematic is OK
+
+        extendedAtLeastOnce = true;
+
         audioSource = GetComponent<AudioSource>();
         AudioClip attackSound = stretchAttackSounds[Random.Range(0, stretchAttackSounds.Length)];
         audioSource.PlayOneShot(attackSound);
@@ -44,9 +65,6 @@ public class GestureTrigger : MonoBehaviour
     }
 
 
-    //GestureTriggerPrefab is a gameobject a prefab
-    //GestureTrigger.cs
-    //GestureTriggerColliderExample
 
 
 

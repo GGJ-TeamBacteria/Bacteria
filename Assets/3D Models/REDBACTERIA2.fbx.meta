@@ -1,20 +1,17 @@
 fileFormatVersion: 2
-guid: b5e09be51fb064b83bb0ec6935150576
-timeCreated: 1517120589
+guid: e9fe96697244dcc47850a3713af5214d
+timeCreated: 1517118411
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: pasted__polySurface115
-    100002: pasted__polySurface27
-    100004: //RootNode
-    400000: pasted__polySurface115
-    400002: pasted__polySurface27
-    400004: //RootNode
-    2100000: pasted__yellow
-    2300000: pasted__polySurface115
-    3300000: pasted__polySurface115
-    4300000: pasted__polySurface115
+    100000: //RootNode
+    400000: //RootNode
+    2100000: RED
+    2100002: yellow
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: pPlatonic1
     9500000: //RootNode
   externalObjects: {}
   materials:

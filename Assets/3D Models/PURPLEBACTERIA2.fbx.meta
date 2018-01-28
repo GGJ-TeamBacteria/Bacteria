@@ -1,20 +1,46 @@
 fileFormatVersion: 2
-guid: b5e09be51fb064b83bb0ec6935150576
-timeCreated: 1517120589
+guid: 0c2d4128cabda0a4ba4ead8d5c7e947b
+timeCreated: 1517118407
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: pasted__polySurface115
-    100002: pasted__polySurface27
-    100004: //RootNode
-    400000: pasted__polySurface115
-    400002: pasted__polySurface27
-    400004: //RootNode
-    2100000: pasted__yellow
-    2300000: pasted__polySurface115
-    3300000: pasted__polySurface115
-    4300000: pasted__polySurface115
+    100000: pHelix24
+    100002: pHelix25
+    100004: pHelix26
+    100006: pHelix27
+    100008: pHelix28
+    100010: pHelix29
+    100012: pTorus2
+    100014: pTorus3
+    100016: //RootNode
+    100018: transform250
+    100020: transform251
+    100022: transform252
+    100024: transform253
+    100026: transform254
+    100028: transform255
+    100030: transform256
+    400000: pHelix24
+    400002: pHelix25
+    400004: pHelix26
+    400006: pHelix27
+    400008: pHelix28
+    400010: pHelix29
+    400012: pTorus2
+    400014: pTorus3
+    400016: //RootNode
+    400018: transform250
+    400020: transform251
+    400022: transform252
+    400024: transform253
+    400026: transform254
+    400028: transform255
+    400030: transform256
+    2100000: purple
+    2300000: pTorus3
+    3300000: pTorus3
+    4300000: pTorus3
     9500000: //RootNode
   externalObjects: {}
   materials:

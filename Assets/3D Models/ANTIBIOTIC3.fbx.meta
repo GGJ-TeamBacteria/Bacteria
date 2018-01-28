@@ -1,20 +1,19 @@
 fileFormatVersion: 2
-guid: b5e09be51fb064b83bb0ec6935150576
-timeCreated: 1517120589
+guid: 2f6036db5b987f24f9030b0b7fb7155d
+timeCreated: 1517118408
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: pasted__polySurface115
-    100002: pasted__polySurface27
-    100004: //RootNode
-    400000: pasted__polySurface115
-    400002: pasted__polySurface27
-    400004: //RootNode
-    2100000: pasted__yellow
-    2300000: pasted__polySurface115
-    3300000: pasted__polySurface115
-    4300000: pasted__polySurface115
+    100000: //RootNode
+    100002: pasted__pCylinder4
+    400000: //RootNode
+    400002: pasted__pCylinder4
+    2100000: BLUE
+    2100002: orange
+    2300000: pasted__pCylinder4
+    3300000: pasted__pCylinder4
+    4300000: pasted__pCylinder4
     9500000: //RootNode
   externalObjects: {}
   materials:

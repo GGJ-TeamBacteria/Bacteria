@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 82938297035072914}
   - component: {fileID: 114178982613086174}
   - component: {fileID: 54043024361815804}
-  - component: {fileID: 135902792622252990}
   - component: {fileID: 136905192827106404}
   m_Layer: 0
   m_Name: GestureTrigger
@@ -150,23 +149,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290a010b489889948b08b232a5cf093e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   playerBody: {fileID: 0}
   stretchAttackSounds:
   - {fileID: 8300000, guid: 83f9971d2b45ff044a32a0c37467a7fe, type: 3}
   - {fileID: 8300000, guid: ff4dfc201b1a0bb46a74e456568aac53, type: 3}
   - {fileID: 8300000, guid: 96c889025bc955e44bfe324dc83e268a, type: 3}
---- !u!135 &135902792622252990
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1342568438089772}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.65
-  m_Center: {x: 0, y: 0, z: 0}
+  retractSounds:
+  - {fileID: 8300000, guid: f5c01ef623c2f9a42b4ea3eeaece98dc, type: 3}
+  - {fileID: 8300000, guid: 35de636cc392ebf4094fa6e11db5f975, type: 3}
+  - {fileID: 8300000, guid: 07023c0e13c01b34b99135173e84a1d9, type: 3}
 --- !u!136 &136905192827106404
 CapsuleCollider:
   m_ObjectHideFlags: 1
