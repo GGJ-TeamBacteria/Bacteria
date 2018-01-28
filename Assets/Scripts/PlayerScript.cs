@@ -44,17 +44,17 @@ public class PlayerScript : MonoBehaviour {
         }
     }
 
-    void GainHealth()
+    public void GainHealth()
     {
         m_health++;
     }
 
-    void TakeDamageBacteria()
+    public void TakeDamageBacteria()
     {
         m_health--;
     }
 
-    void TakeDamageAntibiotic()
+    public void TakeDamageAntibiotic()
     {
         m_health = m_health - 2;
     }

@@ -13,6 +13,7 @@ public class Tentacle : MonoBehaviour
     public float minDisBetweenArmParts;
     public float tenticalExtendingSpeed;
 
+    internal PlayerScript playerRef;
     private List<TentacleSegment> armParts;
     private TentacleSegment currentBodyPart;
     private TentacleSegment prevBodyPart;
@@ -21,7 +22,7 @@ public class Tentacle : MonoBehaviour
     void Start()
     {
         armParts = new List<TentacleSegment>();
-
+        playerRef = gameObject.GetComponent<PlayerScript>();
     }
 
     // Update is called once per frame
@@ -75,8 +76,42 @@ public class Tentacle : MonoBehaviour
         }
 
         ManageAllTentacleFollowHandMovement();
+    }
 
+    public void OnPlayerControllTenatacle(Transform controllerLocation, Vector3 direction)
+    {
+        if (armParts.Count >= maxArmLength)
+        {
+            return;
+        }
 
+        //GameObject spawnPoint = GameObject.FindWithTag("TentacleSpawnPoint");
+        //Transform nextSpawnPoint = spawnPoint.transform;
+
+        Transform nextSpawnPoint = controllerLocation;
+        if (armParts.Count > 0)
+        {
+            nextSpawnPoint = armParts[armParts.Count - 1].transform;
+        }
+
+        //Vector3 heading = nextSpawnPoint.position - transform.position;
+        //var distance = heading.magnitude;
+        //var headingDirection = heading / distance; // This is now the normalized direction.
+
+        TentacleSegment currentSegment = Instantiate(armPrefab, nextSpawnPoint.position + (direction * distanceOfTentacles), nextSpawnPoint.rotation);
+        currentSegment.gameObject.transform.SetParent(transform);
+        armParts.Add(currentSegment);
+        currentSegment.distanceFromPlayer = (currentSegment.transform.position - gameObject.transform.position).magnitude;
+    }
+
+    public void TakeDamage()
+    {
+
+        // get new health from player to set max tentacle length
+        // Shorten tentacle
+
+        // Change the name
+        // do this in update
     }
 
     private void MoveHand()

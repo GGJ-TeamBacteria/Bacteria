@@ -38,6 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4928871967563526}
   - component: {fileID: 114208235255299224}
+  - component: {fileID: 136369498599916602}
   m_Layer: 0
   m_Name: TentacleSegment
   m_TagString: Untagged
@@ -141,3 +142,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5f7c740d69e3244283bd1113c47c148, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &136369498599916602
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1724877785667712}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
