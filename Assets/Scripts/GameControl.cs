@@ -8,6 +8,7 @@ public class GameControl : MonoBehaviour {
 	public Vector3 worldSize; //how big is the world x, y, z
 	public int numOfBacteria; //total number of bad and good bacteria to start.
 	public int ratioDifficulty; //how many bad bacteria spawn with every one good bacteria
+	public float waveWait;
 
 	// Use this for initialization
 	void Start () {
@@ -61,6 +62,7 @@ public class GameControl : MonoBehaviour {
 						spawnRotation
 					);
 				}
+			yield return new WaitForSeconds (waveWait);
 		}
 	}
 	// Update is called once per frame
