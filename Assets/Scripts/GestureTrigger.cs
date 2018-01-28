@@ -60,7 +60,7 @@ public class GestureTrigger : MonoBehaviour
         Vector3 reachDirection = Vector3.Normalize(other.bounds.center - playerBody.transform.position);
         print("GestureTrigger TriggerExit reaching in direction: " + reachDirection); 
 
-        tentacle.OnPlayerControllTenatacle(other.gameObject.transform, reachDirection);
+        tentacle.OnPlayerStretchMortion(other.gameObject.transform, reachDirection);
 
     }
 
