@@ -21,6 +21,25 @@ public class Tentacle : MonoBehaviour {
         armParts = new List<TentacleSegment>();
 		
 	}
+
+    void InitializeAllArmsParts()
+    {
+        GameObject spawnPoint = GameObject.FindWithTag("TentacleSpawnPoint");
+        Transform nextSpawnPoint = spawnPoint.transform;
+        if (armParts.Count > 0)
+        {
+            nextSpawnPoint = armParts[armParts.Count - 1].transform;
+        }
+
+        Vector3 heading = nextSpawnPoint.position - transform.position;
+        var distance = heading.magnitude;
+        var direction = heading / distance; // This is now the normalized direction.
+
+        // exetend the arm
+        TentacleSegment currentSegment = Instantiate(armPrefab, nextSpawnPoint.position + (direction * distanceOfTentacles), nextSpawnPoint.rotation);
+        armParts.Add(currentSegment);
+        currentSegment.distanceFromPlayer = (currentSegment.transform.position - gameObject.transform.position).magnitude;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -29,26 +48,7 @@ public class Tentacle : MonoBehaviour {
         if (Input.GetKey("1"))
         {
 
-            if (armParts.Count >= maxArmLength)
-            {
-                return;
-            }
 
-            GameObject spawnPoint = GameObject.FindWithTag("TentacleSpawnPoint");
-            Transform nextSpawnPoint = spawnPoint.transform;
-            if (armParts.Count > 0)
-            {
-                nextSpawnPoint = armParts[armParts.Count - 1].transform;
-            }
-
-            Vector3 heading = nextSpawnPoint.position - transform.position;
-            var distance = heading.magnitude;
-            var direction = heading / distance; // This is now the normalized direction.
-
-            // exetend the arm
-            TentacleSegment currentSegment = Instantiate(armPrefab, nextSpawnPoint.position + (direction * distanceOfTentacles), nextSpawnPoint.rotation);
-            armParts.Add(currentSegment);
-            currentSegment.distanceFromPlayer = (currentSegment.transform.position - gameObject.transform.position).magnitude;
         }
 
         if (Input.GetKey("2"))
