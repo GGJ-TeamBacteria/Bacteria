@@ -344,9 +344,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1114738579}
   - component: {fileID: 1114738578}
+  - component: {fileID: 1114738580}
   m_Layer: 0
   m_Name: WinObject
-  m_TagString: Untagged
+  m_TagString: HeartWin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -376,6 +377,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1114738580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1114738577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 552291c1f689244a4801d4ea8889bc3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio1: {fileID: 1764923741713872, guid: 03f70807d5d3e4ec59130741f2ca44f1, type: 2}
 --- !u!1 &1250066345
 GameObject:
   m_ObjectHideFlags: 0
