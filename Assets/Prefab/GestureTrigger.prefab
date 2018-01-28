@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290a010b489889948b08b232a5cf093e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerBody: {fileID: 0}
   stretchAttackSounds:
   - {fileID: 8300000, guid: 83f9971d2b45ff044a32a0c37467a7fe, type: 3}
   - {fileID: 8300000, guid: ff4dfc201b1a0bb46a74e456568aac53, type: 3}
