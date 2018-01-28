@@ -146,6 +146,7 @@ MonoBehaviour:
   BacteriaBad: {fileID: 1720712253701256, guid: 46412290e827045a4a771de2a7a765d1,
     type: 2}
   Antibiotic: {fileID: 1610821370550482, guid: 64f09d245bc9f4baeb469ea6008db1e0, type: 2}
+  BacteriaShoot: {fileID: 0}
   worldSize: {x: 30, y: 15, z: 30}
   numOfBacteria: 50
   ratioDifficulty: 3
