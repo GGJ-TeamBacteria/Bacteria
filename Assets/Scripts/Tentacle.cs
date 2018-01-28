@@ -13,19 +13,19 @@ public class Tentacle : MonoBehaviour
     public float minDisBetweenArmParts;
     public float tenticalExtendingSpeed;
 
+    public GameObject playerGameObject;
     internal PlayerScript playerRef;
     private int currentMaxLength;
     private List<TentacleSegment> armParts;
     private TentacleSegment currentBodyPart;
     private TentacleSegment prevBodyPart;
-    private Vector3 currentDirection;
     private Transform controller;
 
     // Use this for initialization
     void Start()
     {
         armParts = new List<TentacleSegment>();
-        playerRef = gameObject.GetComponent<PlayerScript>();
+        playerRef = playerGameObject.GetComponent<PlayerScript>();
     }
 
     // Update is called once per frame
@@ -150,7 +150,7 @@ public class Tentacle : MonoBehaviour
         currentSegment.gameObject.transform.SetParent(transform);
         armParts.Add(currentSegment);
         currentSegment.rootTentacle = this;
-        currentSegment.distanceFromPlayer = (currentSegment.transform.position - gameObject.transform.position).magnitude;
+        currentSegment.distanceFromPlayer = (currentSegment.transform.position - playerGameObject.transform.position).magnitude;
     }
 
     private void MoveHand()
