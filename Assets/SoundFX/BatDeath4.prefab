@@ -9,30 +9,30 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1591292729749222}
+  m_RootGameObject: {fileID: 1324598939323240}
   m_IsPrefabParent: 1
---- !u!1 &1591292729749222
+--- !u!1 &1324598939323240
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4514290324111732}
-  - component: {fileID: 82877426414875610}
+  - component: {fileID: 4593409958973846}
+  - component: {fileID: 82344632983557818}
   m_Layer: 0
-  m_Name: AntibioticExplode
+  m_Name: BatDeath4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4514290324111732
+--- !u!4 &4593409958973846
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1591292729749222}
+  m_GameObject: {fileID: 1324598939323240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,16 +40,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &82877426414875610
+--- !u!82 &82344632983557818
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1591292729749222}
+  m_GameObject: {fileID: 1324598939323240}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 01c4e71f66d124829ae45be9f82a75ca, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a9017a186376d4747b4e370918c0ae73, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

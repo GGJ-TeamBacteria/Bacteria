@@ -968,7 +968,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552291c1f689244a4801d4ea8889bc3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio1: {fileID: 1561603173900224, guid: ee5722b52f4454333bb897c797563e84, type: 2}
+  audioSources:
+  - {fileID: 1341174125754842, guid: 351644f8d9b92466db3f71c4ec70b215, type: 2}
+  - {fileID: 1561603173900224, guid: ee5722b52f4454333bb897c797563e84, type: 2}
+  - {fileID: 1149505159905694, guid: 92d9b02f38385e6419d92a8a5097df0c, type: 2}
+  - {fileID: 1324598939323240, guid: 444c6be0119b9d64ebf288f21645ad07, type: 2}
+  - {fileID: 1759415355117574, guid: f5ffb740ce27cd64abbae9bce1bfaed4, type: 2}
 --- !u!135 &135920694222172554
 SphereCollider:
   m_ObjectHideFlags: 1
