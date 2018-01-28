@@ -7,32 +7,36 @@ public class Tentacle : MonoBehaviour
 
     public TentacleSegment armPrefab;
     public int maxArmLength;
-    public float distanceOfTentacles;// check spell
+    public float distanceOfTentacles;
     public float currentSpeed;
     public float rotationSpeed;
+    public float minDisBetweenArmParts;
+    public float tenticalExtendingSpeed;
+
+    internal PlayerScript playerRef;
+    private int currentMaxLength;
     private List<TentacleSegment> armParts;
     private TentacleSegment currentBodyPart;
     private TentacleSegment prevBodyPart;
-
-    public float minDisBetweenArmParts;
-    public float tenticalExtendingSpeed;
 
     // Use this for initialization
     void Start()
     {
         armParts = new List<TentacleSegment>();
-
+        playerRef = gameObject.GetComponent<PlayerScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // changes max length depends on player health
+        CalcMaxLength();
 
-        // longer arm
+        // extending arm
         if (Input.GetKey("1"))
         {
 
-            if (armParts.Count >= maxArmLength)
+            if (armParts.Count >= currentMaxLength)
             {
                 return;
             }
@@ -48,12 +52,13 @@ public class Tentacle : MonoBehaviour
             var distance = heading.magnitude;
             var direction = heading / distance; // This is now the normalized direction.
 
-            // exetend the arm
             TentacleSegment currentSegment = Instantiate(armPrefab, nextSpawnPoint.position + (direction * distanceOfTentacles), nextSpawnPoint.rotation);
+            currentSegment.gameObject.transform.SetParent(transform);
             armParts.Add(currentSegment);
             currentSegment.distanceFromPlayer = (currentSegment.transform.position - gameObject.transform.position).magnitude;
         }
 
+        // Shorten Arm
         if (Input.GetKey("2"))
         {
             if (armParts.Count == 0)
@@ -73,9 +78,56 @@ public class Tentacle : MonoBehaviour
 
         }
 
-        ManageAllTentacleSegmentLocation();
+        ManageAllTentacleFollowHandMovement();
+    }
 
+    public void CalcMaxLength()
+    {
+        int currentHealth = playerRef.GetHealth();
+        currentMaxLength = currentHealth * 2;
 
+        if (armParts.Count > currentMaxLength)
+        {
+            Shorten(1);
+        }
+    }
+
+    public void Shorten(int times)
+    {
+        for (int i = 0; i < times || i <= armParts.Count; i++)
+        {
+            TentacleSegment target = armParts[armParts.Count - 1];
+
+            armParts.Remove(target);
+            Destroy(target.gameObject);
+        }
+
+    }
+
+    public void OnPlayerControllTenatacle(Transform controllerLocation, Vector3 direction)
+    {
+        if (armParts.Count >= currentMaxLength)
+        {
+            return;
+        }
+
+        //GameObject spawnPoint = GameObject.FindWithTag("TentacleSpawnPoint");
+        //Transform nextSpawnPoint = spawnPoint.transform;
+
+        Transform nextSpawnPoint = controllerLocation;
+        if (armParts.Count > 0)
+        {
+            nextSpawnPoint = armParts[armParts.Count - 1].transform;
+        }
+
+        //Vector3 heading = nextSpawnPoint.position - transform.position;
+        //var distance = heading.magnitude;
+        //var headingDirection = heading / distance; // This is now the normalized direction.
+
+        TentacleSegment currentSegment = Instantiate(armPrefab, nextSpawnPoint.position + (direction * distanceOfTentacles), nextSpawnPoint.rotation);
+        currentSegment.gameObject.transform.SetParent(transform);
+        armParts.Add(currentSegment);
+        currentSegment.distanceFromPlayer = (currentSegment.transform.position - gameObject.transform.position).magnitude;
     }
 
     private void MoveHand()
@@ -84,14 +136,10 @@ public class Tentacle : MonoBehaviour
             return;
 
         armParts[0].transform.Translate(armParts[0].transform.forward * currentSpeed * Time.smoothDeltaTime, Space.World);
-        //if (Input.GetAxis("Horizontal") != 0)
-        //{
-        //    armParts[0].transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime * Input.GetAxis("Horizontal"));
-        //}
 
     }
 
-    private void ManageAllTentacleSegmentLocation()
+    private void ManageAllTentacleFollowHandMovement()
     {
         if (armParts.Count == 0)
             return;

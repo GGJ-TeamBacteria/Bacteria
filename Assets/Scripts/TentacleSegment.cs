@@ -5,7 +5,33 @@ using UnityEngine;
 public class TentacleSegment : MonoBehaviour {
 
     internal float distanceFromPlayer;
+    internal Tentacle rootTentacle;
 
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Tentacle collided to " + other);
+
+        if (other.CompareTag("Antibiotic"))
+        {
+            // Tell player to take damage from Antibiotic
+            rootTentacle.playerRef.TakeDamageAntibiotic();
+        }
+        else if (other.CompareTag("BadBacteria"))
+        {
+            // Tell player to take damage from BadBacteria
+            rootTentacle.playerRef.TakeDamageBacteria();
+			SelfDestroy otherScript = other.GetComponent<SelfDestroy>();
+            otherScript.Death();
+            //Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("GoodBacteria"))
+        {
+            //Call GainHealth() from Player
+            rootTentacle.playerRef.GainHealth();
+
+            //Destroy(other.gameObject);
+        }
+    }
 }
 
 

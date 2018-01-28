@@ -11,6 +11,6 @@ public class BacteriaMovement : MonoBehaviour {
 			Random.Range (-.5f, .5f) * speed,
 			Random.Range (-.5f, .5f) * speed
 		);
-	
 	}
+
 }
