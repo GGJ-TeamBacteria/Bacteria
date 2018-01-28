@@ -1,24 +1,23 @@
 fileFormatVersion: 2
-guid: b21931e767a55af468f5b3987a4ef9df
-timeCreated: 1517101755
+guid: 03636918650aec848adeeca77896b437
+timeCreated: 1517112141
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: greendark
-    2100002: green
+    2100000: bluetransparent
     2300000: //RootNode
     3300000: //RootNode
-    4300000: bacteria_green
+    4300000: pCylinder5
     9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
