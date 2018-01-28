@@ -11,7 +11,8 @@ public class GestureTrigger : MonoBehaviour
     public AudioClip[] retractSounds;
     AudioSource audioSource;
 
-    private Tentacle tentacle;
+    public Tentacle leftTentacle;
+    public Tentacle rightTentacle;
 
     // Don't try to retract before we've ever extended
     private bool extendedAtLeastOnce = false;
@@ -19,7 +20,6 @@ public class GestureTrigger : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        tentacle = player.GetComponent(typeof(Tentacle)) as Tentacle;
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class GestureTrigger : MonoBehaviour
     }
 
     // Retract tentacle
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collider)
     {
         if (!extendedAtLeastOnce)
             return;
@@ -38,12 +38,12 @@ public class GestureTrigger : MonoBehaviour
         AudioClip retractSound = retractSounds[Random.Range(0, retractSounds.Length)];
         audioSource.PlayOneShot(retractSound);
 
-        print("GestureTrigger TriggerEnter retracting");
-        //tentacle.OnPlayerShrinkMortion(other.gameObject.transform);
+        print("GestureTrigger TriggerEnter retracting " + collider.name);
+        getTentacle(collider).OnPlayerShrinkMortion();
     }
 
     // Extend tentacle
-    void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider collider)
     {
         // Avoid triggering in the first second of play
         //  if (Time.timeSinceLevelLoad < 1)
@@ -57,16 +57,32 @@ public class GestureTrigger : MonoBehaviour
         AudioClip attackSound = stretchAttackSounds[Random.Range(0, stretchAttackSounds.Length)];
         audioSource.PlayOneShot(attackSound);
 
-        Vector3 reachDirection = Vector3.Normalize(other.bounds.center - playerBody.transform.position);
-        print("GestureTrigger TriggerExit reaching in direction: " + reachDirection); 
+        Vector3 reachDirection = Vector3.Normalize(collider.bounds.center - playerBody.transform.position);
+        print("GestureTrigger TriggerExit reaching in direction: " + reachDirection + 
+            " for object name " + collider.name + " with tag " + collider.tag);
 
-        tentacle.OnPlayerStretchMortion(other.gameObject.transform, reachDirection);
+        getTentacle(collider).OnPlayerStretchMortion(collider.gameObject.transform, reachDirection);
 
     }
 
 
 
-
+    private Tentacle getTentacle(Collider collider)
+    {
+        if (collider.name == "ControllerChildLeft")
+        {
+            return leftTentacle;
+        }
+        else if (collider.name == "ControllerChildRight")
+        {
+            return rightTentacle;
+        }
+        else
+        {
+            print("Unrecognized controller in GestureTrigger");
+            return null;
+        }
+    }
 
 
 }
