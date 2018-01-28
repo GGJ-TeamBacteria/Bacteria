@@ -10,6 +10,7 @@ public class GameControl : MonoBehaviour {
 	public int numOfBacteria; //total number of bad and good bacteria to start.
 	public int ratioDifficulty; //how many good bacteria spawn with every one bad bacteria
 	public float waveWait;
+	public int chanceOfAntibiotic; //out of 100. The percentage of spawning antibiotic
 
 	// Use this for initialization
 	void Start () {
@@ -46,7 +47,7 @@ public class GameControl : MonoBehaviour {
 	}
 	IEnumerator SpawnWave(int ratio) {
 		Quaternion spawnRotation = Quaternion.identity;
-		int chanceOfAntibiotic = 30; //out of 100. The percentage of spawning antibiotic
+
 		float dice;
 		while (true) {
 			//spawn one bad bacteria
@@ -67,8 +68,9 @@ public class GameControl : MonoBehaviour {
 					);
 				}
 			yield return new WaitForSeconds (waveWait);
+
 			dice = Random.Range (-chanceOfAntibiotic, 100 - chanceOfAntibiotic);
-			if (dice > 0) {
+			if (dice < 0) {
 				Instantiate (Antibiotic,  
 					new Vector3 (Random.Range (-worldSize.x, worldSize.x), 
 						Random.Range (-worldSize.y, worldSize.y),

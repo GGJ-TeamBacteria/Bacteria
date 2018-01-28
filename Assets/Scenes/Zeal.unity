@@ -149,6 +149,7 @@ MonoBehaviour:
   numOfBacteria: 50
   ratioDifficulty: 3
   waveWait: 1
+  chanceOfAntibiotic: 30
 --- !u!4 &134313671
 Transform:
   m_ObjectHideFlags: 0
@@ -237,7 +238,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1250066345}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.5, z: 0}
+  m_LocalPosition: {x: 0, y: -4.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1924769382}
@@ -371,7 +372,7 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 2.96
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1924769381
