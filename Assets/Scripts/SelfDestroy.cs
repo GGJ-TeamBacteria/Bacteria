@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BacteriaDestroy : MonoBehaviour {
+public class SelfDestroy : MonoBehaviour {
 	public GameObject audio1;
 
 	// Use this for initialization

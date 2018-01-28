@@ -20,7 +20,7 @@ public class TentacleSegment : MonoBehaviour {
         {
             // Tell player to take damage from BadBacteria
             rootTentacle.playerRef.TakeDamageBacteria();
-            BacteriaDestroy otherScript = other.GetComponent<BacteriaDestroy>();
+			SelfDestroy otherScript = other.GetComponent<SelfDestroy>();
             otherScript.Death();
             //Destroy(other.gameObject);
         }
