@@ -6,10 +6,6 @@ public class PlayerScript : MonoBehaviour {
 
     public int m_health = 3;
 
-
-    // Use this for initialization
-    void Start () {
-    }
 	
 	// Update is called once per frame
 	void Update () {

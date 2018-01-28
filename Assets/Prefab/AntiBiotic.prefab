@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114772601770332412}
   - component: {fileID: 54909768227093524}
   - component: {fileID: 82796610445135428}
+  - component: {fileID: 114192476133751908}
   m_Layer: 0
   m_Name: AntiBiotic
   m_TagString: Antibiotic
@@ -241,6 +242,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tumble: 7
+--- !u!114 &114192476133751908
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1610821370550482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 552291c1f689244a4801d4ea8889bc3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio1: {fileID: 0}
 --- !u!114 &114772601770332412
 MonoBehaviour:
   m_ObjectHideFlags: 1
