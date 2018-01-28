@@ -12,11 +12,13 @@ public class BacteriaShootProjectil : MonoBehaviour {
 	}
 
 	IEnumerator Shoot () {
-		yield return new WaitForSeconds (waveWait);
+		while (true) {
+			yield return new WaitForSeconds (waveWait);
 
-		dice = Random.Range (-chanceOfFire, 100 - chanceOfFire);
-		if (dice < 0) {
-			Instantiate (projectile, transform.position, Quaternion.identity);
+			dice = Random.Range (-chanceOfFire, 100 - chanceOfFire);
+			if (dice < 0) {
+				Instantiate (projectile, transform.position, Quaternion.identity);
+			}
 		}
 	}
 }
