@@ -3213,7 +3213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chanceOfFire: 10
   waveWait: 1
-  projectile: {fileID: 1881178000387364, guid: dc54a99c913b143088e85afb64fedd3f, type: 2}
+  projectile: {fileID: 1751223561606040, guid: b2ee485bd64444f1db8fd7f124d2eebb, type: 2}
 --- !u!114 &114680337461396860
 MonoBehaviour:
   m_ObjectHideFlags: 1
