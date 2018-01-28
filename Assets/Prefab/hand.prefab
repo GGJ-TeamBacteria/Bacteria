@@ -23,8 +23,9 @@ GameObject:
   - component: {fileID: 23235717493072630}
   - component: {fileID: 95270040912956520}
   - component: {fileID: 114111186084085214}
+  - component: {fileID: 135181837188761610}
   m_Layer: 0
-  m_Name: hand (1)
+  m_Name: hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,3 +113,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3d6d9e126985384d9857e9186c11a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &135181837188761610
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1520250130473254}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.011260993
+  m_Center: {x: -0.000024299137, y: -0.0010219784, z: 0.000048997812}
