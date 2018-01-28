@@ -49,11 +49,11 @@ public class Tentacle : MonoBehaviour {
             TentacleSegment currentSegment = Instantiate(armPrefab, nextSpawnPoint.position + (direction * distanceOfTentacles), nextSpawnPoint.rotation);
             armParts.Add(currentSegment);
             currentSegment.distanceFromPlayer = (currentSegment.transform.position - gameObject.transform.position).magnitude;
-
         }
 
         if (Input.GetKey("2"))
         {
+            Debug.Log(armParts.Count);
             if (armParts.Count == 0)
             {
                 return;
@@ -61,8 +61,9 @@ public class Tentacle : MonoBehaviour {
 
             TentacleSegment target = armParts[armParts.Count - 1];
 
-            Destroy(target);
             armParts.Remove(target);
+            Destroy(target.gameObject);
+            Debug.Log("reduced to " + armParts.Count);
         }
 
         if (Input.GetAxis("Vertical") != 0)
