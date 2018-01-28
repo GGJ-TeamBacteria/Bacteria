@@ -33,6 +33,8 @@ public class Tentacle : MonoBehaviour
     {
         // changes max length depends on player health
         CalcMaxLength();
+        MoveHand();
+        ManageAllTentacleFollowHandMovement();
 
         // extending arm
         if (Input.GetKey("1"))
@@ -78,19 +80,32 @@ public class Tentacle : MonoBehaviour
         {
             //MoveHand();
         }
-
-        MoveHand();
-        ManageAllTentacleFollowHandMovement();
     }
 
     public void CalcMaxLength()
     {
         int currentHealth = playerRef.GetHealth();
-        currentMaxLength = currentHealth * 2;
 
+        int nextMaxLength = currentHealth * 2;
+        if (nextMaxLength <= maxArmLength)
+        {
+            currentMaxLength = nextMaxLength;
+        }
+
+        // Longer than max length
         if (armParts.Count > currentMaxLength)
         {
             Shorten(1);
+        }
+
+        // Shorter than max length
+        if (armParts.Count > 0 && armParts.Count < currentMaxLength)
+        {
+
+            Transform spawnPoint = armParts[armParts.Count - 1].transform;
+            Vector3 direction = Vector3.Normalize(transform.position - spawnPoint.position);
+
+            Extend(spawnPoint, direction);
         }
     }
 
@@ -106,23 +121,31 @@ public class Tentacle : MonoBehaviour
 
     }
 
-    public void OnPlayerControllTenatacle(Transform controllerLocation, Vector3 direction)
+    public void OnPlayerStretchMortion(Transform controllerLocation, Vector3 direction)
     {
-        if (armParts.Count > currentMaxLength)
-        {
+        if (armParts.Count != 0)
             return;
-        }
 
+        // spawn the first one
         controller = controllerLocation;
 
         Transform spawnPoint = controllerLocation;
 
-        // If there is already tentacle, spawn new one from there
-        if (armParts.Count > 0)
-        {
-            spawnPoint = armParts[armParts.Count - 1].transform;
-        }
+        Extend(spawnPoint, direction);
 
+    }
+
+    public void OnPlayerShrinkMortion()
+    {
+        if (armParts.Count > 0)
+            return;
+
+        currentMaxLength = 0;
+
+    }
+
+    private void Extend(Transform spawnPoint, Vector3 direction)
+    {
         TentacleSegment currentSegment = Instantiate(armPrefab, spawnPoint.position + (direction * distanceOfTentacles), spawnPoint.rotation);
         currentSegment.gameObject.transform.SetParent(transform);
         armParts.Add(currentSegment);

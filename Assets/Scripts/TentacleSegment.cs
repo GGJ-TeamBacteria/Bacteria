@@ -28,7 +28,8 @@ public class TentacleSegment : MonoBehaviour {
         {
             //Call GainHealth() from Player
             rootTentacle.playerRef.GainHealth();
-
+            SelfDestroy otherScript = other.GetComponent<SelfDestroy>();
+            otherScript.Death();
             //Destroy(other.gameObject);
         }
     }
