@@ -18,6 +18,8 @@ public class Tentacle : MonoBehaviour
     private List<TentacleSegment> armParts;
     private TentacleSegment currentBodyPart;
     private TentacleSegment prevBodyPart;
+    private Vector3 currentDirection;
+    private Transform controller;
 
     // Use this for initialization
     void Start()
@@ -74,10 +76,10 @@ public class Tentacle : MonoBehaviour
 
         if (Input.GetAxis("Vertical") != 0)
         {
-            MoveHand();
-
+            //MoveHand();
         }
 
+        MoveHand();
         ManageAllTentacleFollowHandMovement();
     }
 
@@ -106,25 +108,22 @@ public class Tentacle : MonoBehaviour
 
     public void OnPlayerControllTenatacle(Transform controllerLocation, Vector3 direction)
     {
-        if (armParts.Count >= currentMaxLength)
+        if (armParts.Count > currentMaxLength)
         {
             return;
         }
 
-        //GameObject spawnPoint = GameObject.FindWithTag("TentacleSpawnPoint");
-        //Transform nextSpawnPoint = spawnPoint.transform;
+        controller = controllerLocation;
 
-        Transform nextSpawnPoint = controllerLocation;
+        Transform spawnPoint = controllerLocation;
+
+        // If there is already tentacle, spawn new one from there
         if (armParts.Count > 0)
         {
-            nextSpawnPoint = armParts[armParts.Count - 1].transform;
+            spawnPoint = armParts[armParts.Count - 1].transform;
         }
 
-        //Vector3 heading = nextSpawnPoint.position - transform.position;
-        //var distance = heading.magnitude;
-        //var headingDirection = heading / distance; // This is now the normalized direction.
-
-        TentacleSegment currentSegment = Instantiate(armPrefab, nextSpawnPoint.position + (direction * distanceOfTentacles), nextSpawnPoint.rotation);
+        TentacleSegment currentSegment = Instantiate(armPrefab, spawnPoint.position + (direction * distanceOfTentacles), spawnPoint.rotation);
         currentSegment.gameObject.transform.SetParent(transform);
         armParts.Add(currentSegment);
         currentSegment.distanceFromPlayer = (currentSegment.transform.position - gameObject.transform.position).magnitude;
@@ -135,7 +134,17 @@ public class Tentacle : MonoBehaviour
         if (armParts.Count == 0)
             return;
 
-        armParts[0].transform.Translate(armParts[0].transform.forward * currentSpeed * Time.smoothDeltaTime, Space.World);
+        if (controller == null)
+            return;
+
+        Vector3 direction = Vector3.Normalize(controller.position - transform.position);
+
+        
+
+        // multiply it with magnitude
+        Vector3 newLoc = direction * armParts[0].distanceFromPlayer;
+
+        armParts[0].transform.position = newLoc;
 
     }
 
@@ -150,10 +159,10 @@ public class Tentacle : MonoBehaviour
             prevBodyPart = armParts[i - 1];
 
             // get normalized direction from player to prevbodypart
-            Vector3 dis = (prevBodyPart.transform.position - gameObject.transform.position).normalized;
+            Vector3 direction = (prevBodyPart.transform.position - gameObject.transform.position).normalized;
 
             // multiply it with magnitude
-            Vector3 newLoc = dis * currentBodyPart.distanceFromPlayer;
+            Vector3 newLoc = direction * currentBodyPart.distanceFromPlayer;
 
             // follow it
             currentBodyPart.transform.position = Vector3.Slerp(currentBodyPart.transform.position, newLoc, 0.3f);
