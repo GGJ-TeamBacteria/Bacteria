@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour {
 
@@ -71,7 +72,7 @@ public class PlayerScript : MonoBehaviour {
     {
         if (m_health <= 0)
         {
-            //SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("GameOver");
         }
     }
 
