@@ -6,6 +6,7 @@ public class PlayerScript : MonoBehaviour {
 
     public int m_health = 3;
     AudioSource audioSource;
+    AudioSource lowHealthAudioSource;
 
     public AudioClip player_lowhealth_loop;
     public AudioClip player_health_gain;
@@ -14,22 +15,25 @@ public class PlayerScript : MonoBehaviour {
     public AudioClip player_damage2;
     public AudioClip player_damage3;
     public AudioClip player_damage4;
+    public GameObject lowHealthWarning;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        lowHealthAudioSource = lowHealthWarning.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update ()
     {
+
         if (m_health == 1)
         {
-            //loop stuff
+            lowHealthAudioSource.Play();
         }
-        else
+        else if (m_health > 1)
         {
-            //un loop stuff
+            lowHealthAudioSource.Stop();
         }
 
         OnDeath();
@@ -108,15 +112,19 @@ public class PlayerScript : MonoBehaviour {
         {
             case 1:
                 audioSource.clip = player_damage1;
+                Debug.Log("DMG1");
                 break;
             case 2:
                 audioSource.clip = player_damage2;
+                Debug.Log("DMG2");
                 break;
             case 3:
                 audioSource.clip = player_damage3;
+                Debug.Log("DMG3");
                 break;
             case 4:
                 audioSource.clip = player_damage4;
+                Debug.Log("DMG4");
                 break;
         }
         audioSource.Play();
