@@ -103,7 +103,7 @@ public class GameControl : MonoBehaviour {
             SpawnRandomBadBacteria();
 
             //spawn "ratio" number of good bacteria 
-<<<<<<< HEAD
+//<<<<<<< HEAD
             for (int i = 0; i < ratio; i++) {
 				SpawnNewBacteria (BacteriaGood);
 			}
@@ -113,7 +113,7 @@ public class GameControl : MonoBehaviour {
 			if (antibiotic_dice < 0) {
 				SpawnNewBacteria (Antibiotic);
 			}
-=======
+//=======
             for (int i = 0; i < ratio; i++)
             {
                 SpawnNewBacteria(BacteriaGood);
@@ -125,7 +125,7 @@ public class GameControl : MonoBehaviour {
             {
                 SpawnNewBacteria(Antibiotic);
             }
->>>>>>> origin/master
+//>>>>>>> origin/master
 		}
 	}
 }
