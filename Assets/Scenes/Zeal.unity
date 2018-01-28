@@ -156,7 +156,7 @@ MonoBehaviour:
   numOfBacteria: 50
   ratioDifficulty: 1
   waveWait: 1
-  chanceOfAntibiotic: 5
+  chanceOfAntibiotic: 1
 --- !u!4 &134313671
 Transform:
   m_ObjectHideFlags: 0
@@ -250,6 +250,52 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!1001 &741466435
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4863645092073888, guid: dc54a99c913b143088e85afb64fedd3f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863645092073888, guid: dc54a99c913b143088e85afb64fedd3f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863645092073888, guid: dc54a99c913b143088e85afb64fedd3f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863645092073888, guid: dc54a99c913b143088e85afb64fedd3f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863645092073888, guid: dc54a99c913b143088e85afb64fedd3f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863645092073888, guid: dc54a99c913b143088e85afb64fedd3f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863645092073888, guid: dc54a99c913b143088e85afb64fedd3f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863645092073888, guid: dc54a99c913b143088e85afb64fedd3f, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881178000387364, guid: dc54a99c913b143088e85afb64fedd3f, type: 2}
+      propertyPath: m_TagString
+      value: ProjectilYellow
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: dc54a99c913b143088e85afb64fedd3f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1250066345
 GameObject:
   m_ObjectHideFlags: 0
