@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class GestureTrigger : MonoBehaviour
 {
+    public GameObject playerBody;
     public AudioClip[] stretchAttackSounds;
     AudioSource audioSource;
 
@@ -26,11 +27,17 @@ public class GestureTrigger : MonoBehaviour
         //    return;
 
 
-        Debug.Log("GestureTrigger OnTriggerExit reached");
+        print("GestureTrigger OnTriggerExit reached");
         // Trigger events are only sent if one of the Colliders also has a Rigidbody attached. Kinematic is OK
         audioSource = GetComponent<AudioSource>();
         AudioClip attackSound = stretchAttackSounds[Random.Range(0, stretchAttackSounds.Length)];
         audioSource.PlayOneShot(attackSound);
+
+        Vector3 reachDirection = Vector3.Normalize(other.bounds.center - playerBody.transform.position);
+        print(reachDirection);
+        // world coordinate unit vector
+        //OnPlayerControllTenatacle(Transform controllerLocation, Vector3 direction)
+
     }
 
 
