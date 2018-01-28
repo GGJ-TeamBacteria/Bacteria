@@ -1,17 +1,20 @@
 fileFormatVersion: 2
-guid: 5b5c7000403895f47b78fd9bc6eec87d
-timeCreated: 1517032942
+guid: c2a5bf3786d6e464cbf20219a34c9cc0
+timeCreated: 1517101755
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: greendark
-    2100002: green
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: bacteria_green
+    100000: pasted__polySurface115
+    100002: pasted__polySurface27
+    100004: //RootNode
+    400000: pasted__polySurface115
+    400002: pasted__polySurface27
+    400004: //RootNode
+    2100000: pasted__yellow
+    2300000: pasted__polySurface115
+    3300000: pasted__polySurface115
+    4300000: pasted__polySurface115
     9500000: //RootNode
   externalObjects: {}
   materials:

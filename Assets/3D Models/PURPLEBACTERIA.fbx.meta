@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 5b5c7000403895f47b78fd9bc6eec87d
-timeCreated: 1517032942
+guid: 4fbe2036e41677d4a91ce0740ef73404
+timeCreated: 1517101754
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: greendark
-    2100002: green
+    2100000: purple
+    2100002: PINK
     2300000: //RootNode
     3300000: //RootNode
-    4300000: bacteria_green
+    4300000: polySurface102
     9500000: //RootNode
   externalObjects: {}
   materials:

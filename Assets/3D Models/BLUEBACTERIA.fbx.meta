@@ -1,24 +1,78 @@
 fileFormatVersion: 2
-guid: 5b5c7000403895f47b78fd9bc6eec87d
-timeCreated: 1517032942
+guid: 83906ba1a1572974fb45a74c2f16a72c
+timeCreated: 1517102248
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: pCube1
+    100004: pCube10
+    100006: pCube11
+    100008: pCube12
+    100010: pCube13
+    100012: pCube14
+    100014: pCube16
+    100016: pCube2
+    100018: pCube3
+    100020: pCube5
+    100022: pCube6
+    100024: pCube7
+    100026: pCube8
+    100028: pCube9
+    100030: transform103
+    100032: transform104
+    100034: transform105
+    100036: transform106
+    100038: transform107
+    100040: transform108
+    100042: transform109
+    100044: transform110
+    100046: transform111
+    100048: transform112
+    100050: transform113
+    100052: transform114
+    100054: transform115
     400000: //RootNode
-    2100000: greendark
-    2100002: green
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: bacteria_green
+    400002: pCube1
+    400004: pCube10
+    400006: pCube11
+    400008: pCube12
+    400010: pCube13
+    400012: pCube14
+    400014: pCube16
+    400016: pCube2
+    400018: pCube3
+    400020: pCube5
+    400022: pCube6
+    400024: pCube7
+    400026: pCube8
+    400028: pCube9
+    400030: transform103
+    400032: transform104
+    400034: transform105
+    400036: transform106
+    400038: transform107
+    400040: transform108
+    400042: transform109
+    400044: transform110
+    400046: transform111
+    400048: transform112
+    400050: transform113
+    400052: transform114
+    400054: transform115
+    2100000: bluedarkertp
+    2100002: bluetransparent
+    2300000: pCube16
+    3300000: pCube16
+    4300000: pCube16
     9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0

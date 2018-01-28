@@ -21,6 +21,7 @@ public class GestureTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("GestureTrigger OnTriggerEnter reached");
         // Trigger events are only sent if one of the Colliders also has a Rigidbody attached. Kinematic is OK
         audioSource = GetComponent<AudioSource>();
         AudioClip attackSound = stretchAttackSounds[Random.Range(0, stretchAttackSounds.Length)];

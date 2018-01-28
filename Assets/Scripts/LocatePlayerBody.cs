@@ -15,6 +15,6 @@ public class LocatePlayerBody : MonoBehaviour {
 	void Update () {
         // Torso is below head
         transform.position = cameraHead.transform.position;
-        transform.Translate(Vector3.down * 1, Space.World);
+        transform.Translate(Vector3.down * 0.75f, Space.World);
     }
 }
