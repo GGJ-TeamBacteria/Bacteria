@@ -6,14 +6,9 @@ public class Rotator : MonoBehaviour {
 
 	public float tumble;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
 	// Update is called once per frame
 	void Update () {
-		transform.Rotate (new Vector3 (15, 15, 15) * Time.deltaTime);
+		transform.Rotate (new Vector3 (15, 15, 15) * tumble * Time.deltaTime);
 	}
 		
 }

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114178982613086174}
   - component: {fileID: 54043024361815804}
   - component: {fileID: 135902792622252990}
+  - component: {fileID: 136905192827106404}
   m_Layer: 0
   m_Name: GestureTrigger
   m_TagString: Untagged
@@ -67,7 +68,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 918ee1b51fd32d748a66d520586569ba, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -160,8 +161,21 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1342568438089772}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
+  m_IsTrigger: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 0.65
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &136905192827106404
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1342568438089772}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.25
+  m_Height: 0.2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.65, z: 0}
