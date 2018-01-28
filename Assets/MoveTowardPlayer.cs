@@ -4,36 +4,23 @@ using UnityEngine;
 
 public class MoveTowardPlayer : MonoBehaviour {
 	public int speed;
-	private Transform playerTransform;
+	private Vector3 playerPosition;
+	public GameObject sound;
 
 	// Use this for initialization
 	void Start () {
-		GameObject playerObject = GameObject.FindWithTag ("Player");
-		if (playerObject != null)
-		{
-			playerTransform = playerObject.GetComponent <Transform>();
-		}
-		if (playerObject == null)
-		{
-			Debug.Log ("Cannot find 'GameController' script");
-		}
-		float xMove = playerTransform.position.x - transform.position.x;
-		float yMove = playerTransform.position.y - transform.position.y;
-		float zMove = playerTransform.position.z - transform.position.z;
-
-		Debug.Log (xMove);
-		Debug.Log (yMove);
-		Debug.Log (zMove);
-
-		GetComponent<Rigidbody> ().velocity = new Vector3 (
-			xMove * speed,
-			yMove * speed,
-			zMove * speed
-		);
-	}
+		Instantiate (sound, transform.position, Quaternion.identity);
+		GameObject playerObject = GameObject.FindWithTag ("MainCamera");
+		Transform playerTransform;
+		playerTransform = playerObject.GetComponent <Transform>();
+		playerPosition = playerTransform.position;
 	
-	// Update is called once per frame
-	void Update () {
-		
+
+		var heading = playerPosition - transform.position;
+		var distance = heading.magnitude;
+		var direction = heading / distance;
+
+		GetComponent<Rigidbody> ().velocity = new Vector3 (direction.x, direction.y, direction.z) * speed * Time.deltaTime;
 	}
+
 }
