@@ -17,9 +17,22 @@ public class GestureTrigger : MonoBehaviour
     // Don't try to retract before we've ever extended
     private bool extendedAtLeastOnce = false;
 
+    private bool rift = false;
+
     // Use this for initialization
     void Start()
     {
+        string model = UnityEngine.XR.XRDevice.model != null ? UnityEngine.XR.XRDevice.model : "";
+        if (model.IndexOf("Rift") >= 0)
+        {
+            print("hardware = rift");
+            rift = true;
+        }
+        else
+        {
+            print("hardware = vive i guess");
+        }
+
     }
 
     // Update is called once per frame
