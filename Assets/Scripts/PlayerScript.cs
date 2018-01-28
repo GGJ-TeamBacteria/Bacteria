@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
 
-    public int m_health;
+    public int m_health = 3;
 
 
     // Use this for initialization
     void Start () {
-        m_health = 3;
     }
 	
 	// Update is called once per frame
@@ -23,7 +22,6 @@ public class PlayerScript : MonoBehaviour {
         if (other.CompareTag("Antibiotic"))
         {
             TakeDamageAntibiotic();
-            Debug.Log("Damage");
         }
         else if (other.CompareTag("BadBacteria"))
         {
