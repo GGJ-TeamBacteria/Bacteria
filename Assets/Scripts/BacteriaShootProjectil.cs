@@ -10,7 +10,9 @@ public class BacteriaShootProjectil : MonoBehaviour {
 	void Start () {
 		StartCoroutine (Shoot ());
 	}
-
+	void setFireRate(int chance) {
+		chanceOfFire = chance;
+	}
 	IEnumerator Shoot () {
 		while (true) {
 			yield return new WaitForSeconds (waveWait);
