@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: c360aba1678b34c43bbbaded8000e665
-timeCreated: 1517112186
+guid: 03636918650aec848adeeca77896b437
+timeCreated: 1517112141
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: orange
+    2100000: bluetransparent
     2300000: //RootNode
     3300000: //RootNode
-    4300000: pSphere3
+    4300000: pCylinder5
     9500000: //RootNode
   externalObjects: {}
   materials:
