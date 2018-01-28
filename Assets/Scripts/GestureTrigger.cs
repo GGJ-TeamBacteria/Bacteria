@@ -39,7 +39,7 @@ public class GestureTrigger : MonoBehaviour
         audioSource.PlayOneShot(retractSound);
 
         print("GestureTrigger TriggerEnter retracting");
-        //tentacle.whateverTheNameWillBe(other.gameObject.transform);
+        //tentacle.OnPlayerShrinkMortion(other.gameObject.transform);
     }
 
     // Extend tentacle

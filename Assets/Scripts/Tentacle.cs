@@ -37,7 +37,7 @@ public class Tentacle : MonoBehaviour
         ManageAllTentacleFollowHandMovement();
 
         // extending arm
-        if (Input.GetKey("1"))
+        if (Input.GetKeyDown("1"))
         {
 
             if (armParts.Count >= currentMaxLength)
@@ -103,7 +103,7 @@ public class Tentacle : MonoBehaviour
         {
 
             Transform spawnPoint = armParts[armParts.Count - 1].transform;
-            Vector3 direction = Vector3.Normalize(transform.position - spawnPoint.position);
+            Vector3 direction = Vector3.Normalize(spawnPoint.position - transform.position);
 
             Extend(spawnPoint, direction);
         }
@@ -149,6 +149,7 @@ public class Tentacle : MonoBehaviour
         TentacleSegment currentSegment = Instantiate(armPrefab, spawnPoint.position + (direction * distanceOfTentacles), spawnPoint.rotation);
         currentSegment.gameObject.transform.SetParent(transform);
         armParts.Add(currentSegment);
+        currentSegment.rootTentacle = this;
         currentSegment.distanceFromPlayer = (currentSegment.transform.position - gameObject.transform.position).magnitude;
     }
 
