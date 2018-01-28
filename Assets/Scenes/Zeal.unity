@@ -144,8 +144,9 @@ MonoBehaviour:
     type: 2}
   BacteriaBad: {fileID: 1720712253701256, guid: 46412290e827045a4a771de2a7a765d1,
     type: 2}
-  worldSize: {x: 15, y: 7.5, z: 15}
-  numOfBacteriaGood: 100
+  worldSize: {x: 30, y: 15, z: 30}
+  numOfBacteria: 50
+  ratioDifficulty: 3
 --- !u!4 &134313671
 Transform:
   m_ObjectHideFlags: 0
@@ -283,7 +284,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1250066345
 GameObject:
@@ -426,6 +427,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f6b729ca0685496ba845af05410ca2f, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1604762379 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4330122451666382, guid: 9f6b729ca0685496ba845af05410ca2f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1604762378}
 --- !u!1 &1924769378
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,10 +596,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1977693234}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -6, z: 0}
-  m_LocalScale: {x: 1.5, y: 1, z: 1.5}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.050000004}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1604762379}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
