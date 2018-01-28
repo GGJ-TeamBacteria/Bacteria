@@ -8,6 +8,8 @@ TagManager:
   - GoodBacteria
   - BadBacteria
   - Antibiotic
+  - BateriaBad
+  - ProjectilYellow
   layers:
   - Default
   - TransparentFX
