@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
 
-    int m_health;
+    public int m_health;
 
 
     // Use this for initialization
@@ -18,13 +18,14 @@ public class PlayerScript : MonoBehaviour {
         OnDeath();
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
-        if (other.collider.CompareTag("Antibiotic"))
+        if (other.CompareTag("Antibiotic"))
         {
             TakeDamageAntibiotic();
+            Debug.Log("Damage");
         }
-        else if (other.collider.CompareTag("BadBacteria"))
+        else if (other.CompareTag("BadBacteria"))
         {
             TakeDamageBacteria();
         }
