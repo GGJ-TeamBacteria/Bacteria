@@ -10,6 +10,7 @@ TagManager:
   - Antibiotic
   - ProjectilYellow
   - Projectile
+  - HeartWin
   layers:
   - Default
   - TransparentFX
