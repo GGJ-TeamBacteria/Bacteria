@@ -23,7 +23,6 @@ public class PlayerScript : MonoBehaviour {
         if (other.CompareTag("Antibiotic"))
         {
             TakeDamageAntibiotic();
-            Debug.Log("Damage");
         }
         else if (other.CompareTag("BadBacteria"))
         {
