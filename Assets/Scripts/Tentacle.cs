@@ -19,7 +19,6 @@ public class Tentacle : MonoBehaviour
     private List<TentacleSegment> armParts;
     private TentacleSegment currentBodyPart;
     private TentacleSegment prevBodyPart;
-    private Vector3 currentDirection;
     private Transform controller;
 
     // Use this for initialization
