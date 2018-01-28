@@ -137,11 +137,7 @@ public class Tentacle : MonoBehaviour
 
     public void OnPlayerShrinkMortion()
     {
-        if (armParts.Count > 0)
-            return;
-
         currentMaxLength = 0;
-
     }
 
     private void Extend(Transform spawnPoint, Vector3 direction)
