@@ -9,7 +9,7 @@ public class TentacleSegment : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Tentacle collided to " + other);
+   //     Debug.Log("Tentacle collided to " + other);
 
         if (other.CompareTag("Antibiotic"))
         {

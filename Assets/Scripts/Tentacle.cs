@@ -21,6 +21,7 @@ public class Tentacle : MonoBehaviour
     private TentacleSegment prevBodyPart;
     private Transform controller;
     private bool isShrinking;
+    private bool autoExtend;
 
     // Use this for initialization
     void Start()
@@ -85,17 +86,20 @@ public class Tentacle : MonoBehaviour
 
     public void CalcMaxLength()
     {
-        // if it is shrinking, don't extend
         if (isShrinking)
-        {
-            if (armParts.Count > currentMaxLength)
-            {
-                Shorten(1);
-                return;
-            } else {
-                isShrinking = false;
-            }
-        }
+            return;
+        //// if it is shrinking, don't extend
+        //if (isShrinking)
+        //{
+        //    if (armParts.Count > currentMaxLength)
+        //    {
+        //        Shorten(1);
+        //        return;
+        //    } else {
+        //        print("set isShrinking to false");
+        //        isShrinking = false;
+        //    }
+        //}
 
         int currentHealth = playerRef.GetHealth();
 
@@ -124,18 +128,23 @@ public class Tentacle : MonoBehaviour
 
     public void Shorten(int times)
     {
-        for (int i = 0; i < times || i <= armParts.Count; i++)
+      //  print("shortening " + times + " times");
+        for (int i = 0; i < times; i++)
         {
-            TentacleSegment target = armParts[armParts.Count - 1];
+            if (armParts.Count > 1)
+            {
+             //   print("destroying arm segment");
+                TentacleSegment target = armParts[armParts.Count - 1];
 
-            armParts.Remove(target);
-            Destroy(target.gameObject);
+                armParts.Remove(target);
+                Destroy(target.gameObject);
+            }
         }
-
     }
 
     public void OnPlayerStretchMortion(Transform controllerLocation, Vector3 direction)
     {
+        autoExtend = true;
         if (armParts.Count != 0)
             return;
 
@@ -150,11 +159,20 @@ public class Tentacle : MonoBehaviour
 
     public void OnPlayerShrinkMortion()
     {
-        isShrinking = true;
+        autoExtend = false;
+     //   print("set isShrinking true");
+             isShrinking = true;
+        //     currentMaxLength = 0;
+        Shorten(armParts.Count);
+        isShrinking = false;
     }
 
     private void Extend(Transform spawnPoint, Vector3 direction)
     {
+        if (!autoExtend)
+            return;
+
+      // print("tenatcle Extend");
         TentacleSegment currentSegment = Instantiate(armPrefab, spawnPoint.position + (direction * distanceOfTentacles), spawnPoint.rotation);
         currentSegment.gameObject.transform.SetParent(transform);
         armParts.Add(currentSegment);
