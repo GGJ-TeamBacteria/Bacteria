@@ -98,7 +98,7 @@ public class GameControl : MonoBehaviour {
 		Quaternion spawnRotation = Quaternion.identity;
 
 		float antibiotic_dice;
-        float heart_timer = 2f;
+        //float heart_timer = 2f;
 		
 		while (true) {
             //spawn one bad bacteria
@@ -127,12 +127,13 @@ public class GameControl : MonoBehaviour {
             {
                 SpawnNewBacteria(Antibiotic);
             }
-
+            /*
             heart_timer -= Time.deltaTime;
             if (heart_timer < 0)
             {
                 SpawnNewBacteria(Heart);
             }
+            */
 
         }
 	}
