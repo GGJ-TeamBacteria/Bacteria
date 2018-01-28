@@ -1,17 +1,42 @@
 fileFormatVersion: 2
-guid: 5b5c7000403895f47b78fd9bc6eec87d
-timeCreated: 1517032942
+guid: 6557e29f9c262ae42a55eaf77c798c54
+timeCreated: 1517101754
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: pSphere137
+    100004: pSphere138
+    100006: pSphere139
+    100008: pSphere140
+    100010: pSphere141
+    100012: pSphere142
+    100014: pSphere143
+    100016: transform57
+    100018: transform58
+    100020: transform59
+    100022: transform60
+    100024: transform61
+    100026: transform62
     400000: //RootNode
-    2100000: greendark
-    2100002: green
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: bacteria_green
+    400002: pSphere137
+    400004: pSphere138
+    400006: pSphere139
+    400008: pSphere140
+    400010: pSphere141
+    400012: pSphere142
+    400014: pSphere143
+    400016: transform57
+    400018: transform58
+    400020: transform59
+    400022: transform60
+    400024: transform61
+    400026: transform62
+    2100000: orange
+    2300000: pSphere143
+    3300000: pSphere143
+    4300000: pSphere143
     9500000: //RootNode
   externalObjects: {}
   materials:
