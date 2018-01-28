@@ -38,7 +38,7 @@ public class GameControl : MonoBehaviour {
 		Quaternion spawnRotation = Quaternion.identity;
 
 		for (int i = 0; i < maxHazard; i++) {
-			Instantiate (BacteriaBad, 
+			Instantiate (BacteriaBadBlue, 
 				new Vector3 (Random.Range (-worldSize.x, worldSize.x), 
 					Random.Range (-worldSize.y, worldSize.y),
 					Random.Range (-worldSize.z, worldSize.z)),
@@ -54,7 +54,7 @@ public class GameControl : MonoBehaviour {
         int bacteriaBad_dice;
         while (true) {
             //spawn one bad bacteria
-            bacteriaBad_dice = Random.Range(1, 3);
+            bacteriaBad_dice = Random.Range(1, 4);
 
             switch (bacteriaBad_dice)
             {

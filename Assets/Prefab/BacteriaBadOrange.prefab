@@ -218,6 +218,9 @@ GameObject:
   - component: {fileID: 4828703195809248}
   - component: {fileID: 95135436445776990}
   - component: {fileID: 54763307622558886}
+  - component: {fileID: 114379235873353898}
+  - component: {fileID: 114673145413948620}
+  - component: {fileID: 114305462458450172}
   - component: {fileID: 136271434201440524}
   m_Layer: 0
   m_Name: BacteriaBadOrange
@@ -494,6 +497,42 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114305462458450172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1911138053373858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9047f5f66ed114fb08ecd549cfe685f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+--- !u!114 &114379235873353898
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1911138053373858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d2a97dad1cb44cc69b19bfc083ccaa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tumble: 1
+--- !u!114 &114673145413948620
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1911138053373858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 552291c1f689244a4801d4ea8889bc3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio1: {fileID: 0}
 --- !u!136 &136271434201440524
 CapsuleCollider:
   m_ObjectHideFlags: 1
