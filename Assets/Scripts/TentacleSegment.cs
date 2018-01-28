@@ -9,6 +9,8 @@ public class TentacleSegment : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Tentacle collided to " + other);
+
         if (other.CompareTag("Antibiotic"))
         {
             // Tell player to take damage from Antibiotic
