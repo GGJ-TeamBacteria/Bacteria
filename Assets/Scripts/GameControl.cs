@@ -79,25 +79,17 @@ public class GameControl : MonoBehaviour {
             SpawnRandomBadBacteria();
 
             //spawn "ratio" number of good bacteria 
-            for (int i = 0; i < ratio; i++) {
-				Instantiate (BacteriaGood, 
-					new Vector3 (Random.Range (-worldSize.x, worldSize.x), 
-						Random.Range (-worldSize.y, worldSize.y),
-						Random.Range (-worldSize.z, worldSize.z)),
-					spawnRotation
-				);
-			}
+            for (int i = 0; i < ratio; i++)
+            {
+                SpawnNewBacteria(BacteriaGood);
+            }
 			yield return new WaitForSeconds (waveWait);
 
 			antibiotic_dice = Random.Range (-chanceOfAntibiotic, 100 - chanceOfAntibiotic);
-			if (antibiotic_dice < 0) {
-				Instantiate (Antibiotic,  
-					new Vector3 (Random.Range (-worldSize.x, worldSize.x), 
-						Random.Range (-worldSize.y, worldSize.y),
-						Random.Range (-worldSize.z, worldSize.z)),
-					spawnRotation
-				);
-			}
+			if (antibiotic_dice < 0)
+            {
+                SpawnNewBacteria(Antibiotic);
+            }
 		}
 	}
 }
