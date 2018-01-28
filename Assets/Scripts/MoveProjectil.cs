@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveProjectil : MonoBehaviour {
-	public GameObject sound;
 	public float speed;
 
 	// Use this for initialization
 	void Start () {
-		Instantiate (sound, transform.position, Quaternion.identity);
 		GameObject playerObject = GameObject.FindWithTag ("MainCamera");
 		Transform playerTransform;
 		playerTransform = playerObject.GetComponent <Transform>();
