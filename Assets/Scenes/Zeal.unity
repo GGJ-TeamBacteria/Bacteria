@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731725, g: 0.13414745, b: 0.12107873, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
     type: 2}
   worldSize: {x: 30, y: 15, z: 30}
   numOfBacteria: 50
-  ratioDifficulty: 3
+  ratioDifficulty: 1
   waveWait: 1
   chanceOfAntibiotic: 5
 --- !u!4 &134313671
