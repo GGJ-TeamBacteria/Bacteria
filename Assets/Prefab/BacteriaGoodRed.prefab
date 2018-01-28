@@ -9,45 +9,47 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1893230967937152}
+  m_RootGameObject: {fileID: 1048491251851548}
   m_IsPrefabParent: 1
---- !u!1 &1893230967937152
+--- !u!1 &1048491251851548
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4397686899390252}
-  - component: {fileID: 33624891958771740}
-  - component: {fileID: 23653331726027964}
-  - component: {fileID: 95099676772088174}
+  - component: {fileID: 4834418771809264}
+  - component: {fileID: 33524464206273358}
+  - component: {fileID: 23846159452240906}
+  - component: {fileID: 95583243911847828}
+  - component: {fileID: 54901267691109136}
+  - component: {fileID: 135151562849429174}
   m_Layer: 0
-  m_Name: PURPLEBACTERIA (1)
+  m_Name: BacteriaGoodRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4397686899390252
+--- !u!4 &4834418771809264
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1893230967937152}
+  m_GameObject: {fileID: 1048491251851548}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4, y: 5, z: 31}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 4, y: 5, z: 29.458}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23653331726027964
+--- !u!23 &23846159452240906
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1893230967937152}
+  m_GameObject: {fileID: 1048491251851548}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -56,8 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: c5062dca38dd7ee42947b9688f76aa2d, type: 2}
-  - {fileID: 2100000, guid: 5b169ea8dc2f98247be795800ba05db7, type: 2}
+  - {fileID: 2100000, guid: 836f38f71c4f5744d9504f0b90946749, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,22 +78,37 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33624891958771740
+--- !u!33 &33524464206273358
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1893230967937152}
-  m_Mesh: {fileID: 4300000, guid: 4fbe2036e41677d4a91ce0740ef73404, type: 3}
---- !u!95 &95099676772088174
+  m_GameObject: {fileID: 1048491251851548}
+  m_Mesh: {fileID: 4300000, guid: 3f5bbe10e8956c3418d86f63a77453b3, type: 3}
+--- !u!54 &54901267691109136
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1048491251851548}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!95 &95583243911847828
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1893230967937152}
+  m_GameObject: {fileID: 1048491251851548}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 4fbe2036e41677d4a91ce0740ef73404, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 3f5bbe10e8956c3418d86f63a77453b3, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -101,3 +117,15 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!135 &135151562849429174
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1048491251851548}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.017945502
+  m_Center: {x: 0.0000000018626451, y: -0.0000000011641532, z: -0.0000000027939677}
