@@ -103,6 +103,7 @@ public class GameControl : MonoBehaviour {
             SpawnRandomBadBacteria();
 
             //spawn "ratio" number of good bacteria 
+<<<<<<< HEAD
             for (int i = 0; i < ratio; i++) {
 				SpawnNewBacteria (BacteriaGood);
 			}
@@ -112,6 +113,19 @@ public class GameControl : MonoBehaviour {
 			if (antibiotic_dice < 0) {
 				SpawnNewBacteria (Antibiotic);
 			}
+=======
+            for (int i = 0; i < ratio; i++)
+            {
+                SpawnNewBacteria(BacteriaGood);
+            }
+			yield return new WaitForSeconds (waveWait);
+
+			antibiotic_dice = Random.Range (-chanceOfAntibiotic, 100 - chanceOfAntibiotic);
+			if (antibiotic_dice < 0)
+            {
+                SpawnNewBacteria(Antibiotic);
+            }
+>>>>>>> origin/master
 		}
 	}
 }

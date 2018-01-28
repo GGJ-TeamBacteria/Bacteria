@@ -22,12 +22,16 @@ public class PlayerScript : MonoBehaviour {
         {
             TakeDamageBacteria();
         }
+        else if (other.CompareTag("Projectile"))
+        {
+            TakeDamageProjectile();
+        }
         else
         {
             GainHealth();
         }
 
-        // Destroy(other.gameObject);
+        // Other is destroyed -- handled in Bacteria Scripts
     }
 
     void OnDeath()
@@ -45,12 +49,20 @@ public class PlayerScript : MonoBehaviour {
 
     public void TakeDamageBacteria()
     {
+        //Play random damage sound
         m_health--;
     }
 
     public void TakeDamageAntibiotic()
     {
+        //play antibiotic sound
         m_health = m_health - 2;
+    }
+
+    void TakeDamageProjectile()
+    {
+        //play projectile sound
+        m_health = m_health - 1;
     }
 
     public int GetHealth()
