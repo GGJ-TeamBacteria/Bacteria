@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 114045109738344172}
   m_Layer: 0
   m_Name: BacteriaBad
-  m_TagString: BateriaBad
+  m_TagString: BadBacteria
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114881716112410770}
   m_Layer: 0
   m_Name: BacteriaGood
-  m_TagString: BacteriaGood
+  m_TagString: GoodBacteria
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
