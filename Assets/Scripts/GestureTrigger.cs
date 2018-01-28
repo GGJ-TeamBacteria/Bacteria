@@ -13,26 +13,25 @@ public class GestureTrigger : MonoBehaviour
 
     public Tentacle leftTentacle;
     public Tentacle rightTentacle;
+    public Vector3 viveControllerOffset;
 
     // Don't try to retract before we've ever extended
     private bool extendedAtLeastOnce = false;
 
-    private bool rift = false;
+    public bool assumeVive = false;
+    private bool vive = false;
 
     // Use this for initialization
     void Start()
     {
+        vive = assumeVive;
         string model = UnityEngine.XR.XRDevice.model != null ? UnityEngine.XR.XRDevice.model : "";
-        if (model.IndexOf("Rift") >= 0)
+        print("model = '" + model + "'");
+        if (model.IndexOf("Vive") >= 0)
         {
-            print("hardware = rift");
-            rift = true;
-        }
-        else
-        {
-            print("hardware = vive i guess");
-        }
-
+                print("vive detected");
+                vive = true;
+        }        
     }
 
     // Update is called once per frame
@@ -74,7 +73,12 @@ public class GestureTrigger : MonoBehaviour
         AudioClip attackSound = stretchAttackSounds[Random.Range(0, stretchAttackSounds.Length)];
         audioSource.PlayOneShot(attackSound);
 
-        Vector3 reachDirection = Vector3.Normalize(collider.bounds.center - playerBody.transform.position);
+        Vector3 controllerCenter = collider.bounds.center;
+
+        if (vive)
+           controllerCenter += viveControllerOffset;
+
+        Vector3 reachDirection = Vector3.Normalize(controllerCenter - playerBody.transform.position);
 
         Tentacle tentacle = getTentacle(collider);
         if (tentacle != null)
