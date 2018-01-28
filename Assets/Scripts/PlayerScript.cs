@@ -31,7 +31,7 @@ public class PlayerScript : MonoBehaviour {
             GainHealth();
         }
 
-        // Destroy(other.gameObject);
+        // Other is destroyed -- handled in Bacteria Scripts
     }
 
     void OnDeath()
