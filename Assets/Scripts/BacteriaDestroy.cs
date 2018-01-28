@@ -15,11 +15,20 @@ public class BacteriaDestroy : MonoBehaviour {
 		
 	}
 
-	void OnTriggerEnter(Collider other) {
-		if (other.tag == "Player") {
-			Debug.Log ("Bat hit player");
-			Instantiate (audio1, transform.position, Quaternion.identity);
-			Destroy (gameObject);
-		}
-	}
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.tag == "Player")
+    //    {
+    //        Debug.Log("Bat hit player");
+    //        Instantiate(audio1, transform.position, Quaternion.identity);
+    //        Destroy(gameObject);
+    //    }
+    //}
+
+    public void Death()
+    {
+        Debug.Log("Bat hit player");
+        Instantiate(audio1, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
 }

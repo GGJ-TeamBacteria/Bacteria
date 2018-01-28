@@ -13,7 +13,6 @@ public class PlayerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
         OnDeath();
     }
 
@@ -32,7 +31,7 @@ public class PlayerScript : MonoBehaviour {
             GainHealth();
         }
 
-        Destroy(other.gameObject);
+        // Destroy(other.gameObject);
     }
 
     void OnDeath()
@@ -43,18 +42,23 @@ public class PlayerScript : MonoBehaviour {
         }
     }
 
-    void GainHealth()
+    public void GainHealth()
     {
         m_health++;
     }
 
-    void TakeDamageBacteria()
+    public void TakeDamageBacteria()
     {
         m_health--;
     }
 
-    void TakeDamageAntibiotic()
+    public void TakeDamageAntibiotic()
     {
         m_health = m_health - 2;
+    }
+
+    public int GetHealth()
+    {
+        return m_health;
     }
 }
