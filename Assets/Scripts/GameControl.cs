@@ -9,6 +9,7 @@ public class GameControl : MonoBehaviour {
     public GameObject BacteriaBadPurple;
     public GameObject Antibiotic;
 	public GameObject BacteriaShoot;
+    public GameObject Heart;
 	public Vector3 worldSize; //how big is the world x, y, z
 	public int numOfBacteria; //total number of bad and good bacteria to start.
 	public int ratioDifficulty; //how many good bacteria spawn with every one bad bacteria
@@ -97,13 +98,14 @@ public class GameControl : MonoBehaviour {
 		Quaternion spawnRotation = Quaternion.identity;
 
 		float antibiotic_dice;
+        float heart_timer = 2f;
 		
 		while (true) {
             //spawn one bad bacteria
             SpawnRandomBadBacteria();
 
             //spawn "ratio" number of good bacteria 
-//<<<<<<< HEAD
+
             for (int i = 0; i < ratio; i++) {
 				SpawnNewBacteria (BacteriaGood);
 			}
@@ -113,7 +115,7 @@ public class GameControl : MonoBehaviour {
 			if (antibiotic_dice < 0) {
 				SpawnNewBacteria (Antibiotic);
 			}
-//=======
+
             for (int i = 0; i < ratio; i++)
             {
                 SpawnNewBacteria(BacteriaGood);
@@ -125,7 +127,13 @@ public class GameControl : MonoBehaviour {
             {
                 SpawnNewBacteria(Antibiotic);
             }
-//>>>>>>> origin/master
-		}
+
+            heart_timer -= Time.deltaTime;
+            if (heart_timer < 0)
+            {
+                SpawnNewBacteria(Heart);
+            }
+
+        }
 	}
 }
