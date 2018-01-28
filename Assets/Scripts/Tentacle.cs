@@ -50,6 +50,7 @@ public class Tentacle : MonoBehaviour
 
             // exetend the arm
             TentacleSegment currentSegment = Instantiate(armPrefab, nextSpawnPoint.position + (direction * distanceOfTentacles), nextSpawnPoint.rotation);
+            currentSegment.gameObject.transform.SetParent(transform);
             armParts.Add(currentSegment);
             currentSegment.distanceFromPlayer = (currentSegment.transform.position - gameObject.transform.position).magnitude;
         }
