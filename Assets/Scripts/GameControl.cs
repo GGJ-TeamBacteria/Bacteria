@@ -15,6 +15,7 @@ public class GameControl : MonoBehaviour {
 	public float waveWait;
 	public int chanceOfAntibiotic; //out of 100. The percentage of spawning antibiotic
 	private float dice;
+	public int numOfShooter; //cap at max of 5 shooters
     private Quaternion spawnRotation = Quaternion.identity;
 
     // Use this for initialization
@@ -22,7 +23,7 @@ public class GameControl : MonoBehaviour {
 		worldSize = worldSize / 2;
 		StartBacteriaGood (numOfBacteria / 2);
 		StartBacteriaBad (numOfBacteria / 2 / ratioDifficulty);
-		StartBacteriaShoot (new Vector3 (0, -5, 20));
+		StartBacteriaShoot ();
 		StartCoroutine (SpawnWave (ratioDifficulty));
 	}
 	void StartBacteriaGood (int maxHazard)
@@ -39,7 +40,30 @@ public class GameControl : MonoBehaviour {
             SpawnRandomBadBacteria();
 		}
 	}
-	void StartBacteriaShoot(Vector3 position) {
+	void StartBacteriaShoot() {
+		Vector3 position = new Vector3 (0, -5, 20);
+		if (numOfShooter > 5) //only allow up to 5 shooters
+			numOfShooter = 5;
+		float firstPosition = worldSize.x / 4; //calculate 5 locations along x axis for shooter
+		for (int i = 0; i < numOfShooter; i++) {
+			switch(i){
+			case 0:
+				Instantiate (BacteriaShoot, new Vector3 (firstPosition * 0, position.y, position.z), Quaternion.identity);
+				break;
+			case 1:
+				Instantiate (BacteriaShoot, new Vector3 (firstPosition * 1, position.y, position.z), Quaternion.identity);
+				break;
+			case 2:
+				Instantiate (BacteriaShoot, new Vector3 (firstPosition * -1, position.y, position.z), Quaternion.identity);
+				break;
+			case 3:
+				Instantiate (BacteriaShoot, new Vector3 (firstPosition * 2, position.y, position.z), Quaternion.identity);
+				break;
+			case 4:
+				Instantiate (BacteriaShoot, new Vector3 (firstPosition * -2, position.y, position.z), Quaternion.identity);
+				break;
+			}
+		}
 		Instantiate (BacteriaShoot, position, Quaternion.identity);
 	}
 
@@ -79,6 +103,17 @@ public class GameControl : MonoBehaviour {
             SpawnRandomBadBacteria();
 
             //spawn "ratio" number of good bacteria 
+//<<<<<<< HEAD
+            for (int i = 0; i < ratio; i++) {
+				SpawnNewBacteria (BacteriaGood);
+			}
+			yield return new WaitForSeconds (waveWait);
+
+			antibiotic_dice = Random.Range (-chanceOfAntibiotic, 100 - chanceOfAntibiotic);
+			if (antibiotic_dice < 0) {
+				SpawnNewBacteria (Antibiotic);
+			}
+//=======
             for (int i = 0; i < ratio; i++)
             {
                 SpawnNewBacteria(BacteriaGood);
@@ -90,6 +125,7 @@ public class GameControl : MonoBehaviour {
             {
                 SpawnNewBacteria(Antibiotic);
             }
+//>>>>>>> origin/master
 		}
 	}
 }
