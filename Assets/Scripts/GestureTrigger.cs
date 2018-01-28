@@ -37,9 +37,13 @@ public class GestureTrigger : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         AudioClip retractSound = retractSounds[Random.Range(0, retractSounds.Length)];
         audioSource.PlayOneShot(retractSound);
-
-        print("GestureTrigger TriggerEnter retracting " + collider.name);
-        getTentacle(collider).OnPlayerShrinkMortion();
+ 
+        Tentacle tentacle = getTentacle(collider);
+        if (tentacle != null)
+        {
+            print("GestureTrigger TriggerEnter retracting " + collider.name);
+            tentacle.OnPlayerShrinkMortion();
+        }
     }
 
     // Extend tentacle
@@ -58,14 +62,15 @@ public class GestureTrigger : MonoBehaviour
         audioSource.PlayOneShot(attackSound);
 
         Vector3 reachDirection = Vector3.Normalize(collider.bounds.center - playerBody.transform.position);
-        print("GestureTrigger TriggerExit reaching in direction: " + reachDirection + 
-            " for object name " + collider.name + " with tag " + collider.tag);
 
-        getTentacle(collider).OnPlayerStretchMortion(collider.gameObject.transform, reachDirection);
-
+        Tentacle tentacle = getTentacle(collider);
+        if (tentacle != null)
+        {
+            print("GestureTrigger TriggerExit reaching in direction: " + reachDirection +
+                " for object name " + collider.name + " with tag " + collider.tag);
+            tentacle.OnPlayerStretchMortion(collider.gameObject.transform, reachDirection);
+        }
     }
-
-
 
     private Tentacle getTentacle(Collider collider)
     {
@@ -79,7 +84,7 @@ public class GestureTrigger : MonoBehaviour
         }
         else
         {
-            print("Unrecognized controller in GestureTrigger");
+            // It can also collide with tentacle segments
             return null;
         }
     }
