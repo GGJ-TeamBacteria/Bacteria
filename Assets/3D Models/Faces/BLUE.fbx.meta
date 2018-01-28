@@ -95,7 +95,27 @@ ModelImporter:
     3300000: polySurface272
     4300000: polySurface272
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bluedarkertp
+    second: {fileID: 2100000, guid: 8cddfb4ddfc61c249bdce639c9553b4c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bluetransparent
+    second: {fileID: 2100000, guid: 988309d41c522b14ca95c578f393eab7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pasted__BLACK
+    second: {fileID: 2100000, guid: 1469fe5b68eb38c4a9a19c3a4e1b3603, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pasted__pasted__BLACK
+    second: {fileID: 2100000, guid: df1e2ef48a8285f4ea5d25d7e6662808, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
