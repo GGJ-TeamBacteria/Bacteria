@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BacteriaRotator : MonoBehaviour {
+public class Rotator : MonoBehaviour {
 
 	public float tumble;
 

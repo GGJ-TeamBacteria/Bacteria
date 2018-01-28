@@ -1102,10 +1102,10 @@ GameObject:
   - component: {fileID: 4085647783588468}
   - component: {fileID: 135920694222172554}
   - component: {fileID: 54829376785586422}
-  - component: {fileID: 114560456700421382}
   - component: {fileID: 114152912996579968}
   - component: {fileID: 82450870900806238}
   - component: {fileID: 114506101485919046}
+  - component: {fileID: 114045109738344172}
   m_Layer: 0
   m_Name: BacteriaBad
   m_TagString: BateriaBad
@@ -3218,6 +3218,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114045109738344172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1720712253701256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d2a97dad1cb44cc69b19bfc083ccaa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tumble: 20
 --- !u!114 &114152912996579968
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3242,18 +3254,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio1: {fileID: 1341174125754842, guid: 351644f8d9b92466db3f71c4ec70b215, type: 2}
---- !u!114 &114560456700421382
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1720712253701256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d2a97dad1cb44cc69b19bfc083ccaa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tumble: 10
 --- !u!135 &135920694222172554
 SphereCollider:
   m_ObjectHideFlags: 1
