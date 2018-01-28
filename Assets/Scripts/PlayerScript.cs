@@ -37,20 +37,26 @@ public class PlayerScript : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Collision");
+
         if (other.CompareTag("Antibiotic"))
         {
+            Debug.Log("Antibiotic");
             TakeDamageAntibiotic();
         }
         else if (other.CompareTag("BadBacteria"))
         {
+            Debug.Log("Bacteria");
             TakeDamageBacteria();
         }
         else if (other.CompareTag("Projectile"))
         {
+            Debug.Log("Projectile");
             TakeDamageProjectile();
         }
         else
         {
+            Debug.Log("Health");
             GainHealth();
         }
 
@@ -86,8 +92,9 @@ public class PlayerScript : MonoBehaviour {
 
     void TakeDamageProjectile()
     {
-        RandomDamageSound();
         m_health--;
+        Debug.Log("take damage");
+        RandomDamageSound();
     }
 
     public int GetHealth()
