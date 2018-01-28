@@ -310,6 +310,7 @@ GameObject:
   - component: {fileID: 114152912996579968}
   - component: {fileID: 114506101485919046}
   - component: {fileID: 114045109738344172}
+  - component: {fileID: 114128568459257620}
   m_Layer: 0
   m_Name: BacteriaBadBlue
   m_TagString: BadBacteria
@@ -945,6 +946,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tumble: 5
+--- !u!114 &114128568459257620
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1720712253701256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3503888ac0c84fe46ab6f59c94c307b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSources:
+  - {fileID: 1057115285583440, guid: be1bd3fbef9b5564ca538e5e7349f8e2, type: 2}
+  - {fileID: 1327920702830176, guid: e3396549dd74b444daf071e745483026, type: 2}
+  - {fileID: 1842408304540246, guid: 51856306c57a92548a7e47cd8a986cef, type: 2}
+  - {fileID: 1124333158354014, guid: 108c9f722364fec428a100d72b87e579, type: 2}
+  - {fileID: 1704627667537890, guid: caa9049876770014a97d6eab91771cf1, type: 2}
 --- !u!114 &114152912996579968
 MonoBehaviour:
   m_ObjectHideFlags: 1
