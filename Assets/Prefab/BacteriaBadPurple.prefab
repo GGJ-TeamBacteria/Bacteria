@@ -141,11 +141,24 @@ GameObject:
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 4156980712043028}
   - component: {fileID: 114192915168792026}
   - component: {fileID: 114494877769828386}
   - component: {fileID: 114804349293232792}
   - component: {fileID: 54905958173079716}
+=======
+  - component: {fileID: 4397686899390252}
+  - component: {fileID: 33624891958771740}
+  - component: {fileID: 23653331726027964}
+  - component: {fileID: 95099676772088174}
+  - component: {fileID: 114265286352634706}
+  - component: {fileID: 135700662002303964}
+  - component: {fileID: 114066426245159510}
+  - component: {fileID: 114763339603650224}
+  - component: {fileID: 54539143098610462}
+  - component: {fileID: 114009912704213938}
+>>>>>>> origin/master
   m_Layer: 0
   m_Name: BacteriaBadPurple
   m_TagString: BadBacteria
@@ -353,7 +366,28 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+<<<<<<< HEAD
 --- !u!114 &114192915168792026
+=======
+--- !u!114 &114009912704213938
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893230967937152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3503888ac0c84fe46ab6f59c94c307b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSources:
+  - {fileID: 1057115285583440, guid: be1bd3fbef9b5564ca538e5e7349f8e2, type: 2}
+  - {fileID: 1327920702830176, guid: e3396549dd74b444daf071e745483026, type: 2}
+  - {fileID: 1842408304540246, guid: 51856306c57a92548a7e47cd8a986cef, type: 2}
+  - {fileID: 1124333158354014, guid: 108c9f722364fec428a100d72b87e579, type: 2}
+  - {fileID: 1704627667537890, guid: caa9049876770014a97d6eab91771cf1, type: 2}
+--- !u!114 &114066426245159510
+>>>>>>> origin/master
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

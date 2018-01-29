@@ -243,12 +243,22 @@ GameObject:
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 4272495740467628}
   - component: {fileID: 135216171608120512}
   - component: {fileID: 54109451427265290}
   - component: {fileID: 114362401945507688}
   - component: {fileID: 114652529736587946}
   - component: {fileID: 114424194883484228}
+=======
+  - component: {fileID: 4518333734120820}
+  - component: {fileID: 135026536229331196}
+  - component: {fileID: 54913700589027878}
+  - component: {fileID: 114804214700976626}
+  - component: {fileID: 114071341807965486}
+  - component: {fileID: 114881716112410770}
+  - component: {fileID: 114676550826695656}
+>>>>>>> origin/master
   m_Layer: 0
   m_Name: BacteriaGood
   m_TagString: GoodBacteria
@@ -1428,7 +1438,40 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+<<<<<<< HEAD
 --- !u!114 &114362401945507688
+=======
+--- !u!114 &114071341807965486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1075965286047008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9047f5f66ed114fb08ecd549cfe685f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+--- !u!114 &114676550826695656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1075965286047008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3503888ac0c84fe46ab6f59c94c307b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSources:
+  - {fileID: 1057115285583440, guid: be1bd3fbef9b5564ca538e5e7349f8e2, type: 2}
+  - {fileID: 1327920702830176, guid: e3396549dd74b444daf071e745483026, type: 2}
+  - {fileID: 1842408304540246, guid: 51856306c57a92548a7e47cd8a986cef, type: 2}
+  - {fileID: 1124333158354014, guid: 108c9f722364fec428a100d72b87e579, type: 2}
+  - {fileID: 1704627667537890, guid: caa9049876770014a97d6eab91771cf1, type: 2}
+--- !u!114 &114804214700976626
+>>>>>>> origin/master
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
