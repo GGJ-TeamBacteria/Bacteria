@@ -14,6 +14,9 @@ public class Tentacle : MonoBehaviour
     public float tenticalExtendingSpeed;
 
     public GameObject playerGameObject;
+    public GameObject camera;
+    public float playerSholderOffset = 0.3f;
+
     internal PlayerScript playerRef;
     private int currentMaxLength;
     private List<TentacleSegment> armParts;
@@ -22,6 +25,7 @@ public class Tentacle : MonoBehaviour
     private Transform controller;
     private bool isShrinking;
     private bool autoExtend;
+    private Vector3 playerSholder;
 
     // Use this for initialization
     void Start()
@@ -33,6 +37,10 @@ public class Tentacle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // calc sholder roughly
+        Vector3 cameraLocation = camera.transform.position;
+        playerSholder = new Vector3(cameraLocation.x, cameraLocation.y - playerSholderOffset, cameraLocation.z);
+    
         // changes max length depends on player health
         CalcMaxLength();
         MoveHand();
@@ -54,7 +62,7 @@ public class Tentacle : MonoBehaviour
                 nextSpawnPoint = armParts[armParts.Count - 1].transform;
             }
 
-            Vector3 heading = nextSpawnPoint.position - transform.position;
+            Vector3 heading = nextSpawnPoint.position - playerSholder;
             var distance = heading.magnitude;
             var direction = heading / distance; // This is now the normalized direction.
 
@@ -78,29 +86,12 @@ public class Tentacle : MonoBehaviour
             armParts.Remove(target);
             Destroy(target.gameObject);
         }
-
-        if (Input.GetAxis("Vertical") != 0)
-        {
-            //MoveHand();
-        }
     }
 
     public void CalcMaxLength()
     {
         if (isShrinking)
             return;
-        //// if it is shrinking, don't extend
-        //if (isShrinking)
-        //{
-        //    if (armParts.Count > currentMaxLength)
-        //    {
-        //        Shorten(1);
-        //        return;
-        //    } else {
-        //        print("set isShrinking to false");
-        //        isShrinking = false;
-        //    }
-        //}
 
         int currentHealth = playerRef.GetHealth();
 
@@ -121,7 +112,7 @@ public class Tentacle : MonoBehaviour
         {
 
             Transform spawnPoint = armParts[armParts.Count - 1].transform;
-            Vector3 direction = Vector3.Normalize(spawnPoint.position - transform.position);
+            Vector3 direction = Vector3.Normalize(spawnPoint.position - playerSholder);
 
             Extend(spawnPoint, direction);
         }
@@ -189,7 +180,7 @@ public class Tentacle : MonoBehaviour
         if (controller == null)
             return;
 
-        Vector3 direction = Vector3.Normalize(controller.position - transform.position);
+        Vector3 direction = Vector3.Normalize(controller.position - playerSholder);
 
         
 
@@ -211,7 +202,7 @@ public class Tentacle : MonoBehaviour
             prevBodyPart = armParts[i - 1];
 
             // get normalized direction from player to prevbodypart
-            Vector3 direction = (prevBodyPart.transform.position - gameObject.transform.position).normalized;
+            Vector3 direction = (prevBodyPart.transform.position - playerSholder).normalized;
 
             // multiply it with magnitude
             Vector3 newLoc = direction * currentBodyPart.distanceFromPlayer;
