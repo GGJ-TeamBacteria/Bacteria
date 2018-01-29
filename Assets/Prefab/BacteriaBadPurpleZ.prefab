@@ -67,6 +67,7 @@ GameObject:
   - component: {fileID: 114234418882011790}
   - component: {fileID: 114472976670499892}
   - component: {fileID: 114772148652605204}
+  - component: {fileID: 54983208092821760}
   m_Layer: 0
   m_Name: BacteriaBadPurpleZ
   m_TagString: Untagged
@@ -320,6 +321,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1539203402732482}
   m_Mesh: {fileID: 4300000, guid: 19bbc674af539dc42a92c7a2ec21adbc, type: 3}
+--- !u!54 &54983208092821760
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1487643117412700}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!95 &95737733278434952
 Animator:
   serializedVersion: 3
