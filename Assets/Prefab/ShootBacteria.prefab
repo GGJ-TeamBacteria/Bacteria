@@ -3228,7 +3228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c10a11346c214189ae5b3e11f6f0370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceOfFire: 100
+  chanceOfFire: 15
   waveWait: 1
   projectile: {fileID: 1751223561606040, guid: b2ee485bd64444f1db8fd7f124d2eebb, type: 2}
 --- !u!114 &114455172619003642
@@ -3242,7 +3242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552291c1f689244a4801d4ea8889bc3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio1: {fileID: 0}
+  audioSources: []
 --- !u!114 &114680337461396860
 MonoBehaviour:
   m_ObjectHideFlags: 1
