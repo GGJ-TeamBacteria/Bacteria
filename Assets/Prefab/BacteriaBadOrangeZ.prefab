@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 114161610584034278}
   - component: {fileID: 54549598885736474}
   m_Layer: 0
-  m_Name: BacteriaBadOrange
+  m_Name: BacteriaBadOrangeZ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
