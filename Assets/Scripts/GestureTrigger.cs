@@ -61,9 +61,6 @@ public class GestureTrigger : MonoBehaviour
     // Extend tentacle
     void OnTriggerExit(Collider collider)
     {
-        // Avoid triggering in the first second of play
-        //  if (Time.timeSinceLevelLoad < 1)
-        //    return;
 
         // Trigger events are only sent if one of the Colliders also has a Rigidbody attached. Kinematic is OK
 
@@ -105,6 +102,5 @@ public class GestureTrigger : MonoBehaviour
             return null;
         }
     }
-
 
 }

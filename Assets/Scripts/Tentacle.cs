@@ -154,9 +154,13 @@ public class Tentacle : MonoBehaviour
 
         Transform spawnPoint = controllerLocation;
 
+        DebugDrawLine(spawnPoint.position, spawnPoint.position + direction, Color.red, 4f);
+
+
         Extend(spawnPoint, direction);
 
     }
+
 
     public void OnPlayerShrinkMortion()
     {
@@ -166,6 +170,23 @@ public class Tentacle : MonoBehaviour
         //     currentMaxLength = 0;
         Shorten(armParts.Count);
         isShrinking = false;
+    }
+
+    // https://answers.unity.com/answers/1108340/view.html
+    void DebugDrawLine(Vector3 start, Vector3 end, Color color, float duration = 0.2f)
+    {
+        GameObject myLine = new GameObject();
+        myLine.transform.position = start;
+        myLine.AddComponent<LineRenderer>();
+        LineRenderer lr = myLine.GetComponent<LineRenderer>();
+        lr.material = new Material(Shader.Find("Particles/Alpha Blended Premultiply"));
+        lr.startColor = color;
+        lr.endColor = color;
+        lr.startWidth = 0.1f;
+        lr.endWidth = 0.1f;
+        lr.SetPosition(0, start);
+        lr.SetPosition(1, end);
+        GameObject.Destroy(myLine, duration);
     }
 
     private void Extend(Transform spawnPoint, Vector3 direction)
@@ -181,6 +202,7 @@ public class Tentacle : MonoBehaviour
         currentSegment.distanceFromPlayer = (currentSegment.transform.position - playerGameObject.transform.position).magnitude;
     }
 
+    // TENTACLES UP BUG: even if we comment this method out, the bug still happens
     private void MoveHand()
     {
         if (armParts.Count == 0)
@@ -200,25 +222,29 @@ public class Tentacle : MonoBehaviour
 
     }
 
+    // TENTACLES UP BUG: even if we comment this method out, the bug still happens
     private void ManageAllTentacleFollowHandMovement()
     {
-        if (armParts.Count == 0)
-            return;
+        
+                if (armParts.Count == 0)
+                    return;
 
-        for (int i = 1; i < armParts.Count; i++)
-        {
-            currentBodyPart = armParts[i];
-            prevBodyPart = armParts[i - 1];
+                for (int i = 1; i < armParts.Count; i++)
+                {
+                    currentBodyPart = armParts[i];
+                    prevBodyPart = armParts[i - 1];
 
-            // get normalized direction from player to prevbodypart
-            Vector3 direction = (prevBodyPart.transform.position - gameObject.transform.position).normalized;
+                    // get normalized direction from player to prevbodypart
+                    Vector3 direction = (prevBodyPart.transform.position - gameObject.transform.position).normalized;
 
-            // multiply it with magnitude
-            Vector3 newLoc = direction * currentBodyPart.distanceFromPlayer;
+                    // multiply it with magnitude
+                    Vector3 newLoc = direction * currentBodyPart.distanceFromPlayer;
 
-            // follow it
-            currentBodyPart.transform.position = Vector3.Slerp(currentBodyPart.transform.position, newLoc, 0.3f);
+                    // follow it
+                    currentBodyPart.transform.position = Vector3.Slerp(currentBodyPart.transform.position, newLoc, 0.3f);
 
-        }
+                }
+        
     }
+
 }
