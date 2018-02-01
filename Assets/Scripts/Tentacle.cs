@@ -23,6 +23,8 @@ public class Tentacle : MonoBehaviour
     private bool isShrinking;
     private bool autoExtend;
 
+    private Vector3 startOfTentacle;
+
     // Use this for initialization
     void Start()
     {
@@ -38,7 +40,8 @@ public class Tentacle : MonoBehaviour
         MoveHand();
         ManageAllTentacleFollowHandMovement();
 
-        // extending arm
+        // extending arm on keypress
+        // this is for testing without a VR system
         if (Input.GetKeyDown("1"))
         {
 
@@ -65,7 +68,8 @@ public class Tentacle : MonoBehaviour
             currentSegment.distanceFromPlayer = (currentSegment.transform.position - gameObject.transform.position).magnitude;
         }
 
-        // Shorten Arm
+        // Shorten Arm on keypress
+        // this is for testing without a VR system
         if (Input.GetKey("2"))
         {
             if (armParts.Count == 0)
@@ -121,7 +125,7 @@ public class Tentacle : MonoBehaviour
         {
 
             Transform spawnPoint = armParts[armParts.Count - 1].transform;
-            Vector3 direction = Vector3.Normalize(spawnPoint.position - transform.position);
+            Vector3 direction = Vector3.Normalize(spawnPoint.position - startOfTentacle);
 
             Extend(spawnPoint, direction);
         }
@@ -156,6 +160,13 @@ public class Tentacle : MonoBehaviour
         controller = controllerLocation;
 
         Transform spawnPoint = controllerLocation;
+        startOfTentacle = spawnPoint.position;
+
+
+        // TENTACLES UP BUG: it seems like because of the bug, it makes no difference
+        // what "direction" is here. we can force a value here like
+        // "direction = new Vector3(0.3f, 0, 0.3f)" and the
+        // tentacles will look the same as before.
 
         Extend(spawnPoint, direction);
 
@@ -177,11 +188,21 @@ public class Tentacle : MonoBehaviour
         if (!autoExtend)
             return;
 
+     
+
       // print("tenatcle Extend");
         TentacleSegment currentSegment = Instantiate(armPrefab, spawnPoint.position + (direction * distanceOfTentacles), spawnPoint.rotation);
+
+        // TENTACLES UP BUG: is this right? 
+        // object Tentacle.cs is attached to always stays at 0,0,0 in world space
+        // Is this how we introduced the bug when player moves away from 0,0,0?
         currentSegment.gameObject.transform.SetParent(transform);
+
         armParts.Add(currentSegment);
         currentSegment.rootTentacle = this;
+
+        // TENTACLES UP BUG: playerGameObject doesn't move so this isn't right
+        // Is this how we introduced the bug when player moves away from 0,0,0?
         currentSegment.distanceFromPlayer = (currentSegment.transform.position - playerGameObject.transform.position).magnitude;
     }
 
