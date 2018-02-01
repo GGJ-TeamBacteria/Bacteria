@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1686599345119304}
+  m_IsPrefabParent: 1
+--- !u!1 &1686599345119304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4807584211900224}
+  - component: {fileID: 114387795612189672}
+  - component: {fileID: 114882957720100774}
+  - component: {fileID: 114920631294231326}
+  - component: {fileID: 114432745998603220}
+  - component: {fileID: 114221173572798252}
+  - component: {fileID: 114798872038410704}
+  m_Layer: 0
+  m_Name: MixCast Cameras
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4807584211900224
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1686599345119304}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114221173572798252
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1686599345119304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de044ed037b7d3f47b1b8d623d671667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shouldSaveToFile: 1
+  conditions:
+  - trackerType: 0
+    comp: 1
+    target: 60
+    repeatCount: 10
+    tracker: {fileID: 0}
+    currentCount: 0
+    currentSampleCount: 0
+  - trackerType: 11
+    comp: 2
+    target: 25
+    repeatCount: 10
+    tracker: {fileID: 0}
+    currentCount: 0
+    currentSampleCount: 0
+--- !u!114 &114387795612189672
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1686599345119304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5cde5e1038253947b12e8bcc5d237c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraPrefab: {fileID: 114331437827725006, guid: dcd2bdbef2efcf444b2285f85f1795da,
+    type: 2}
+--- !u!114 &114432745998603220
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1686599345119304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3764865df34b5c543ad2d117f6e3287e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114798872038410704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1686599345119304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 396eb7194c416134e9c14862125dbd7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logFileName: MixCastSDKLog.txt
+--- !u!114 &114882957720100774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1686599345119304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0847cc8464c8cf4d946d0daa641da3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angleStep: 30
+  cwKey: 91
+  cwModifier1: 306
+  cwModifier2: 305
+  ccwKey: 93
+  ccwModifier1: 306
+  ccwModifier2: 305
+--- !u!114 &114920631294231326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1686599345119304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: effe5318b2000d348860a4648401a25a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handle: 0
+  saveToSettings: 0

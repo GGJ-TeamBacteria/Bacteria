@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Camera Feed
+  m_Shader: {fileID: 4800000, guid: 39c0664ae19c4254ca67ce37e614fe67, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+    - first:
+        name: _KeyMidTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _KeyRangeTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - first:
+        name: _ColorExponent
+      second: 1
+    - first:
+        name: _Cutoff
+      second: 0.5
+    - first:
+        name: _GroundHeight
+      second: 0
+    - first:
+        name: _InvFade
+      second: 1
+    - first:
+        name: _KeyingFactor
+      second: 1
+    - first:
+        name: _PlayerDepth
+      second: 0.00007308893
+    - first:
+        name: _Tolerance
+      second: 0
+    - first:
+        name: _slope
+      second: 0.2
+    - first:
+        name: _thresh
+      second: 0.3
+    m_Colors:
+    - first:
+        name: _Color
+      second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - first:
+        name: _KeyColor
+      second: {r: 0.4156863, g: 0.7411765, b: 0.29803923, a: 1}
+    - first:
+        name: _KeyHsvFeathering
+      second: {r: 0.040769253, g: 0.040769253, b: 0.040769253, a: 0}
+    - first:
+        name: _KeyHsvMid
+      second: {r: 0.38580248, g: 0.45332855, b: 0.6019608, a: 0}
+    - first:
+        name: _KeyHsvRange
+      second: {r: 0.21913579, g: 0.43758053, b: 0.39803922, a: 0}
+    - first:
+        name: _KeyHsvWeights
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _Region
+      second: {r: 0, g: 0, b: 1, a: -0.36231536}
+    - first:
+        name: _TintColor
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _channelFactors
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _channelFeathers
+      second: {r: 0, g: 0.033333335, b: 0.14166667, a: 1}
+    - first:
+        name: _channelLimits
+      second: {r: 0.21428572, g: 0.10434246, b: 0.29411763, a: 1}
+    - first:
+        name: _keyColor
+      second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - first:
+        name: _keyFactors
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _keyFeathering
+      second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _keyFeathers
+      second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _keyLimits
+      second: {r: 0, g: 0, b: 0, a: 0}
+    - first:
+        name: _keyWeights
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _keyingColor
+      second: {r: 0.64371437, g: 0.7058824, b: 0.6188472, a: 1}
