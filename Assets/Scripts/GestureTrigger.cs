@@ -13,7 +13,6 @@ public class GestureTrigger : MonoBehaviour
 
     public Tentacle leftTentacle;
     public Tentacle rightTentacle;
-    public Vector3 viveControllerOffset;
 
     // Don't try to retract before we've ever extended
     private bool extendedAtLeastOnce = false;
@@ -71,9 +70,6 @@ public class GestureTrigger : MonoBehaviour
         audioSource.PlayOneShot(attackSound);
 
         Vector3 controllerCenter = collider.bounds.center;
-
-        if (vive)
-           controllerCenter += viveControllerOffset;
 
         Vector3 reachDirection = Vector3.Normalize(controllerCenter - playerBody.transform.position);
 
