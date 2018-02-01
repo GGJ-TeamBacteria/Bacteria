@@ -147,15 +147,15 @@ public class Tentacle : MonoBehaviour
     {
         autoExtend = true;
         if (armParts.Count != 0)
+        {
+            Debug.Log("ignoring player extend motion since tentacle already exists");
             return;
+        }
 
         // spawn the first one
         controller = controllerLocation;
 
         Transform spawnPoint = controllerLocation;
-
-        DebugDrawLine(spawnPoint.position, spawnPoint.position + direction, Color.red, 4f);
-
 
         Extend(spawnPoint, direction);
 
@@ -170,23 +170,6 @@ public class Tentacle : MonoBehaviour
         //     currentMaxLength = 0;
         Shorten(armParts.Count);
         isShrinking = false;
-    }
-
-    // https://answers.unity.com/answers/1108340/view.html
-    void DebugDrawLine(Vector3 start, Vector3 end, Color color, float duration = 0.2f)
-    {
-        GameObject myLine = new GameObject();
-        myLine.transform.position = start;
-        myLine.AddComponent<LineRenderer>();
-        LineRenderer lr = myLine.GetComponent<LineRenderer>();
-        lr.material = new Material(Shader.Find("Particles/Alpha Blended Premultiply"));
-        lr.startColor = color;
-        lr.endColor = color;
-        lr.startWidth = 0.1f;
-        lr.endWidth = 0.1f;
-        lr.SetPosition(0, start);
-        lr.SetPosition(1, end);
-        GameObject.Destroy(myLine, duration);
     }
 
     private void Extend(Transform spawnPoint, Vector3 direction)

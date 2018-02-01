@@ -58,6 +58,8 @@ public class GestureTrigger : MonoBehaviour
     }
 
     // Extend tentacle
+    // Triggered when player reaches far enough out to cross the surface of the
+    // capsule collider around the player.
     void OnTriggerExit(Collider collider)
     {
 
@@ -69,15 +71,28 @@ public class GestureTrigger : MonoBehaviour
         AudioClip attackSound = stretchAttackSounds[Random.Range(0, stretchAttackSounds.Length)];
         audioSource.PlayOneShot(attackSound);
 
-        Vector3 controllerCenter = collider.bounds.center;
+        // Original approach:
+        //
+        // Find direction of reach using a ROUGH GUESS of where the player's body center is.
+        // - This is a flawed approach because the player may be reaching in an arc that
+        //   starts somewhere other than their body center.
+        // - We are only making a crude guess where the body center is.
+        // Vector3 controllerCenter = collider.bounds.center;
+        // Vector3 reachDirection = Vector3.Normalize(controllerCenter - playerBody.transform.position);
 
-        Vector3 reachDirection = Vector3.Normalize(controllerCenter - playerBody.transform.position);
+        // Reach direction = direction controller is pointing
+        Vector3 reachDirection = Vector3.Normalize(collider.transform.forward);
+
+        // TENTACLES UP BUG: interesting to see what happens if we force this
+        //reachDirection = new Vector3(0.3f, 0.0f, 0.3f);
 
         Tentacle tentacle = getTentacle(collider);
         if (tentacle != null)
         {
             print("GestureTrigger TriggerExit reaching in direction: " + reachDirection +
                 " for object name " + collider.name + " with tag " + collider.tag);
+            DebugDrawLine(collider.gameObject.transform.position,
+                collider.gameObject.transform.position + reachDirection, Color.red, 3f);
             tentacle.OnPlayerStretchMortion(collider.gameObject.transform, reachDirection);
         }
     }
@@ -97,6 +112,23 @@ public class GestureTrigger : MonoBehaviour
             // It can also collide with tentacle segments
             return null;
         }
+    }
+
+    // https://answers.unity.com/answers/1108340/view.html
+    void DebugDrawLine(Vector3 start, Vector3 end, Color color, float duration = 0.2f)
+    {
+        GameObject myLine = new GameObject();
+        myLine.transform.position = start;
+        myLine.AddComponent<LineRenderer>();
+        LineRenderer lr = myLine.GetComponent<LineRenderer>();
+        lr.material = new Material(Shader.Find("Particles/Alpha Blended Premultiply"));
+        lr.startColor = Color.white;
+        lr.endColor = color;
+        lr.startWidth = 0.1f;
+        lr.endWidth = 0.1f;
+        lr.SetPosition(0, start);
+        lr.SetPosition(1, end);
+        GameObject.Destroy(myLine, duration);
     }
 
 }
