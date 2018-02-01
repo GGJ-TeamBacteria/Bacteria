@@ -193,8 +193,11 @@ public class Tentacle : MonoBehaviour
       // print("tenatcle Extend");
         TentacleSegment currentSegment = Instantiate(armPrefab, spawnPoint.position + (direction * distanceOfTentacles), spawnPoint.rotation);
 
+        // TENTACLES UP BUG: try adding DebugDrawLine (from GestureTrigger.cs) to show why the object
+        // is instantiated where it is (spawnPoint.position, direction, etc.) 
+
         // TENTACLES UP BUG: is this right? 
-        // object Tentacle.cs is attached to always stays at 0,0,0 in world space
+        // The GameObject that object Tentacle.cs is attached to always stays at 0,0,0 in world space
         // Is this how we introduced the bug when player moves away from 0,0,0?
         currentSegment.gameObject.transform.SetParent(transform);
 
