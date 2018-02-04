@@ -7,7 +7,8 @@ public class GestureTrigger : MonoBehaviour
 {
     public GameObject player;
     public GameObject playerBody;
-    public GameObject vrSimulatorCameraRig;
+    public GameObject vrSimulatorLeftHand;
+    public GameObject vrSimulatorRightHand;
 
     public AudioClip[] stretchAttackSounds;
     public AudioClip[] retractSounds;
@@ -19,13 +20,12 @@ public class GestureTrigger : MonoBehaviour
     // Don't try to retract before we've ever extended
     private bool extendedAtLeastOnce = false;
 
-    public bool assumeVive = false;
     private bool vive = false;
 
     // Use this for initialization
     void Start()
     {
-        vive = assumeVive;
+        vive = false;
         string model = UnityEngine.XR.XRDevice.model != null ? UnityEngine.XR.XRDevice.model : "";
         print("model = '" + model + "'");
         if (model.IndexOf("Vive") >= 0)
@@ -41,7 +41,7 @@ public class GestureTrigger : MonoBehaviour
         // For testing without a VR system
         if (Input.GetKeyDown("1"))
         {
-            leftTentacle.OnPlayerStretchMortion(vrSimulatorCameraRig.transform, vrSimulatorCameraRig.transform.forward);
+            leftTentacle.OnPlayerStretchMortion(vrSimulatorLeftHand.transform, vrSimulatorRightHand.transform.forward);
         }
         if (Input.GetKeyDown("2"))
         {
@@ -49,7 +49,7 @@ public class GestureTrigger : MonoBehaviour
         }
         if (Input.GetKeyDown("3"))
         {
-            rightTentacle.OnPlayerStretchMortion(vrSimulatorCameraRig.transform, vrSimulatorCameraRig.transform.forward);
+            rightTentacle.OnPlayerStretchMortion(vrSimulatorRightHand.transform, vrSimulatorRightHand.transform.forward);
         }
         if (Input.GetKeyDown("4"))
         {
