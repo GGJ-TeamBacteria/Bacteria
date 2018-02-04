@@ -39,54 +39,6 @@ public class Tentacle : MonoBehaviour
         CalcMaxLength();
         MoveHand();
         ManageAllTentacleFollowHandMovement();
-
-        // extending arm on keypress
-        // this is for testing without a VR system
-        if (Input.GetKeyDown("1"))
-        {
-
-            if (armParts.Count >= currentMaxLength)
-            {
-                return;
-            }
-
-            GameObject spawnPoint = GameObject.FindWithTag("TentacleSpawnPoint");
-            Transform nextSpawnPoint = spawnPoint.transform;
-            if (armParts.Count > 0)
-            {
-                nextSpawnPoint = armParts[armParts.Count - 1].transform;
-            }
-
-            Vector3 heading = nextSpawnPoint.position - transform.position;
-            var distance = heading.magnitude;
-            var direction = heading / distance; // This is now the normalized direction.
-
-            TentacleSegment currentSegment = Instantiate(armPrefab, nextSpawnPoint.position + (direction * distanceOfTentacles), nextSpawnPoint.rotation);
-            currentSegment.gameObject.transform.SetParent(transform);
-            armParts.Add(currentSegment);
-            currentSegment.rootTentacle = this;
-            currentSegment.distanceFromPlayer = (currentSegment.transform.position - gameObject.transform.position).magnitude;
-        }
-
-        // Shorten Arm on keypress
-        // this is for testing without a VR system
-        if (Input.GetKey("2"))
-        {
-            if (armParts.Count == 0)
-            {
-                return;
-            }
-
-            TentacleSegment target = armParts[armParts.Count - 1];
-
-            armParts.Remove(target);
-            Destroy(target.gameObject);
-        }
-
-        if (Input.GetAxis("Vertical") != 0)
-        {
-            //MoveHand();
-        }
     }
 
     public void CalcMaxLength()

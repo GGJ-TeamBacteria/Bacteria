@@ -7,6 +7,8 @@ public class GestureTrigger : MonoBehaviour
 {
     public GameObject player;
     public GameObject playerBody;
+    public GameObject vrSimulatorCameraRig;
+
     public AudioClip[] stretchAttackSounds;
     public AudioClip[] retractSounds;
     AudioSource audioSource;
@@ -36,6 +38,23 @@ public class GestureTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // For testing without a VR system
+        if (Input.GetKeyDown("1"))
+        {
+            leftTentacle.OnPlayerStretchMortion(vrSimulatorCameraRig.transform, vrSimulatorCameraRig.transform.forward);
+        }
+        if (Input.GetKeyDown("2"))
+        {
+            leftTentacle.OnPlayerShrinkMortion();
+        }
+        if (Input.GetKeyDown("3"))
+        {
+            rightTentacle.OnPlayerStretchMortion(vrSimulatorCameraRig.transform, vrSimulatorCameraRig.transform.forward);
+        }
+        if (Input.GetKeyDown("4"))
+        {
+            rightTentacle.OnPlayerShrinkMortion();
+        }
 
     }
 
