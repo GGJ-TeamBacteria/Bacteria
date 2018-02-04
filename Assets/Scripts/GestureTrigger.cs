@@ -89,10 +89,11 @@ public class GestureTrigger : MonoBehaviour
         Tentacle tentacle = getTentacle(collider);
         if (tentacle != null)
         {
-            print("GestureTrigger TriggerExit reaching in direction: " + reachDirection +
-                " for object name " + collider.name + " with tag " + collider.tag);
+            //print("GestureTrigger TriggerExit reaching in direction: " + reachDirection +
+            //    " for object name " + collider.name + " with tag " + collider.tag);
             DebugDrawLine(collider.gameObject.transform.position,
                 collider.gameObject.transform.position + reachDirection, Color.red, 3f);
+
             tentacle.OnPlayerStretchMortion(collider.gameObject.transform, reachDirection);
         }
     }
