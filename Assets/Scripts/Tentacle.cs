@@ -71,7 +71,7 @@ public class Tentacle : MonoBehaviour
         {
             // spawn the segment after the furthest segment
             Transform spawnPoint = armParts[armParts.Count - 1].transform;
-            Vector3 direction = (controller.transform.rotation * Vector3.forward).normalized;
+            Vector3 direction = controller.forward;
             Extend(spawnPoint, direction);
         }
     }
@@ -83,7 +83,7 @@ public class Tentacle : MonoBehaviour
     public void Shorten(int times)
     {
       //  print("shortening " + times + " times");
-        for (int i = 0; i < times && i < armParts.Count; i++)
+        for (int i = 0; i < times; i++)
         {
             if (armParts.Count > 1)
             {
@@ -167,7 +167,7 @@ public class Tentacle : MonoBehaviour
         // Is this how we introduced the bug when player moves away from 0,0,0?
 
         // TODO: may be I need to store distance from controller location
-        currentSegment.distanceFromPlayer = (currentSegment.transform.position - controller.transform.position).magnitude;
+        currentSegment.distanceFromPlayer = (currentSegment.transform.position - controller.position).magnitude;
     }
 
     // TENTACLES UP BUG: even if we comment this method out, the bug still happens
@@ -192,7 +192,7 @@ public class Tentacle : MonoBehaviour
         //Vector3 newLoc = direction * armParts[0].distanceFromPlayer;
 
         armParts[0].transform.position = controller.position;
-
+        armParts[0].transform.rotation = controller.rotation;
     }
 
     // TENTACLES UP BUG: even if we comment this method out, the bug still happens
@@ -208,11 +208,11 @@ public class Tentacle : MonoBehaviour
             return;
 
         // Every segments follows previous one
-        // The first segment follows controller
-        Transform prev = controller.transform;
-        for (int i = 0; i < armParts.Count; i++)
+        // The first segment have already followed controller
+        Transform prev = armParts[0].transform;
+        for (int i = 1; i < armParts.Count; i++)
         {
-            Vector3 direction = (prev.transform.rotation * Vector3.forward).normalized;
+            Vector3 direction = prev.forward;
             armParts[i].transform.position = Vector3.Slerp(armParts[i].transform.position, direction * armParts[i].distanceFromPlayer, 0.3f);
             prev = armParts[i].transform;
         }
