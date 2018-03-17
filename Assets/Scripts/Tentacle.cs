@@ -170,7 +170,7 @@ public class Tentacle : MonoBehaviour
         // Is this how we introduced the bug when player moves away from 0,0,0?
 
         // TODO: may be I need to store distance from controller location
-        currentSegment.distanceFromPlayer = (currentSegment.transform.position - playerGameObject.transform.position).magnitude;
+        currentSegment.distanceFromPlayer = (currentSegment.transform.position - controller.transform.position).magnitude;
     }
 
     // TENTACLES UP BUG: even if we comment this method out, the bug still happens
@@ -188,13 +188,13 @@ public class Tentacle : MonoBehaviour
 
         // TODO
         //Vector3 direction = Vector3.Normalize(controller.position - transform.position);
-        Vector3 direction = (controller.transform.rotation * Vector3.forward).normalized;
+        //Vector3 direction = (controller.transform.rotation * Vector3.forward).normalized;
 
 
         // multiply it with segment magnitude
-        Vector3 newLoc = direction * armParts[0].distanceFromPlayer;
+        //Vector3 newLoc = direction * armParts[0].distanceFromPlayer;
 
-        armParts[0].transform.position = newLoc;
+        armParts[0].transform.position = controller.position;
 
     }
 
