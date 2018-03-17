@@ -154,7 +154,7 @@ public class Tentacle : MonoBehaviour
         if (armParts.Count == 0)
             return;
 
-        armParts[0].transform.position = controller.position;
+        armParts[0].transform.position = controller.position + (controller.forward * distanceOfTentacles);
         armParts[0].transform.rotation = controller.rotation;
 
     }
@@ -174,10 +174,10 @@ public class Tentacle : MonoBehaviour
         // Every segments follows previous one's direction
         // The first segment have already followed controller
         Transform prev = armParts[0].transform;
+        Debug.Log(prev.forward);
         for (int i = 1; i < armParts.Count; i++)
         {
-            //Vector3 direction = (prev.position - controller.position).normalized;
-            Vector3 direction = prev.forward;
+            Vector3 direction = (prev.position - controller.position).normalized;
             armParts[i].transform.position = Vector3.Slerp(armParts[i].transform.position, prev.position + (direction * distanceOfTentacles), 0.3f);
             prev = armParts[i].transform;
         }
