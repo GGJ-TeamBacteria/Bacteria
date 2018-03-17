@@ -74,7 +74,7 @@ public class Tentacle : MonoBehaviour
             //Transform spawnPoint = armParts[armParts.Count - 1].transform;
             //Vector3 direction = Vector3.Normalize(spawnPoint.position - startOfTentacle);
 
-            Vector3 direction = controller.transform.rotation * -Vector3.forward;
+            Vector3 direction = (controller.transform.rotation * -Vector3.forward).normalized;
             Extend(controller.transform, direction);
         }
     }
@@ -188,7 +188,7 @@ public class Tentacle : MonoBehaviour
 
         // TODO
         //Vector3 direction = Vector3.Normalize(controller.position - transform.position);
-        Vector3 direction = controller.transform.rotation * -Vector3.forward;
+        Vector3 direction = (controller.transform.rotation * -Vector3.forward).normalized;
 
 
         // multiply it with segment magnitude
