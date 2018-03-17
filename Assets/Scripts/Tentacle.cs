@@ -35,28 +35,23 @@ public class Tentacle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // changes max length depends on player health
+        // changes the max length depends on player health
         CalcMaxLength();
+
+        // move the first segment towards controller movement
         MoveHand();
+
+        // move the other segments towards the first segment
         ManageAllTentacleFollowHandMovement();
     }
 
+    /// <summary>
+    ///  Changes the max length depends on player health
+    /// </summary>
     public void CalcMaxLength()
     {
         if (isShrinking)
             return;
-        //// if it is shrinking, don't extend
-        //if (isShrinking)
-        //{
-        //    if (armParts.Count > currentMaxLength)
-        //    {
-        //        Shorten(1);
-        //        return;
-        //    } else {
-        //        print("set isShrinking to false");
-        //        isShrinking = false;
-        //    }
-        //}
 
         int currentHealth = playerRef.GetHealth();
 
@@ -76,6 +71,7 @@ public class Tentacle : MonoBehaviour
         if (armParts.Count > 0 && armParts.Count < currentMaxLength)
         {
 
+            // TODO
             Transform spawnPoint = armParts[armParts.Count - 1].transform;
             Vector3 direction = Vector3.Normalize(spawnPoint.position - startOfTentacle);
 
@@ -83,10 +79,14 @@ public class Tentacle : MonoBehaviour
         }
     }
 
+    /// <summary>
+    ///  Make the tentacle length shorter
+    /// </summary>
+    /// <param name="times">Define how short it should be</param>
     public void Shorten(int times)
     {
       //  print("shortening " + times + " times");
-        for (int i = 0; i < times; i++)
+        for (int i = 0; i < times && i < armParts.Count; i++)
         {
             if (armParts.Count > 1)
             {
@@ -120,6 +120,7 @@ public class Tentacle : MonoBehaviour
         // "direction = new Vector3(0.3f, 0, 0.3f)" and the
         // tentacles will look the same as before.
 
+        // Extend(spawnPoint, direction);
         Extend(spawnPoint, direction);
 
     }
@@ -128,8 +129,8 @@ public class Tentacle : MonoBehaviour
     public void OnPlayerShrinkMortion()
     {
         autoExtend = false;
-     //   print("set isShrinking true");
-             isShrinking = true;
+        //   print("set isShrinking true");
+        isShrinking = true;
         //     currentMaxLength = 0;
         Shorten(armParts.Count);
         isShrinking = false;
@@ -139,8 +140,6 @@ public class Tentacle : MonoBehaviour
     {
         if (!autoExtend)
             return;
-
-     
 
       // print("tenatcle Extend");
         TentacleSegment currentSegment = Instantiate(armPrefab, spawnPoint.position + (direction * distanceOfTentacles), spawnPoint.rotation);
@@ -158,6 +157,8 @@ public class Tentacle : MonoBehaviour
 
         // TENTACLES UP BUG: playerGameObject doesn't move so this isn't right
         // Is this how we introduced the bug when player moves away from 0,0,0?
+
+        // TODO: may be I need to store distance from controller location
         currentSegment.distanceFromPlayer = (currentSegment.transform.position - playerGameObject.transform.position).magnitude;
     }
 
@@ -170,11 +171,12 @@ public class Tentacle : MonoBehaviour
         if (controller == null)
             return;
 
-        Vector3 direction = Vector3.Normalize(controller.position - transform.position);
+        // TODO
+        //Vector3 direction = Vector3.Normalize(controller.position - transform.position);
+        Vector3 direction = controller.transform.rotation * Vector3.forward;
 
-        
 
-        // multiply it with magnitude
+        // multiply it with segment magnitude
         Vector3 newLoc = direction * armParts[0].distanceFromPlayer;
 
         armParts[0].transform.position = newLoc;
@@ -194,7 +196,7 @@ public class Tentacle : MonoBehaviour
                     prevBodyPart = armParts[i - 1];
 
                     // get normalized direction from player to prevbodypart
-                    Vector3 direction = (prevBodyPart.transform.position - gameObject.transform.position).normalized;
+                    Vector3 direction = (prevBodyPart.transform.position - controller.transform.position).normalized;
 
                     // multiply it with magnitude
                     Vector3 newLoc = direction * currentBodyPart.distanceFromPlayer;
