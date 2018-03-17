@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TentacleSegment : MonoBehaviour {
 
-    internal float distanceFromPlayer;
     internal Tentacle rootTentacle;
 
     void OnTriggerEnter(Collider other)
