@@ -161,7 +161,7 @@ public class Tentacle : MonoBehaviour
         // TENTACLES UP BUG: is this right? 
         // The GameObject that object Tentacle.cs is attached to always stays at 0,0,0 in world space
         // Is this how we introduced the bug when player moves away from 0,0,0?
-        currentSegment.gameObject.transform.SetParent(transform);
+        currentSegment.gameObject.transform.SetParent(controller.transform);
 
         armParts.Add(currentSegment);
         currentSegment.rootTentacle = this;
