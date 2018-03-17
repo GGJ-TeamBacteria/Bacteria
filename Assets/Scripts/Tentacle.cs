@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Tentacle : MonoBehaviour
 {
-
     public TentacleSegment armPrefab;
     public int maxArmLength;
     public float distanceOfTentacles;
@@ -35,18 +34,18 @@ public class Tentacle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // changes the max length depends on player health
+        // Change the max length depends on player health
         CalcMaxLength();
 
-        // move the first segment towards controller movement
+        // Move the first segment towards controller movement
         MoveHand();
 
-        // move the other segments towards the first segment
+        // Move all of the segments after the first one
         ManageAllTentacleFollowHandMovement();
     }
 
     /// <summary>
-    ///  Changes the max length depends on player health
+    ///  Change the max length depends on player health
     /// </summary>
     public void CalcMaxLength()
     {
@@ -99,6 +98,11 @@ public class Tentacle : MonoBehaviour
         }
     }
 
+    /// <summary>
+    ///  Receive the event which player try to extend their tentacle
+    /// </summary>
+    /// <param name="controllerLocation">Controller Transform</param>
+    /// <param name="direction">Direction of the arm</param>
     public void OnPlayerStretchMortion(Transform controllerLocation, Vector3 direction)
     {
         autoExtend = true;
@@ -120,12 +124,13 @@ public class Tentacle : MonoBehaviour
         // "direction = new Vector3(0.3f, 0, 0.3f)" and the
         // tentacles will look the same as before.
 
-        // Extend(spawnPoint, direction);
         Extend(spawnPoint, direction);
 
     }
 
-
+    /// <summary>
+    ///  Receive the event which player try to shrink their tentacle
+    /// </summary>
     public void OnPlayerShrinkMortion()
     {
         autoExtend = false;
@@ -136,12 +141,17 @@ public class Tentacle : MonoBehaviour
         isShrinking = false;
     }
 
+    /// <summary>
+    ///  Spawn the tentacle parts
+    /// </summary>
+    /// <param name="spawnPoint">Tentacle root location</param>
+    /// <param name="direction">Direction of the arm</param>
     private void Extend(Transform spawnPoint, Vector3 direction)
     {
         if (!autoExtend)
             return;
 
-      // print("tenatcle Extend");
+        // print("tenatcle Extend");
         TentacleSegment currentSegment = Instantiate(armPrefab, spawnPoint.position + (direction * distanceOfTentacles), spawnPoint.rotation);
 
         // TENTACLES UP BUG: try adding DebugDrawLine (from GestureTrigger.cs) to show why the object
@@ -163,13 +173,17 @@ public class Tentacle : MonoBehaviour
     }
 
     // TENTACLES UP BUG: even if we comment this method out, the bug still happens
+    /// <summary>
+    ///  Move the first segment of the tentacle towards player controller location
+    /// </summary>
     private void MoveHand()
     {
+        if (controller == null)
+            return;
+
         if (armParts.Count == 0)
             return;
 
-        if (controller == null)
-            return;
 
         // TODO
         //Vector3 direction = Vector3.Normalize(controller.position - transform.position);
@@ -184,27 +198,32 @@ public class Tentacle : MonoBehaviour
     }
 
     // TENTACLES UP BUG: even if we comment this method out, the bug still happens
+    /// <summary>
+    ///  Move all of the segments after the first one
+    /// </summary>
     private void ManageAllTentacleFollowHandMovement()
     {
-        
-                if (armParts.Count == 0)
-                    return;
+        if (controller == null)
+            return;
 
-                for (int i = 1; i < armParts.Count; i++)
-                {
-                    currentBodyPart = armParts[i];
-                    prevBodyPart = armParts[i - 1];
+        if (armParts.Count == 0)
+            return;
 
-                    // get normalized direction from player to prevbodypart
-                    Vector3 direction = (prevBodyPart.transform.position - controller.transform.position).normalized;
+        for (int i = 1; i < armParts.Count; i++)
+        {
+            currentBodyPart = armParts[i];
+            prevBodyPart = armParts[i - 1];
 
-                    // multiply it with magnitude
-                    Vector3 newLoc = direction * currentBodyPart.distanceFromPlayer;
+            // get normalized direction from player to prevbodypart
+            Vector3 direction = (prevBodyPart.transform.position - controller.transform.position).normalized;
 
-                    // follow it
-                    currentBodyPart.transform.position = Vector3.Slerp(currentBodyPart.transform.position, newLoc, 0.3f);
+            // multiply it with magnitude
+            Vector3 newLoc = direction * currentBodyPart.distanceFromPlayer;
 
-                }
+            // follow it
+            currentBodyPart.transform.position = Vector3.Slerp(currentBodyPart.transform.position, newLoc, 0.3f);
+
+        }
         
     }
 
