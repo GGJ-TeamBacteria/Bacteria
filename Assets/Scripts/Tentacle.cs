@@ -70,11 +70,12 @@ public class Tentacle : MonoBehaviour
         if (armParts.Count > 0 && armParts.Count < currentMaxLength)
         {
 
-            // TODO
-            Transform spawnPoint = armParts[armParts.Count - 1].transform;
-            Vector3 direction = Vector3.Normalize(spawnPoint.position - startOfTentacle);
+            // TODO:
+            //Transform spawnPoint = armParts[armParts.Count - 1].transform;
+            //Vector3 direction = Vector3.Normalize(spawnPoint.position - startOfTentacle);
 
-            Extend(spawnPoint, direction);
+            Vector3 direction = controller.transform.rotation * -Vector3.forward;
+            Extend(controller.transform, direction);
         }
     }
 
@@ -187,7 +188,7 @@ public class Tentacle : MonoBehaviour
 
         // TODO
         //Vector3 direction = Vector3.Normalize(controller.position - transform.position);
-        Vector3 direction = controller.transform.rotation * Vector3.forward;
+        Vector3 direction = controller.transform.rotation * -Vector3.forward;
 
 
         // multiply it with segment magnitude
