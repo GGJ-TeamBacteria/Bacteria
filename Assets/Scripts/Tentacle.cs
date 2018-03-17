@@ -193,6 +193,7 @@ public class Tentacle : MonoBehaviour
 
         armParts[0].transform.position = controller.position;
         armParts[0].transform.rotation = controller.rotation;
+
     }
 
     // TENTACLES UP BUG: even if we comment this method out, the bug still happens
@@ -207,12 +208,12 @@ public class Tentacle : MonoBehaviour
         if (armParts.Count == 0)
             return;
 
-        // Every segments follows previous one
+        // Every segments follows previous one's direction
         // The first segment have already followed controller
         Transform prev = armParts[0].transform;
         for (int i = 1; i < armParts.Count; i++)
         {
-            Vector3 direction = prev.forward;
+            Vector3 direction = (prev.position - controller.position).normalized;
             armParts[i].transform.position = Vector3.Slerp(armParts[i].transform.position, direction * armParts[i].distanceFromPlayer, 0.3f);
             prev = armParts[i].transform;
         }
