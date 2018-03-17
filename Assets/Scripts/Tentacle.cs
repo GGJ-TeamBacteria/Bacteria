@@ -213,7 +213,7 @@ public class Tentacle : MonoBehaviour
         for (int i = 0; i < armParts.Count; i++)
         {
             Vector3 direction = (prev.transform.rotation * Vector3.forward).normalized;
-            armParts[i].transform.position = Vector3.Slerp(armParts[i].transform.position, direction * currentBodyPart.distanceFromPlayer, 0.3f);
+            armParts[i].transform.position = Vector3.Slerp(armParts[i].transform.position, direction * armParts[i].distanceFromPlayer, 0.3f);
             prev = armParts[i].transform;
         }
     }
