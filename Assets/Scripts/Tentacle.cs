@@ -158,7 +158,7 @@ public class Tentacle : MonoBehaviour
         // TENTACLES UP BUG: is this right? 
         // The GameObject that object Tentacle.cs is attached to always stays at 0,0,0 in world space
         // Is this how we introduced the bug when player moves away from 0,0,0?
-        currentSegment.gameObject.transform.SetParent(transform);
+        //currentSegment.gameObject.transform.SetParent(controller);
 
         armParts.Add(currentSegment);
         currentSegment.rootTentacle = this;
@@ -167,7 +167,7 @@ public class Tentacle : MonoBehaviour
         // Is this how we introduced the bug when player moves away from 0,0,0?
 
         // TODO: may be I need to store distance from controller location
-        currentSegment.distanceFromPlayer = (currentSegment.transform.position - playerGameObject.transform.position).magnitude;
+        //currentSegment.distanceFromPlayer = (currentSegment.transform.position - controller.position).magnitude;
     }
 
     // TENTACLES UP BUG: even if we comment this method out, the bug still happens
@@ -213,8 +213,9 @@ public class Tentacle : MonoBehaviour
         Transform prev = armParts[0].transform;
         for (int i = 1; i < armParts.Count; i++)
         {
-            Vector3 direction = (prev.position - controller.position).normalized;
-            armParts[i].transform.position = Vector3.Slerp(armParts[i].transform.position, direction * armParts[i].distanceFromPlayer, 0.3f);
+            //Vector3 direction = (prev.position - controller.position).normalized;
+            Vector3 direction = prev.forward;
+            armParts[i].transform.position = Vector3.Slerp(armParts[i].transform.position, prev.position + (direction * distanceOfTentacles), 0.3f);
             prev = armParts[i].transform;
         }
     }
