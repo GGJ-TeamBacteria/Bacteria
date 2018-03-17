@@ -69,13 +69,10 @@ public class Tentacle : MonoBehaviour
         // Shorter than max length
         if (armParts.Count > 0 && armParts.Count < currentMaxLength)
         {
-
-            // TODO:
-            //Transform spawnPoint = armParts[armParts.Count - 1].transform;
-            //Vector3 direction = Vector3.Normalize(spawnPoint.position - startOfTentacle);
-
+            // spawn the segment after the furthest segment
+            Transform spawnPoint = armParts[armParts.Count - 1].transform;
             Vector3 direction = (controller.transform.rotation * Vector3.forward).normalized;
-            Extend(controller.transform, direction);
+            Extend(spawnPoint, direction);
         }
     }
 
@@ -152,7 +149,7 @@ public class Tentacle : MonoBehaviour
         if (!autoExtend)
             return;
 
-        // print("tenatcle Extend");
+        print("tenatcle Extend");
         TentacleSegment currentSegment = Instantiate(armPrefab, spawnPoint.position + (direction * distanceOfTentacles), spawnPoint.rotation);
 
         // TENTACLES UP BUG: try adding DebugDrawLine (from GestureTrigger.cs) to show why the object
@@ -161,7 +158,7 @@ public class Tentacle : MonoBehaviour
         // TENTACLES UP BUG: is this right? 
         // The GameObject that object Tentacle.cs is attached to always stays at 0,0,0 in world space
         // Is this how we introduced the bug when player moves away from 0,0,0?
-        currentSegment.gameObject.transform.SetParent(controller.transform);
+        currentSegment.gameObject.transform.SetParent(transform);
 
         armParts.Add(currentSegment);
         currentSegment.rootTentacle = this;
@@ -210,22 +207,15 @@ public class Tentacle : MonoBehaviour
         if (armParts.Count == 0)
             return;
 
-        for (int i = 1; i < armParts.Count; i++)
+        // Every segments follows previous one
+        // The first segment follows controller
+        Transform prev = controller.transform;
+        for (int i = 0; i < armParts.Count; i++)
         {
-            currentBodyPart = armParts[i];
-            prevBodyPart = armParts[i - 1];
-
-            // get normalized direction from player to prevbodypart
-            Vector3 direction = (prevBodyPart.transform.position - controller.transform.position).normalized;
-
-            // multiply it with magnitude
-            Vector3 newLoc = direction * currentBodyPart.distanceFromPlayer;
-
-            // follow it
-            currentBodyPart.transform.position = Vector3.Slerp(currentBodyPart.transform.position, newLoc, 0.3f);
-
+            Vector3 direction = (prev.transform.rotation * Vector3.forward).normalized;
+            armParts[i].transform.position = Vector3.Slerp(armParts[i].transform.position, direction * currentBodyPart.distanceFromPlayer, 0.3f);
+            prev = armParts[i].transform;
         }
-        
     }
 
 }
