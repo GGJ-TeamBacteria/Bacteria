@@ -136,7 +136,7 @@ public class Tentacle : MonoBehaviour
             return;
 
         //print("tenatcle Extend");
-        TentacleSegment currentSegment = Instantiate(armPrefab, spawnPoint.position + (direction * distanceOfTentacles), spawnPoint.rotation);
+        TentacleSegment currentSegment = Instantiate(armPrefab, GetSegmentLocation(spawnPoint.position, direction), spawnPoint.rotation);
         armParts.Add(currentSegment);
         currentSegment.rootTentacle = this;
 
@@ -154,7 +154,7 @@ public class Tentacle : MonoBehaviour
         if (armParts.Count == 0)
             return;
 
-        armParts[0].transform.position = controller.position + (controller.forward * distanceOfTentacles);
+        armParts[0].transform.position = GetSegmentLocation(controller.position, controller.forward);
         armParts[0].transform.rotation = controller.rotation;
 
     }
@@ -174,13 +174,22 @@ public class Tentacle : MonoBehaviour
         // Every segments follows previous one's direction
         // The first segment have already followed controller
         Transform prev = armParts[0].transform;
-        Debug.Log(prev.forward);
         for (int i = 1; i < armParts.Count; i++)
         {
-            Vector3 direction = (prev.position - controller.position).normalized;
-            armParts[i].transform.position = Vector3.Slerp(armParts[i].transform.position, prev.position + (direction * distanceOfTentacles), 0.3f);
+            armParts[i].transform.position = Vector3.Slerp(armParts[i].transform.position, 
+                GetSegmentLocation(prev.position, (prev.position - controller.position).normalized), 0.3f);
+
             prev = armParts[i].transform;
         }
     }
 
+    /// <summary>
+    ///  Utility function for calculate segment location
+    /// </summary>
+    /// <param name="prevLocation">The location of the previous segment</param>
+    /// <param name="direction">Direction of the segment</param>
+    private Vector3 GetSegmentLocation(Vector3 prevLocation, Vector3 direction)
+    {
+        return prevLocation + direction * distanceOfTentacles;
+    }
 }
