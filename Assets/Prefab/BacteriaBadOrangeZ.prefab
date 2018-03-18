@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 114649216522096554}
   - component: {fileID: 114161610584034278}
   - component: {fileID: 54549598885736474}
+  - component: {fileID: 135137534968801420}
   m_Layer: 0
   m_Name: BacteriaBadOrangeZ
   m_TagString: BadBacteria
@@ -292,7 +293,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1392160727420862}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.016797319, y: 0.000009596348, z: 0.0043727458}
+  m_LocalPosition: {x: 5, y: 5, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4658389412339176}
@@ -596,3 +597,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tumble: 1
+--- !u!135 &135137534968801420
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392160727420862}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.055103302
+  m_Center: {x: 0, y: 0.0048618317, z: 0}
