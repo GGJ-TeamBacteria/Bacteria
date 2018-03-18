@@ -20,7 +20,7 @@ public class GameControl : MonoBehaviour {
 	
 
     private float dice;
-    public int WaveTimer; // Updates every wave; regulates where in world bacteria spawn
+    private int WaveTimer; // Updates every wave; regulates where in world bacteria spawn
 	
     private Quaternion spawnRotation = Quaternion.identity;
 
@@ -54,7 +54,7 @@ public class GameControl : MonoBehaviour {
             numOfShooter = 5;
         }
 		float firstPosition = worldSize.x / 4; //calculate 5 locations along x axis for shooter
-		for (int i = 0; i < numOfShooter; i++) {
+		for (int i = 0; i < numOfShooter - 1; i++) {
 			switch(i){
 			case 0:
 				Instantiate (BacteriaShoot, new Vector3 (firstPosition * 0, position.y, position.z), Quaternion.identity);
