@@ -28,7 +28,7 @@ public class SelfDestroy : MonoBehaviour {
     public void Death()
     {
         Debug.Log("Bat hit player");
-        if (audioSources != null || audioSources.Count > 0) 
+        if (audioSources != null && audioSources.Count > 0) 
             Instantiate(audioSources[Random.Range(0, audioSources.Count)], transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
