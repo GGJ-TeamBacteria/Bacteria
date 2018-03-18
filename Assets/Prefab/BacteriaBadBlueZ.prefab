@@ -506,9 +506,10 @@ GameObject:
   - component: {fileID: 114181269445116890}
   - component: {fileID: 114204166625953764}
   - component: {fileID: 54424993312439746}
+  - component: {fileID: 135217369189497064}
   m_Layer: 0
   m_Name: BacteriaBadBlueZ
-  m_TagString: Untagged
+  m_TagString: BadBacteria
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -885,7 +886,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1160269995413450}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.0063, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4397919997809782}
@@ -1214,7 +1215,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1647106212611458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.016797319, y: 1.64, z: 0.0043727458}
+  m_LocalPosition: {x: -1.45, y: 0.3, z: 0.0043727458}
   m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children:
   - {fileID: 4393669815835410}
@@ -1329,7 +1330,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1647106212611458}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d2a97dad1cb44cc69b19bfc083ccaa9, type: 3}
   m_Name: 
@@ -1341,9 +1342,25 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1647106212611458}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9047f5f66ed114fb08ecd549cfe685f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  player_damage1: {fileID: 0}
+  player_damage2: {fileID: 0}
+  player_damage3: {fileID: 0}
+  player_damage4: {fileID: 0}
+--- !u!135 &135217369189497064
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1647106212611458}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.026221927
+  m_Center: {x: 0, y: 0.02413546, z: 0.00120068}

@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 54148471658278380}
   m_Layer: 0
   m_Name: BacteriaGoodZ
-  m_TagString: Untagged
+  m_TagString: GoodBacteria
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1451,6 +1451,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  player_damage1: {fileID: 0}
+  player_damage2: {fileID: 0}
+  player_damage3: {fileID: 0}
+  player_damage4: {fileID: 0}
 --- !u!114 &114646866081956410
 MonoBehaviour:
   m_ObjectHideFlags: 1
