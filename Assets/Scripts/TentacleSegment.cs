@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class TentacleSegment : MonoBehaviour {
 
-    internal float distanceFromPlayer;
     internal Tentacle rootTentacle;
 
     void OnTriggerEnter(Collider other)
     {
-   //     Debug.Log("Tentacle collided to " + other);
-
         if (other.CompareTag("Antibiotic"))
         {
             // Tell player to take damage from Antibiotic

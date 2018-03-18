@@ -506,9 +506,10 @@ GameObject:
   - component: {fileID: 114458241056183300}
   - component: {fileID: 114646866081956410}
   - component: {fileID: 54148471658278380}
+  - component: {fileID: 135624383298052134}
   m_Layer: 0
   m_Name: BacteriaGoodZ
-  m_TagString: Untagged
+  m_TagString: GoodBacteria
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -715,7 +716,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1591408607559712}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.79, y: -4.1, z: 0.0043727458}
+  m_LocalPosition: {x: -1.7934384, y: 1.5662985, z: 8.211576}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children:
   - {fileID: 4492704284000776}
@@ -1451,6 +1452,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  player_damage1: {fileID: 0}
+  player_damage2: {fileID: 0}
+  player_damage3: {fileID: 0}
+  player_damage4: {fileID: 0}
 --- !u!114 &114646866081956410
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1463,3 +1468,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tumble: 2
+--- !u!135 &135624383298052134
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1591408607559712}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.06185206
+  m_Center: {x: 0, y: 0.012050462, z: 0.023081077}
