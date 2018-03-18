@@ -14,7 +14,7 @@ public class Tentacle : MonoBehaviour
     public GameObject playerGameObject;
 
     internal PlayerScript playerRef;
-    public int currentMaxLength;
+    private int currentMaxLength;
     private List<TentacleSegment> armParts;
     private Transform controller;
     private bool isShrinking;
