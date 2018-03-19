@@ -5,7 +5,6 @@ using UnityEngine;
 public class TentacleSegment : MonoBehaviour {
 
     internal Tentacle rootTentacle;
-    private bool isAnimating;
 
     void OnTriggerEnter(Collider other)
     {
@@ -20,54 +19,32 @@ public class TentacleSegment : MonoBehaviour {
             rootTentacle.playerRef.TakeDamageBacteria();
 			SelfDestroy otherScript = other.GetComponent<SelfDestroy>();
             otherScript.Death();
+            //Destroy(other.gameObject);
         }
         else if (other.CompareTag("GoodBacteria"))
         {
-            if (!isAnimating)
-            {
-                StartCoroutine(AbsorbingAnimation());
-            }
-
             //Call GainHealth() from Player
             rootTentacle.playerRef.GainHealth();
             SelfDestroy otherScript = other.GetComponent<SelfDestroy>();
             otherScript.Death();
+            //Destroy(other.gameObject);
         }
     }
-
-    IEnumerator AbsorbingAnimation()
-    {
-        isAnimating = true;
-
-        gameObject.transform.localScale *= 1.2f;
-        yield return new WaitForSeconds(0.05f);
-        gameObject.transform.localScale *= 1.25f;
-        yield return new WaitForSeconds(0.05f);
-        gameObject.transform.localScale *= 1.3f;
-        yield return new WaitForSeconds(0.05f);
-        gameObject.transform.localScale *= 1.35f;
-        yield return new WaitForSeconds(0.05f);
-
-        gameObject.transform.localScale /= 1.35f;
-        yield return new WaitForSeconds(0.08f);
-        gameObject.transform.localScale /= 1.3f;
-        yield return new WaitForSeconds(0.08f);
-        gameObject.transform.localScale /= 1.25f;
-        yield return new WaitForSeconds(0.08f);
-        gameObject.transform.localScale /= 1.2f;
-
-        isAnimating = false;
-    }
-
-    IEnumerator AttackedAnimation()
-    {
-        isAnimating = true;
-
-        gameObject.transform.localScale /= 2.0f;
-        yield return new WaitForSeconds(0.3f);
-
-        gameObject.transform.localScale *= 2.0f;
-
-        isAnimating = false;
-    }
 }
+
+
+//// exetend the arm
+//TentacleSegment currentSegment = Instantiate(armPrefab, nextSpawnPoint.position + (direction * distanceOfTentacles), nextSpawnPoint.rotation);
+//armParts.Add(currentSegment);
+//            currentSegment.distanceFromPlayer = (currentSegment.transform.position - gameObject.transform.position).magnitude;
+
+
+//if (Input.GetKey("2"))
+//{
+//    if (armParts.Count == 0)
+//    {
+//        return;
+//    }
+
+//    armParts.RemoveAt(armParts.Count-1);
+//}
