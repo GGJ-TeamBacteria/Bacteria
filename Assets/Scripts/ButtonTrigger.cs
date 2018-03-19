@@ -25,7 +25,8 @@ public class ButtonTrigger : MonoBehaviour
     // lengthInMicroseconds may need to be in the range 1-3999 according to answers.unity.com
     public void Vibrate(ushort lengthInMicroseconds)
     {
-        SteamVR_Controller.Input((int) _controller.controllerIndex).TriggerHapticPulse(lengthInMicroseconds);
+        if (_controller != null) 
+            SteamVR_Controller.Input((int) _controller.controllerIndex).TriggerHapticPulse(lengthInMicroseconds);
     }
 
     void Update()
