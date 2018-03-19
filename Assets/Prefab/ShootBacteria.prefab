@@ -670,6 +670,7 @@ GameObject:
   - component: {fileID: 82807583429833638}
   - component: {fileID: 54874574890699420}
   - component: {fileID: 114455172619003642}
+  - component: {fileID: 136090763017426750}
   m_Layer: 0
   m_Name: ShootBacteria
   m_TagString: BadBacteria
@@ -2779,7 +2780,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1398765135925952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.5050173, y: 1.4169865, z: 9.826016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4725500810525046}
@@ -3107,7 +3108,7 @@ MeshFilter:
   m_Mesh: {fileID: 4300000, guid: 20c3d131d7f789b47858a355e9e0b6b8, type: 3}
 --- !u!54 &54874574890699420
 Rigidbody:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1398765135925952}
@@ -3187,7 +3188,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -3233,7 +3234,7 @@ MonoBehaviour:
   projectile: {fileID: 1751223561606040, guid: b2ee485bd64444f1db8fd7f124d2eebb, type: 2}
 --- !u!114 &114455172619003642
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1398765135925952}
@@ -3255,3 +3256,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+--- !u!136 &136090763017426750
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1398765135925952}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.5892751
+  m_Height: 3.1785502
+  m_Direction: 1
+  m_Center: {x: 0.011602163, y: 0, z: 0}

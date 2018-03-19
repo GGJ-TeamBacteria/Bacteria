@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Tentacle : MonoBehaviour
 {
-
     public TentacleSegment armPrefab;
     public int maxArmLength;
     public float distanceOfTentacles;
@@ -12,18 +11,14 @@ public class Tentacle : MonoBehaviour
     public float rotationSpeed;
     public float minDisBetweenArmParts;
     public float tenticalExtendingSpeed;
-
     public GameObject playerGameObject;
+
     internal PlayerScript playerRef;
     private int currentMaxLength;
     private List<TentacleSegment> armParts;
-    private TentacleSegment currentBodyPart;
-    private TentacleSegment prevBodyPart;
     private Transform controller;
     private bool isShrinking;
     private bool autoExtend;
-
-    private Vector3 startOfTentacle;
 
     // Use this for initialization
     void Start()
@@ -35,28 +30,23 @@ public class Tentacle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // changes max length depends on player health
+        // Change the max length depends on player health
         CalcMaxLength();
+
+        // Move the first segment towards controller movement
         MoveHand();
+
+        // Move all of the segments after the first one
         ManageAllTentacleFollowHandMovement();
     }
 
+    /// <summary>
+    ///  Change the max length depends on player health
+    /// </summary>
     public void CalcMaxLength()
     {
         if (isShrinking)
             return;
-        //// if it is shrinking, don't extend
-        //if (isShrinking)
-        //{
-        //    if (armParts.Count > currentMaxLength)
-        //    {
-        //        Shorten(1);
-        //        return;
-        //    } else {
-        //        print("set isShrinking to false");
-        //        isShrinking = false;
-        //    }
-        //}
 
         int currentHealth = playerRef.GetHealth();
 
@@ -75,14 +65,17 @@ public class Tentacle : MonoBehaviour
         // Shorter than max length
         if (armParts.Count > 0 && armParts.Count < currentMaxLength)
         {
-
+            // spawn the segment after the furthest segment
             Transform spawnPoint = armParts[armParts.Count - 1].transform;
-            Vector3 direction = Vector3.Normalize(spawnPoint.position - startOfTentacle);
-
+            Vector3 direction = controller.forward;
             Extend(spawnPoint, direction);
         }
     }
 
+    /// <summary>
+    ///  Make the tentacle length shorter
+    /// </summary>
+    /// <param name="times">Define how short it should be</param>
     public void Shorten(int times)
     {
       //  print("shortening " + times + " times");
@@ -99,6 +92,11 @@ public class Tentacle : MonoBehaviour
         }
     }
 
+    /// <summary>
+    ///  Receive the event which player try to extend their tentacle
+    /// </summary>
+    /// <param name="controllerLocation">Controller Transform</param>
+    /// <param name="direction">Direction of the arm</param>
     public void OnPlayerStretchMortion(Transform controllerLocation, Vector3 direction)
     {
         autoExtend = true;
@@ -108,102 +106,90 @@ public class Tentacle : MonoBehaviour
             return;
         }
 
-        // spawn the first one
+        // keep the controller ref
         controller = controllerLocation;
 
-        Transform spawnPoint = controllerLocation;
-        startOfTentacle = spawnPoint.position;
-
-
-        // TENTACLES UP BUG: it seems like because of the bug, it makes no difference
-        // what "direction" is here. we can force a value here like
-        // "direction = new Vector3(0.3f, 0, 0.3f)" and the
-        // tentacles will look the same as before.
-
-        Extend(spawnPoint, direction);
+        Extend(controller, direction);
 
     }
 
-
+    /// <summary>
+    ///  Receive the event which player try to shrink their tentacle
+    /// </summary>
     public void OnPlayerShrinkMortion()
     {
         autoExtend = false;
-     //   print("set isShrinking true");
-             isShrinking = true;
-        //     currentMaxLength = 0;
+        //   print("set isShrinking true");
+        isShrinking = true;
         Shorten(armParts.Count);
         isShrinking = false;
     }
 
+    /// <summary>
+    ///  Spawn the tentacle parts
+    /// </summary>
+    /// <param name="spawnPoint">Tentacle root location</param>
+    /// <param name="direction">Direction of the arm</param>
     private void Extend(Transform spawnPoint, Vector3 direction)
     {
         if (!autoExtend)
             return;
 
-     
-
-      // print("tenatcle Extend");
-        TentacleSegment currentSegment = Instantiate(armPrefab, spawnPoint.position + (direction * distanceOfTentacles), spawnPoint.rotation);
-
-        // TENTACLES UP BUG: try adding DebugDrawLine (from GestureTrigger.cs) to show why the object
-        // is instantiated where it is (spawnPoint.position, direction, etc.) 
-
-        // TENTACLES UP BUG: is this right? 
-        // The GameObject that object Tentacle.cs is attached to always stays at 0,0,0 in world space
-        // Is this how we introduced the bug when player moves away from 0,0,0?
-        currentSegment.gameObject.transform.SetParent(transform);
-
+        //print("tenatcle Extend");
+        TentacleSegment currentSegment = Instantiate(armPrefab, GetSegmentLocation(spawnPoint.position, direction), spawnPoint.rotation);
         armParts.Add(currentSegment);
         currentSegment.rootTentacle = this;
 
-        // TENTACLES UP BUG: playerGameObject doesn't move so this isn't right
-        // Is this how we introduced the bug when player moves away from 0,0,0?
-        currentSegment.distanceFromPlayer = (currentSegment.transform.position - playerGameObject.transform.position).magnitude;
     }
 
     // TENTACLES UP BUG: even if we comment this method out, the bug still happens
+    /// <summary>
+    ///  Move the first segment of the tentacle towards player controller location
+    /// </summary>
     private void MoveHand()
     {
-        if (armParts.Count == 0)
-            return;
-
         if (controller == null)
             return;
 
-        Vector3 direction = Vector3.Normalize(controller.position - transform.position);
+        if (armParts.Count == 0)
+            return;
 
-        
-
-        // multiply it with magnitude
-        Vector3 newLoc = direction * armParts[0].distanceFromPlayer;
-
-        armParts[0].transform.position = newLoc;
+        armParts[0].transform.position = GetSegmentLocation(controller.position, controller.forward);
+        armParts[0].transform.rotation = controller.rotation;
 
     }
 
     // TENTACLES UP BUG: even if we comment this method out, the bug still happens
+    /// <summary>
+    ///  Move all of the segments after the first one
+    /// </summary>
     private void ManageAllTentacleFollowHandMovement()
     {
-        
-                if (armParts.Count == 0)
-                    return;
+        if (controller == null)
+            return;
 
-                for (int i = 1; i < armParts.Count; i++)
-                {
-                    currentBodyPart = armParts[i];
-                    prevBodyPart = armParts[i - 1];
+        if (armParts.Count == 0)
+            return;
 
-                    // get normalized direction from player to prevbodypart
-                    Vector3 direction = (prevBodyPart.transform.position - gameObject.transform.position).normalized;
+        // Every segments follows previous one's direction
+        // The first segment have already followed controller
+        Transform prev = armParts[0].transform;
+        for (int i = 1; i < armParts.Count; i++)
+        {
+            armParts[i].transform.position = Vector3.Slerp(armParts[i].transform.position, 
+                GetSegmentLocation(prev.position, (prev.position - controller.position).normalized), 0.3f);
 
-                    // multiply it with magnitude
-                    Vector3 newLoc = direction * currentBodyPart.distanceFromPlayer;
-
-                    // follow it
-                    currentBodyPart.transform.position = Vector3.Slerp(currentBodyPart.transform.position, newLoc, 0.3f);
-
-                }
-        
+            prev = armParts[i].transform;
+        }
     }
 
+    /// <summary>
+    ///  Utility function for calculate segment location
+    /// </summary>
+    /// <param name="prevLocation">The location of the previous segment</param>
+    /// <param name="direction">Direction of the segment</param>
+    private Vector3 GetSegmentLocation(Vector3 prevLocation, Vector3 direction)
+    {
+        return prevLocation + direction * distanceOfTentacles;
+    }
 }
