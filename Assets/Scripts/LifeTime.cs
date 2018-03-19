@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundLifeTime : MonoBehaviour {
+public class LifeTime : MonoBehaviour {
 
     public float maxLifeTime;
     private float lifeTime;

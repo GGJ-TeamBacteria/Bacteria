@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SelfDestroy : MonoBehaviour {
     public List<GameObject> audioSources;
+    public GameObject destroyVFX;
 
     // Use this for initialization
     void Start() {
@@ -15,21 +16,14 @@ public class SelfDestroy : MonoBehaviour {
 
     }
 
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.tag == "Player")
-    //    {
-    //        Debug.Log("Bat hit player");
-    //        Instantiate(audio1, transform.position, Quaternion.identity);
-    //        Destroy(gameObject);
-    //    }
-    //}
-
     public void Death()
     {
-        Debug.Log("Bat hit player");
         if (audioSources != null && audioSources.Count > 0) 
             Instantiate(audioSources[Random.Range(0, audioSources.Count)], transform.position, Quaternion.identity);
+
+        if (destroyVFX != null)
+            Instantiate(destroyVFX, transform.position, Quaternion.identity);
+
         Destroy(gameObject);
     }
 }
