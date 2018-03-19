@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using VRTK;
 
 
 // Tentacle extend/retract based on button presses
@@ -25,34 +26,35 @@ public class ButtonTrigger : MonoBehaviour
     // but if i look into how TriggerHapticPulse is defined, it seems to actually get cast to a (char) 
     public void Vibrate(ushort lengthInMicroseconds)
     {
+        // if running without headset
         if (_controller == null)
             return;
 
-        Debug.Log("About to vibrate controller " + _controller.controllerIndex + " for " + lengthInMicroseconds + " microseconds");
-        SteamVR_Controller.Input((int) _controller.controllerIndex).TriggerHapticPulse(lengthInMicroseconds);
+        // There are lots of variations on TriggerHapticPulse
+        VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(_controller.controllerIndex), 1f, 0.5f, 0.01f);
     }
 
     void Update()
     {
-/*
-        // For testing without a VR system
-        if (Input.GetKeyDown("1"))
-        {
-            leftTentacle.OnPlayerStretchMortion(vrSimulatorLeftHand.transform, vrSimulatorRightHand.transform.forward);
-        }
-        if (Input.GetKeyDown("2"))
-        {
-            leftTentacle.OnPlayerShrinkMortion();
-        }
-        if (Input.GetKeyDown("3"))
-        {
-            rightTentacle.OnPlayerStretchMortion(vrSimulatorRightHand.transform, vrSimulatorRightHand.transform.forward);
-        }
-        if (Input.GetKeyDown("4"))
-        {
-            rightTentacle.OnPlayerShrinkMortion();
-        }
-*/
+        /*
+                // For testing without a VR system
+                if (Input.GetKeyDown("1"))
+                {
+                    leftTentacle.OnPlayerStretchMortion(vrSimulatorLeftHand.transform, vrSimulatorRightHand.transform.forward);
+                }
+                if (Input.GetKeyDown("2"))
+                {
+                    leftTentacle.OnPlayerShrinkMortion();
+                }
+                if (Input.GetKeyDown("3"))
+                {
+                    rightTentacle.OnPlayerStretchMortion(vrSimulatorRightHand.transform, vrSimulatorRightHand.transform.forward);
+                }
+                if (Input.GetKeyDown("4"))
+                {
+                    rightTentacle.OnPlayerShrinkMortion();
+                }
+        */
     }
 
     private void OnEnable()
@@ -103,7 +105,7 @@ public class ButtonTrigger : MonoBehaviour
             ExtendTentacle();
             isExtended = true;
         }
- //       spawnedPrimitive.transform.position = transform.position;
- //       spawnedPrimitive.transform.rotation = transform.rotation;
+        //       spawnedPrimitive.transform.position = transform.position;
+        //       spawnedPrimitive.transform.rotation = transform.rotation;
     }
 }

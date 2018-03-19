@@ -19,7 +19,8 @@ public class BounceByTentacles : MonoBehaviour {
         if (other.tag == "Tentacle")
         {
             Debug.Log("Projectil hit tentacles");
-            GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity * -1;
+            Vector3 forceVector = GetComponent<Transform>().position - other.GetComponent<Transform>().position;
+            GetComponent<Rigidbody>().velocity = forceVector * Time.deltaTime * 500;
         }
     }
 }
