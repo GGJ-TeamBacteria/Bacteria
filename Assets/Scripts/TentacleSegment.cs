@@ -32,6 +32,11 @@ public class TentacleSegment : MonoBehaviour {
             otherScript.Death();
             //Destroy(other.gameObject);
         }
+        else if (other.CompareTag("HeartWin"))
+        {
+            rootTentacle.buttonTrigger.Vibrate(500);
+            Destroy(other.gameObject);
+        }
     }
 
     IEnumerator AbsorbingAnimation()

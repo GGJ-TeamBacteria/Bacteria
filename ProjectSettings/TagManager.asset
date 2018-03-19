@@ -11,6 +11,8 @@ TagManager:
   - ProjectilYellow
   - Projectile
   - HeartWin
+  - Undefined
+  - Tentacle
   layers:
   - Default
   - TransparentFX
