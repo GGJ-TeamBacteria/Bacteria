@@ -16,7 +16,7 @@ public class BounceByTentacles : MonoBehaviour {
     //detect collison
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Tentacles")
+        if (other.tag == "Tentacle")
         {
             Debug.Log("Projectil hit tentacles");
             GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity * -1;
