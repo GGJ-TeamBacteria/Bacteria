@@ -308,12 +308,12 @@ MonoBehaviour:
   BacteriaShoot: {fileID: 1398765135925952, guid: ddfe785c77e1c49b492dbfbf5f92cf94,
     type: 2}
   Heart: {fileID: 1972411436058238, guid: 852735c97e1c34326ae6b44bb8e85106, type: 2}
-  worldSize: {x: 30, y: 15, z: 30}
   numOfBacteria: 50
   ratioDifficulty: 1
-  waveWait: 1
   chanceOfAntibiotic: 1
   numOfShooter: 5
+  waveWait: 1
+  worldSize: {x: 30, y: 15, z: 30}
 --- !u!4 &134313671
 Transform:
   m_ObjectHideFlags: 0
@@ -636,6 +636,7 @@ MonoBehaviour:
   minDisBetweenArmParts: 1
   tenticalExtendingSpeed: 3
   playerGameObject: {fileID: 1170521895}
+  buttonTrigger: {fileID: 0}
 --- !u!1001 &373784579
 Prefab:
   m_ObjectHideFlags: 0
@@ -694,6 +695,11 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 135624383298052134, guid: f3911c9f8ea114f79a597661e804c13b,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3911c9f8ea114f79a597661e804c13b, type: 2}
@@ -1159,6 +1165,11 @@ Prefab:
       propertyPath: m_Name
       value: BacteriaGoodZ (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 135624383298052134, guid: f3911c9f8ea114f79a597661e804c13b,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3911c9f8ea114f79a597661e804c13b, type: 2}
   m_IsPrefabParent: 0
@@ -1228,6 +1239,11 @@ Prefab:
     - target: {fileID: 1591408607559712, guid: f3911c9f8ea114f79a597661e804c13b, type: 2}
       propertyPath: m_Name
       value: BacteriaGoodZ (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 135624383298052134, guid: f3911c9f8ea114f79a597661e804c13b,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3911c9f8ea114f79a597661e804c13b, type: 2}
@@ -1367,6 +1383,7 @@ MonoBehaviour:
   minDisBetweenArmParts: 1
   tenticalExtendingSpeed: 3
   playerGameObject: {fileID: 1170521895}
+  buttonTrigger: {fileID: 0}
 --- !u!1 &995131364 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 147176, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
@@ -1628,8 +1645,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_health: 5
-  player_lowhealth_loop: {fileID: 8300000, guid: d9f33ffe081288348acad45bd93572c5,
-    type: 3}
   player_health_gain: {fileID: 8300000, guid: 7dc63a4303db6bb4ca82e00e0894a0dc, type: 3}
   player_health_lose: {fileID: 8300000, guid: 3fbdc4e29929a154f86a8715e10a2673, type: 3}
   player_damage1: {fileID: 8300000, guid: 5f544e8719f1ef243a3a2cbc7849a261, type: 3}
@@ -1936,6 +1951,11 @@ Prefab:
     - target: {fileID: 1591408607559712, guid: f3911c9f8ea114f79a597661e804c13b, type: 2}
       propertyPath: m_Name
       value: BacteriaGoodZ (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 135624383298052134, guid: f3911c9f8ea114f79a597661e804c13b,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f3911c9f8ea114f79a597661e804c13b, type: 2}

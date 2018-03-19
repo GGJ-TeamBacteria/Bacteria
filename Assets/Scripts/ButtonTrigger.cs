@@ -25,6 +25,9 @@ public class ButtonTrigger : MonoBehaviour
     // but if i look into how TriggerHapticPulse is defined, it seems to actually get cast to a (char) 
     public void Vibrate(ushort lengthInMicroseconds)
     {
+        if (_controller == null)
+            return;
+
         Debug.Log("About to vibrate controller " + _controller.controllerIndex + " for " + lengthInMicroseconds + " microseconds");
         SteamVR_Controller.Input((int) _controller.controllerIndex).TriggerHapticPulse(lengthInMicroseconds);
     }
