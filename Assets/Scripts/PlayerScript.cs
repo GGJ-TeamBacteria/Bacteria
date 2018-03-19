@@ -27,14 +27,11 @@ public class PlayerScript : MonoBehaviour {
     void Update ()
     {
 
-        if (m_health == 1)
+        if (m_health == 1 && !lowHealthAudioSource.isPlaying)
         {
-            if (!lowHealthAudioSource.isPlaying)
-            {
                 lowHealthAudioSource.Play();
-            }
         }
-        else if (m_health > 1)
+        else if (m_health > 1 && lowHealthAudioSource.isPlaying)
         {
             lowHealthAudioSource.Stop();
         }
@@ -42,7 +39,7 @@ public class PlayerScript : MonoBehaviour {
         OnDeath();
     }
 
-    void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         Debug.Log("Collision");
 
@@ -53,7 +50,7 @@ public class PlayerScript : MonoBehaviour {
         }
         else if (other.CompareTag("BadBacteria"))
         {
-            Debug.Log("Bacteria");
+            Debug.Log("BadBacteria");
             TakeDamageBacteria();
         }
         else if (other.CompareTag("Projectile"))

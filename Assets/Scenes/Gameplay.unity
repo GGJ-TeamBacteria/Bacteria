@@ -224,12 +224,12 @@ MonoBehaviour:
   BacteriaShoot: {fileID: 1398765135925952, guid: ddfe785c77e1c49b492dbfbf5f92cf94,
     type: 2}
   Heart: {fileID: 1972411436058238, guid: 852735c97e1c34326ae6b44bb8e85106, type: 2}
-  worldSize: {x: 30, y: 15, z: 30}
   numOfBacteria: 50
   ratioDifficulty: 1
-  waveWait: 1
   chanceOfAntibiotic: 1
   numOfShooter: 1
+  waveWait: 1
+  worldSize: {x: 30, y: 15, z: 30}
 --- !u!4 &134313671
 Transform:
   m_ObjectHideFlags: 0
@@ -812,8 +812,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_health: 5
-  player_lowhealth_loop: {fileID: 8300000, guid: d9f33ffe081288348acad45bd93572c5,
-    type: 3}
   player_health_gain: {fileID: 8300000, guid: 7dc63a4303db6bb4ca82e00e0894a0dc, type: 3}
   player_health_lose: {fileID: 8300000, guid: 3fbdc4e29929a154f86a8715e10a2673, type: 3}
   player_damage1: {fileID: 8300000, guid: 5f544e8719f1ef243a3a2cbc7849a261, type: 3}
@@ -1253,6 +1251,11 @@ Prefab:
     - target: {fileID: 82458800718068088, guid: 353bbc698bcc2fd4ba3bccac4881a1d6,
         type: 2}
       propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82458800718068088, guid: 353bbc698bcc2fd4ba3bccac4881a1d6,
+        type: 2}
+      propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

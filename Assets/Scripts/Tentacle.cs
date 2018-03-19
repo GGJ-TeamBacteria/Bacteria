@@ -24,7 +24,7 @@ public class Tentacle : MonoBehaviour
     void Start()
     {
         armParts = new List<TentacleSegment>();
-        playerRef = playerGameObject.GetComponent<PlayerScript>();
+        playerRef = playerGameObject.GetComponentInChildren<PlayerScript>();
     }
 
     // Update is called once per frame
