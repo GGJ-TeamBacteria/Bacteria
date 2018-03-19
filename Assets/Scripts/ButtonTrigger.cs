@@ -19,12 +19,13 @@ public class ButtonTrigger : MonoBehaviour
     private bool isExtended = false;
 
     private SteamVR_TrackedController _controller;
-    private PrimitiveType _currentPrimitiveType = PrimitiveType.Sphere;
 
 
     // lengthInMicroseconds may need to be in the range 1-3999 according to answers.unity.com
+    // but if i look into how TriggerHapticPulse is defined, it seems to actually get cast to a (char) 
     public void Vibrate(ushort lengthInMicroseconds)
     {
+        Debug.Log("About to vibrate controller " + _controller.controllerIndex + " for " + lengthInMicroseconds + " microseconds");
         SteamVR_Controller.Input((int) _controller.controllerIndex).TriggerHapticPulse(lengthInMicroseconds);
     }
 

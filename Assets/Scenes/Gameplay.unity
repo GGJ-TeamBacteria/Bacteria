@@ -527,7 +527,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1265,6 +1265,11 @@ Prefab:
       propertyPath: vrSimulatorRightHand
       value: 
       objectReference: {fileID: 65246109}
+    - target: {fileID: 114178982613086174, guid: 5b0aa0c39ef77c343bf4289ee30a6255,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b0aa0c39ef77c343bf4289ee30a6255, type: 2}
   m_IsPrefabParent: 0

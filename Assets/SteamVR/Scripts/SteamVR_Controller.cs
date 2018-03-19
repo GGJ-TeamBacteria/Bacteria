@@ -108,6 +108,7 @@ public class SteamVR_Controller
 			if (system != null)
 			{
 				var axisId = (uint)buttonId - (uint)EVRButtonId.k_EButton_Axis0;
+                Debug.Log("Dee: about to system.THP for index = " + index + " axisId = " + axisId + " duration = " + durationMicroSec);
 				system.TriggerHapticPulse(index, axisId, (char)durationMicroSec);
 			}
 		}
