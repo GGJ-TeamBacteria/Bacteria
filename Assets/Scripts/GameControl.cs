@@ -10,18 +10,13 @@ public class GameControl : MonoBehaviour {
     public GameObject Antibiotic;
 	public GameObject BacteriaShoot;
     public GameObject Heart;
-
-    public int numOfBacteria; //total number of bad and good bacteria to start.
-    public int ratioDifficulty; //how many good bacteria spawn with every one bad bacteria
-    public int chanceOfAntibiotic; //out of 100. The percentage of spawning antibiotic
-    public int numOfShooter; //cap at max of 5 shooters
-    public float waveWait;
-    public Vector3 worldSize; //how big is the world x, y, z
-	
-
-    private float dice;
-    private int WaveTimer; // Updates every wave; regulates where in world bacteria spawn
-	
+	public Vector3 worldSize; //how big is the world x, y, z
+	public int numOfBacteria; //total number of bad and good bacteria to start.
+	public int ratioDifficulty; //how many good bacteria spawn with every one bad bacteria
+	public float waveWait;
+	public int chanceOfAntibiotic; //out of 100. The percentage of spawning antibiotic
+	private float dice;
+	public int numOfShooter; //cap at max of 5 shooters
     private Quaternion spawnRotation = Quaternion.identity;
 
     // Use this for initialization
@@ -31,7 +26,6 @@ public class GameControl : MonoBehaviour {
 		StartBacteriaBad (numOfBacteria / 2 / ratioDifficulty);
 		StartBacteriaShoot ();
 		StartCoroutine (SpawnWave (ratioDifficulty));
-        WaveTimer = 0;
 	}
 	void StartBacteriaGood (int maxHazard)
     {
@@ -49,12 +43,10 @@ public class GameControl : MonoBehaviour {
 	}
 	void StartBacteriaShoot() {
 		Vector3 position = new Vector3 (0, -5, 20);
-        if (numOfShooter > 5) //only allow up to 5 shooters
-        {
-            numOfShooter = 5;
-        }
+		if (numOfShooter > 5) //only allow up to 5 shooters
+			numOfShooter = 5;
 		float firstPosition = worldSize.x / 4; //calculate 5 locations along x axis for shooter
-		for (int i = 0; i < numOfShooter - 1; i++) {
+		for (int i = 0; i < numOfShooter; i++) {
 			switch(i){
 			case 0:
 				Instantiate (BacteriaShoot, new Vector3 (firstPosition * 0, position.y, position.z), Quaternion.identity);
@@ -78,24 +70,12 @@ public class GameControl : MonoBehaviour {
 
     void SpawnNewBacteria(GameObject bacteria)
     {
-        switch (Random.Range(1, 3))
-        {
-            case 1:
-                SpawnBacteriaInArea2(bacteria);
-                break;
-            case 2:
-                int phase_timer_dice = (WaveTimer > 66)? Random.Range(-67, 33) : Random.Range(-WaveTimer, 100 - WaveTimer);
-
-                if (phase_timer_dice > 0)
-                {
-                    SpawnBacteriaInArea1(bacteria);
-                }
-                else
-                {
-                    SpawnBacteriaInArea3(bacteria);
-                }
-                break;
-        }
+        Instantiate(bacteria,
+                new Vector3(Random.Range(-worldSize.x, worldSize.x),
+                    Random.Range(-worldSize.y, worldSize.y),
+                    Random.Range(-worldSize.z, worldSize.z)),
+                spawnRotation
+            );
     }
 
     void SpawnRandomBadBacteria()
@@ -154,127 +134,7 @@ public class GameControl : MonoBehaviour {
                 SpawnNewBacteria(Heart);
             }
             */
-            WaveTimer++;
+
         }
 	}
-
-    void SpawnBacteriaInArea1(GameObject bacteria)
-    {
-        Instantiate(bacteria,
-                    new Vector3(Random.Range(-worldSize.x/4, worldSize.x/4),
-                        Random.Range(-worldSize.y/4, worldSize.y/4),
-                        Random.Range(-worldSize.z/4, worldSize.z/4)),
-                    spawnRotation
-                );
-    }
-
-    void SpawnBacteriaInArea2(GameObject bacteria)
-    {
-        switch (Random.Range(1, 7))
-        {
-            case 1:
-                Instantiate(bacteria,
-                new Vector3(Random.Range(-worldSize.x/2, worldSize.x/2),
-                    Random.Range(-worldSize.y/2, worldSize.y/2),
-                    Random.Range(-worldSize.z/2, -worldSize.z / 4)),
-                spawnRotation
-            );
-                break;
-            case 2:
-                Instantiate(bacteria,
-                new Vector3(Random.Range(-worldSize.x/2, worldSize.x/2),
-                    Random.Range(-worldSize.y/2, worldSize.y/2),
-                    Random.Range(worldSize.z / 4, worldSize.z/2)),
-                spawnRotation
-            );
-                break;
-            case 3:
-                Instantiate(bacteria,
-                new Vector3(Random.Range(-worldSize.x/2, worldSize.x/2),
-                    Random.Range(-worldSize.y/2, -worldSize.y / 4),
-                    Random.Range(-worldSize.z/2, worldSize.z/2)),
-                spawnRotation
-            );
-                break;
-            case 4:
-                Instantiate(bacteria,
-                new Vector3(Random.Range(-worldSize.x/2, worldSize.x/2),
-                    Random.Range(worldSize.y / 4, worldSize.y/2),
-                    Random.Range(-worldSize.z/2, worldSize.z / 2)),
-                spawnRotation
-            );
-                break;
-            case 5:
-                Instantiate(bacteria,
-                new Vector3(Random.Range(-worldSize.x/2, -worldSize.x / 4),
-                    Random.Range(-worldSize.y/2, worldSize.y/2),
-                    Random.Range(-worldSize.z/2, worldSize.z / 2)),
-                spawnRotation
-            );
-                break;
-            case 6:
-                Instantiate(bacteria,
-                new Vector3(Random.Range(worldSize.x / 4, worldSize.x/2),
-                    Random.Range(-worldSize.y/2, worldSize.y/2),
-                    Random.Range(-worldSize.z/2, worldSize.z / 2)),
-                spawnRotation
-            );
-                break;
-        }
-    }
-
-    void SpawnBacteriaInArea3(GameObject bacteria)
-    {
-        switch (Random.Range(1, 7))
-        {
-            case 1:
-                Instantiate(bacteria,
-                new Vector3(Random.Range(-worldSize.x, worldSize.x),
-                    Random.Range(-worldSize.y, worldSize.y),
-                    Random.Range(-worldSize.z, -worldSize.z / 2)),
-                spawnRotation
-            );
-                break;
-            case 2:
-                Instantiate(bacteria,
-                new Vector3(Random.Range(-worldSize.x, worldSize.x),
-                    Random.Range(-worldSize.y, worldSize.y),
-                    Random.Range(worldSize.z / 2, worldSize.z)),
-                spawnRotation
-            );
-                break;
-            case 3:
-                Instantiate(bacteria,
-                new Vector3(Random.Range(-worldSize.x, worldSize.x),
-                    Random.Range(-worldSize.y, -worldSize.y / 2),
-                    Random.Range(-worldSize.z, worldSize.z)),
-                spawnRotation
-            );
-                break;
-            case 4:
-                Instantiate(bacteria,
-                new Vector3(Random.Range(-worldSize.x, worldSize.x),
-                    Random.Range(worldSize.y / 2, worldSize.y),
-                    Random.Range(-worldSize.z, worldSize.z)),
-                spawnRotation
-            );
-                break;
-            case 5:
-                Instantiate(bacteria,
-                new Vector3(Random.Range(-worldSize.x, -worldSize.x / 2),
-                    Random.Range(-worldSize.y, worldSize.y),
-                    Random.Range(-worldSize.z, worldSize.z)),
-                spawnRotation
-            );
-                break;
-            case 6:
-                Instantiate(bacteria,
-                new Vector3(Random.Range(worldSize.x / 2, worldSize.x),
-                    Random.Range(-worldSize.y, worldSize.y),
-                    Random.Range(-worldSize.z, worldSize.z)),
-                spawnRotation
-            );
-                break;
-        }
-    }
 }

@@ -9,6 +9,7 @@ public class PlayerScript : MonoBehaviour {
     AudioSource audioSource;
     AudioSource lowHealthAudioSource;
 
+    public AudioClip player_lowhealth_loop;
     public AudioClip player_health_gain;
     public AudioClip player_health_lose;
     public AudioClip player_damage1;
@@ -29,7 +30,7 @@ public class PlayerScript : MonoBehaviour {
 
         if (m_health == 1 && !lowHealthAudioSource.isPlaying)
         {
-                lowHealthAudioSource.Play();
+            lowHealthAudioSource.Play();
         }
         else if (m_health > 1 && lowHealthAudioSource.isPlaying)
         {
