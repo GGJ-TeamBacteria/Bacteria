@@ -1000,11 +1000,6 @@ Transform:
   m_Father: {fileID: 1057379031}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &482107555 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1587602180963074, guid: 1ca15cdb0430a854e8da4f12d5758071,
-    type: 2}
-  m_PrefabInternal: {fileID: 674453208}
 --- !u!21 &504508984
 Material:
   serializedVersion: 6
@@ -1256,16 +1251,6 @@ Transform:
   m_Father: {fileID: 2136724084}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &628938545 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1538727058887424, guid: 1ca15cdb0430a854e8da4f12d5758071,
-    type: 2}
-  m_PrefabInternal: {fileID: 674453208}
---- !u!1 &654427724 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1391022766006510, guid: 1ca15cdb0430a854e8da4f12d5758071,
-    type: 2}
-  m_PrefabInternal: {fileID: 674453208}
 --- !u!1001 &674453208
 Prefab:
   m_ObjectHideFlags: 0
@@ -3731,12 +3716,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoPopulateObjectReferences: 1
-  actualBoundaries: {fileID: 2007476065}
-  actualHeadset: {fileID: 482107555}
-  actualLeftController: {fileID: 628938545}
-  actualRightController: {fileID: 654427724}
-  modelAliasLeftController: {fileID: 1377250545}
-  modelAliasRightController: {fileID: 65246109}
+  actualBoundaries: {fileID: 0}
+  actualHeadset: {fileID: 0}
+  actualLeftController: {fileID: 0}
+  actualRightController: {fileID: 0}
+  modelAliasLeftController: {fileID: 0}
+  modelAliasRightController: {fileID: 0}
   cachedSystemSDKInfo:
     baseTypeName: VRTK.SDK_BaseSystem
     fallbackTypeName: VRTK.SDK_FallbackSystem
@@ -4687,11 +4672,6 @@ Transform:
   m_Father: {fileID: 675819569}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2007476065 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000013941130086, guid: 1ca15cdb0430a854e8da4f12d5758071,
-    type: 2}
-  m_PrefabInternal: {fileID: 674453208}
 --- !u!4 &2007476066 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000011401111930, guid: 1ca15cdb0430a854e8da4f12d5758071,

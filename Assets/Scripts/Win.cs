@@ -7,6 +7,6 @@ public class Win : MonoBehaviour {
 
 
 	void OnDestroy() {
-		SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+		SceneManager.LoadScene("End", LoadSceneMode.Single);
 	}
 }
