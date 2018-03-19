@@ -78,12 +78,12 @@ public class GameControl : MonoBehaviour {
 
     void SpawnNewBacteria(GameObject bacteria)
     {
-        switch (Random.Range(1, 3))
+        switch (Random.Range(1, 4))
         {
             case 1:
                 SpawnBacteriaInArea2(bacteria);
                 break;
-            case 2:
+            default:
                 int phase_timer_dice = (WaveTimer > 66)? Random.Range(-67, 33) : Random.Range(-WaveTimer, 100 - WaveTimer);
 
                 if (phase_timer_dice > 0)
