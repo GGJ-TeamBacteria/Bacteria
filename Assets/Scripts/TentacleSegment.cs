@@ -23,6 +23,8 @@ public class TentacleSegment : MonoBehaviour {
         }
         else if (other.CompareTag("GoodBacteria"))
         {
+            rootTentacle.buttonTrigger.Vibrate(500);
+
             //Call GainHealth() from Player
             rootTentacle.playerRef.GainHealth();
             SelfDestroy otherScript = other.GetComponent<SelfDestroy>();

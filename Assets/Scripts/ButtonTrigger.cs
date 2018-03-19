@@ -2,6 +2,9 @@
 
 
 // Tentacle extend/retract based on button presses
+// Also handles vibration 
+//
+// Attach one of these to Controller (left) and one of these to Controller (right) underneath the steamvr [CameraRig] prefab
 
 // Button detection based on https://unity3d.college/2016/11/16/steamvr-controller-input/
 
@@ -17,6 +20,13 @@ public class ButtonTrigger : MonoBehaviour
 
     private SteamVR_TrackedController _controller;
     private PrimitiveType _currentPrimitiveType = PrimitiveType.Sphere;
+
+
+    // lengthInMicroseconds may need to be in the range 1-3999 according to answers.unity.com
+    public void Vibrate(ushort lengthInMicroseconds)
+    {
+        SteamVR_Controller.Input((int) _controller.controllerIndex).TriggerHapticPulse(lengthInMicroseconds);
+    }
 
     void Update()
     {
