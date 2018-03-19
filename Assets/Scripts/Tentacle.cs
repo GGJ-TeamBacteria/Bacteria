@@ -13,6 +13,8 @@ public class Tentacle : MonoBehaviour
     public float tenticalExtendingSpeed;
     public GameObject playerGameObject;
 
+    public ButtonTrigger buttonTrigger;
+
     internal PlayerScript playerRef;
     private int currentMaxLength;
     private List<TentacleSegment> armParts;
