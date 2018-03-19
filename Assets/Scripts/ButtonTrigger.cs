@@ -30,6 +30,7 @@ public class ButtonTrigger : MonoBehaviour
         if (_controller == null)
             return;
 
+        // There are lots of variations on TriggerHapticPulse
         VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(_controller.controllerIndex), 1f, 0.5f, 0.01f);
     }
 
