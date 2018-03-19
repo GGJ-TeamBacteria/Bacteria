@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 82628825701337374}
   - component: {fileID: 54105051622482200}
   - component: {fileID: 136521777791719560}
+  - component: {fileID: 114844822659416870}
   m_Layer: 0
   m_Name: Projectil
   m_TagString: Projectile
@@ -296,6 +297,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSources: []
+--- !u!114 &114844822659416870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1751223561606040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c943eb5a8c5faf47a5927a2679890ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136521777791719560
 CapsuleCollider:
   m_ObjectHideFlags: 1
