@@ -25,8 +25,8 @@ GameObject:
   - component: {fileID: 114674621275475428}
   - component: {fileID: 82628825701337374}
   - component: {fileID: 54105051622482200}
-  - component: {fileID: 136521777791719560}
   - component: {fileID: 114844822659416870}
+  - component: {fileID: 135364416762754962}
   m_Layer: 0
   m_Name: Projectil
   m_TagString: Projectile
@@ -297,6 +297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSources: []
+  destroyVFX: {fileID: 0}
 --- !u!114 &114844822659416870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -308,8 +309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c943eb5a8c5faf47a5927a2679890ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &136521777791719560
-CapsuleCollider:
+--- !u!135 &135364416762754962
+SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -317,7 +318,6 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
+  serializedVersion: 2
+  m_Radius: 0.02
   m_Center: {x: 0, y: 0, z: 0}
