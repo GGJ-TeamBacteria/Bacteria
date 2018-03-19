@@ -743,8 +743,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.45315707
-  m_Center: {x: 0.019660056, y: -0.3899877, z: -0.4988259}
+  m_Radius: 0.48641267
+  m_Center: {x: 0.019660026, y: -0.013096631, z: 0}
 --- !u!114 &422872931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2662,7 +2662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1767c3715a7b704c9818dc3141914a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_health: 7
+  m_health: 5
   player_lowhealth_loop: {fileID: 8300000, guid: d9f33ffe081288348acad45bd93572c5,
     type: 3}
   player_health_gain: {fileID: 8300000, guid: 7dc63a4303db6bb4ca82e00e0894a0dc, type: 3}
@@ -2879,7 +2879,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1225933154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.36, z: -0.47}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 422872925}
