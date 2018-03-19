@@ -27,7 +27,8 @@ public class GameControl : MonoBehaviour {
     // Use this for initialization
     void Start () {
 		worldSize = worldSize / 2;
-		StartBacteriaGood (numOfBacteria / 2);
+        SpawnBacteriaInArea3(Heart);
+        StartBacteriaGood (numOfBacteria / 2);
 		StartBacteriaBad (numOfBacteria / 2 / ratioDifficulty);
 		StartBacteriaShoot ();
 		StartCoroutine (SpawnWave (ratioDifficulty));
@@ -53,7 +54,7 @@ public class GameControl : MonoBehaviour {
         {
             numOfShooter = 5;
         }
-		float firstPosition = worldSize.x / 4; //calculate 5 locations along x axis for shooter
+		float firstPosition = worldSize.x / 5; //calculate 5 locations along x axis for shooter
 		for (int i = 0; i < numOfShooter - 1; i++) {
 			switch(i){
 			case 0:
