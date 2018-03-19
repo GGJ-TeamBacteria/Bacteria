@@ -20,7 +20,7 @@ public class BounceByTentacles : MonoBehaviour {
         {
             Debug.Log("Projectil hit tentacles");
             Vector3 forceVector = GetComponent<Transform>().position - other.GetComponent<Transform>().position;
-            GetComponent<Rigidbody>().velocity = forceVector * Time.deltaTime;
+            GetComponent<Rigidbody>().velocity = forceVector * Time.deltaTime * 500;
         }
     }
 }
