@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Tentacle extend/retract based on arm gestures
+
 [RequireComponent(typeof(AudioSource))]
 public class GestureTrigger : MonoBehaviour
 {
