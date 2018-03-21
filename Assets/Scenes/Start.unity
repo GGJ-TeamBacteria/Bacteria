@@ -2771,7 +2771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1767c3715a7b704c9818dc3141914a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_health: 5
+  m_health: 10
   player_health_gain: {fileID: 8300000, guid: 7dc63a4303db6bb4ca82e00e0894a0dc, type: 3}
   player_health_lose: {fileID: 8300000, guid: 3fbdc4e29929a154f86a8715e10a2673, type: 3}
   player_damage1: {fileID: 8300000, guid: 5f544e8719f1ef243a3a2cbc7849a261, type: 3}
@@ -3716,12 +3716,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoPopulateObjectReferences: 1
-  actualBoundaries: {fileID: 0}
-  actualHeadset: {fileID: 0}
-  actualLeftController: {fileID: 0}
-  actualRightController: {fileID: 0}
-  modelAliasLeftController: {fileID: 0}
-  modelAliasRightController: {fileID: 0}
+  actualBoundaries: {fileID: 1503612691}
+  actualHeadset: {fileID: 2077878896}
+  actualLeftController: {fileID: 1504743332}
+  actualRightController: {fileID: 1691264272}
+  modelAliasLeftController: {fileID: 1377250545}
+  modelAliasRightController: {fileID: 65246109}
   cachedSystemSDKInfo:
     baseTypeName: VRTK.SDK_BaseSystem
     fallbackTypeName: VRTK.SDK_FallbackSystem
@@ -3870,6 +3870,16 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1468678263}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1503612691 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013941130086, guid: 1ca15cdb0430a854e8da4f12d5758071,
+    type: 2}
+  m_PrefabInternal: {fileID: 674453208}
+--- !u!1 &1504743332 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1538727058887424, guid: 1ca15cdb0430a854e8da4f12d5758071,
+    type: 2}
+  m_PrefabInternal: {fileID: 674453208}
 --- !u!1001 &1514468929
 Prefab:
   m_ObjectHideFlags: 0
@@ -4181,6 +4191,11 @@ Transform:
   m_Father: {fileID: 675819569}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1691264272 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1391022766006510, guid: 1ca15cdb0430a854e8da4f12d5758071,
+    type: 2}
+  m_PrefabInternal: {fileID: 674453208}
 --- !u!1 &1721303737
 GameObject:
   m_ObjectHideFlags: 0
@@ -4827,6 +4842,11 @@ Transform:
   m_Father: {fileID: 929835926}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2077878896 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1587602180963074, guid: 1ca15cdb0430a854e8da4f12d5758071,
+    type: 2}
+  m_PrefabInternal: {fileID: 674453208}
 --- !u!1 &2092729525
 GameObject:
   m_ObjectHideFlags: 0
