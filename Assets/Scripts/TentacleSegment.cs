@@ -17,20 +17,20 @@ public class TentacleSegment : MonoBehaviour {
         else if (other.CompareTag("BadBacteria"))
         {
             // Tell player to take damage from BadBacteria
+            StartCoroutine("AttackedAnimation");
             rootTentacle.playerRef.TakeDamageBacteria();
 			SelfDestroy otherScript = other.GetComponent<SelfDestroy>();
             otherScript.Death();
-            //Destroy(other.gameObject);
         }
         else if (other.CompareTag("GoodBacteria"))
         {
             rootTentacle.buttonTrigger.Vibrate(500);
+            StartCoroutine("AbsorbingAnimation");
 
             //Call GainHealth() from Player
             rootTentacle.playerRef.GainHealth();
             SelfDestroy otherScript = other.GetComponent<SelfDestroy>();
             otherScript.Death();
-            //Destroy(other.gameObject);
         }
         else if (other.CompareTag("HeartWin"))
         {
