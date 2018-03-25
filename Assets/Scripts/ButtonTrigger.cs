@@ -34,37 +34,42 @@ public class ButtonTrigger : MonoBehaviour
         VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(_controller.controllerIndex), 1f, 0.5f, 0.01f);
     }
 
+
+    private void Start()
+    {        
+    }
+
     void Update()
     {
-        /*
-                // For testing without a VR system
-                if (Input.GetKeyDown("1"))
-                {
-                    leftTentacle.OnPlayerStretchMortion(vrSimulatorLeftHand.transform, vrSimulatorRightHand.transform.forward);
-                }
-                if (Input.GetKeyDown("2"))
-                {
-                    leftTentacle.OnPlayerShrinkMortion();
-                }
-                if (Input.GetKeyDown("3"))
-                {
-                    rightTentacle.OnPlayerStretchMortion(vrSimulatorRightHand.transform, vrSimulatorRightHand.transform.forward);
-                }
-                if (Input.GetKeyDown("4"))
-                {
-                    rightTentacle.OnPlayerShrinkMortion();
-                }
-        */
+        // For testing without a VR system
+        if (Input.GetKeyDown("1"))
+        {
+            Debug.Log("extend tentacle based on keypress 1");
+            ExtendTentacle();
+        }
+        else if (Input.GetKeyDown("2"))
+        {
+            Debug.Log("retract tentacle based on keypress 2");
+            RetractTentacle();
+        }
     }
 
     private void OnEnable()
     {
+        // if running without headset
+        if (_controller == null)
+            return;
+
         _controller = GetComponent<SteamVR_TrackedController>();
         _controller.TriggerClicked += HandleTriggerClicked;
     }
 
     private void OnDisable()
     {
+        // if running without headset
+        if (_controller == null)
+            return;
+
         _controller.TriggerClicked -= HandleTriggerClicked;
     }
 
