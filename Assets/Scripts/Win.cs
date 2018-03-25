@@ -7,6 +7,6 @@ public class Win : MonoBehaviour {
 
 
 	void OnDestroy() {
-		SceneManager.LoadScene("End", LoadSceneMode.Single);
+		SceneManager.LoadScene("Win", LoadSceneMode.Single);
 	}
 }
