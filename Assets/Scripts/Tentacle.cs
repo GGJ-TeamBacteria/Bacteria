@@ -144,7 +144,6 @@ public class Tentacle : MonoBehaviour
 
     }
 
-    // TENTACLES UP BUG: even if we comment this method out, the bug still happens
     /// <summary>
     ///  Move the first segment of the tentacle towards player controller location
     /// </summary>
@@ -161,7 +160,6 @@ public class Tentacle : MonoBehaviour
 
     }
 
-    // TENTACLES UP BUG: even if we comment this method out, the bug still happens
     /// <summary>
     ///  Move all of the segments after the first one
     /// </summary>
