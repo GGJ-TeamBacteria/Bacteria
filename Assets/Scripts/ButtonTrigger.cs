@@ -27,20 +27,39 @@ public class ButtonTrigger : MonoBehaviour
     private SteamVR_TrackedController _controller;
 
 
-    // lengthInMicroseconds may need to be in the range 1-3999 according to answers.unity.com
-    // but if i look into how TriggerHapticPulse is defined, it seems to actually get cast to a (char) 
-    public void Vibrate(ushort lengthInMicroseconds)
+    public void VibrateForSomethingGood()
+    {
+        if (_controller == null)
+        {
+            Debug.Log("VibrateForSomethingGood not vibrating since no headset found");
+            return;
+        }
+
+        VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(_controller.controllerIndex), 0.5f, 0.1f, 0.01f);
+    }
+
+    public void VibrateForSomethingBad()
+    {
+        if (_controller == null)
+        {
+            Debug.Log("VibrateForSomethingBad not vibrating since no headset found");
+            return;
+        }
+
+        VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(_controller.controllerIndex), 0.8f, 0.1f, 0.01f);
+    }
+
+
+    // Trying to figure out how to use a poorly documented VRTK feature
+    public void VibrateAudioClip(AudioClip audioClip)
     {
         // if running without headset
         if (_controller == null)
+        {
+            Debug.Log("not vibrating since no headset found");
             return;
+        }
 
-        Debug.Log("Vibration for " + (lengthInMicroseconds / 1000f) + " milliseconds");
-        VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(_controller.controllerIndex), 1f, 0.5f, 0.01f);
-    }
-
-    public void VibrateAudioClip(AudioClip audioClip)
-    {
         Debug.Log("Vibration using audioclip " + audioClip.name);
         VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(_controller.controllerIndex), audioClip);
     }
@@ -54,63 +73,16 @@ public class ButtonTrigger : MonoBehaviour
             isExtended = true;
         }
 
-        // if running without headset
-        if (_controller == null)
-            return;
-
         // This is just used for testing vibrations out
-        if (Input.GetKeyDown("="))
+        if (Input.GetKeyDown("1"))
         {
-            Vibrate(500);
-        }
-        else if (Input.GetKeyDown("1"))
-        {
-            VibrateAudioClip(vibrationTests[0]);
+            VibrateForSomethingGood();
         }
         else if (Input.GetKeyDown("2"))
         {
-            VibrateAudioClip(vibrationTests[1]);
+            VibrateForSomethingBad();
         }
-        else if (Input.GetKeyDown("3"))
-        {
-            VibrateAudioClip(vibrationTests[2]);
-        }
-        else if (Input.GetKeyDown("4"))
-        {
-            VibrateAudioClip(vibrationTests[3]);
-        }
-        else if (Input.GetKeyDown("5"))
-        {
-            VibrateAudioClip(vibrationTests[4]);
-        }
-        else if (Input.GetKeyDown("6"))
-        {
-            VibrateAudioClip(vibrationTests[5]);
-        }
-        else if (Input.GetKeyDown("7"))
-        {
-            VibrateAudioClip(vibrationTests[6]);
-        }
-        else if (Input.GetKeyDown("8"))
-        {
-            VibrateAudioClip(vibrationTests[7]);
-        }
-        else if (Input.GetKeyDown("9"))
-        {
-            VibrateAudioClip(vibrationTests[8]);
-        }
-        else if (Input.GetKeyDown("0"))
-        {
-            VibrateAudioClip(vibrationTests[9]);
-        }
-        else if (Input.GetKeyDown("-"))
-        {
-            VibrateAudioClip(vibrationTests[10]);
-        }
-        else if (Input.GetKeyDown("\\"))
-        {
-            VibrateAudioClip(vibrationTests[11]);
-        }
+
     }
 
     private void ExtendTentacle()
@@ -126,17 +98,15 @@ public class ButtonTrigger : MonoBehaviour
         tentacle.OnPlayerStretchMortion(transform, reachDirection);
     }
 
+    private void OnEnable()
+    {
+        _controller = GetComponent<SteamVR_TrackedController>();
+
+        // Commented out since we decided not to allow extending/retracting the tentacle
+        // _controller.TriggerClicked += HandleTriggerClicked;
+    }
+
     // We decided not to allow extending/retracting the tentacle
-    //private void OnEnable()
-    //{
-    //    // if running without headset
-    //    if (_controller == null)
-    //        return;
-
-    //    _controller = GetComponent<SteamVR_TrackedController>();
-    //    _controller.TriggerClicked += HandleTriggerClicked;
-    //}
-
     //private void OnDisable()
     //{
     //    // if running without headset

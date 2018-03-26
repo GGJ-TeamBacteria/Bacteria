@@ -55,23 +55,32 @@ public class PlayerScript : MonoBehaviour {
             Debug.Log("Antibiotic");
             TakeDamageAntibiotic();
 
-            leftControllerButtonTrigger.Vibrate(500);
-            rightControllerButtonTrigger.Vibrate(500);
+            leftControllerButtonTrigger.VibrateForSomethingBad();
+            rightControllerButtonTrigger.VibrateForSomethingBad();
         }
         else if (other.CompareTag("BadBacteria"))
         {
             Debug.Log("BadBacteria");
             TakeDamageBacteria();
+
+            leftControllerButtonTrigger.VibrateForSomethingBad();
+            rightControllerButtonTrigger.VibrateForSomethingBad();
         }
         else if (other.CompareTag("Projectile"))
         {
             Debug.Log("Projectile");
             TakeDamageProjectile();
+
+            leftControllerButtonTrigger.VibrateForSomethingBad();
+            rightControllerButtonTrigger.VibrateForSomethingBad();
         }
         else
         {
             Debug.Log("Health");
             GainHealth();
+
+            leftControllerButtonTrigger.VibrateForSomethingGood();
+            rightControllerButtonTrigger.VibrateForSomethingGood();
         }
 
         // Other is destroyed -- handled in Bacteria Scripts
