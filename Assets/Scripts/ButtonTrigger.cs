@@ -9,6 +9,8 @@ using VRTK;
 
 // Button detection based on https://unity3d.college/2016/11/16/steamvr-controller-input/
 
+// This is called from TentacleSegment and PlayerScript to handle controller vibration
+
 public class ButtonTrigger : MonoBehaviour
 {
     public Tentacle tentacle;
@@ -16,7 +18,7 @@ public class ButtonTrigger : MonoBehaviour
     public AudioClip[] retractSounds;
 
     // This is just used for testing vibrations out
-    public AudioClip[] vibrationTestPatterns;
+    public AudioClip[] vibrationTests;
 
     private AudioSource audioSource;
 
@@ -27,18 +29,21 @@ public class ButtonTrigger : MonoBehaviour
 
     // lengthInMicroseconds may need to be in the range 1-3999 according to answers.unity.com
     // but if i look into how TriggerHapticPulse is defined, it seems to actually get cast to a (char) 
-    //
-    // This is called from TentacleSegment and PlayerScript 
     public void Vibrate(ushort lengthInMicroseconds)
     {
         // if running without headset
         if (_controller == null)
             return;
 
-        // There are lots of variations on TriggerHapticPulse
+        Debug.Log("Vibration for " + (lengthInMicroseconds / 1000f) + " milliseconds");
         VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(_controller.controllerIndex), 1f, 0.5f, 0.01f);
     }
 
+    public void VibrateAudioClip(AudioClip audioClip)
+    {
+        Debug.Log("Vibration using audioclip " + audioClip.name);
+        VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(_controller.controllerIndex), audioClip);
+    }
 
     void Update()
     {
@@ -47,6 +52,64 @@ public class ButtonTrigger : MonoBehaviour
         {
             ExtendTentacle();
             isExtended = true;
+        }
+
+        // if running without headset
+        if (_controller == null)
+            return;
+
+        // This is just used for testing vibrations out
+        if (Input.GetKeyDown("="))
+        {
+            Vibrate(500);
+        }
+        else if (Input.GetKeyDown("1"))
+        {
+            VibrateAudioClip(vibrationTests[0]);
+        }
+        else if (Input.GetKeyDown("2"))
+        {
+            VibrateAudioClip(vibrationTests[1]);
+        }
+        else if (Input.GetKeyDown("3"))
+        {
+            VibrateAudioClip(vibrationTests[2]);
+        }
+        else if (Input.GetKeyDown("4"))
+        {
+            VibrateAudioClip(vibrationTests[3]);
+        }
+        else if (Input.GetKeyDown("5"))
+        {
+            VibrateAudioClip(vibrationTests[4]);
+        }
+        else if (Input.GetKeyDown("6"))
+        {
+            VibrateAudioClip(vibrationTests[5]);
+        }
+        else if (Input.GetKeyDown("7"))
+        {
+            VibrateAudioClip(vibrationTests[6]);
+        }
+        else if (Input.GetKeyDown("8"))
+        {
+            VibrateAudioClip(vibrationTests[7]);
+        }
+        else if (Input.GetKeyDown("9"))
+        {
+            VibrateAudioClip(vibrationTests[8]);
+        }
+        else if (Input.GetKeyDown("0"))
+        {
+            VibrateAudioClip(vibrationTests[9]);
+        }
+        else if (Input.GetKeyDown("-"))
+        {
+            VibrateAudioClip(vibrationTests[10]);
+        }
+        else if (Input.GetKeyDown("\\"))
+        {
+            VibrateAudioClip(vibrationTests[11]);
         }
     }
 
