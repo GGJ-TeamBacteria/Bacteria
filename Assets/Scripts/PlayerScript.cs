@@ -54,6 +54,9 @@ public class PlayerScript : MonoBehaviour {
         {
             Debug.Log("Antibiotic");
             TakeDamageAntibiotic();
+
+            leftControllerButtonTrigger.Vibrate(500);
+            rightControllerButtonTrigger.Vibrate(500);
         }
         else if (other.CompareTag("BadBacteria"))
         {
