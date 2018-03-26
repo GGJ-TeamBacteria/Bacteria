@@ -24,6 +24,8 @@ public class ButtonTrigger : MonoBehaviour
 
     // lengthInMicroseconds may need to be in the range 1-3999 according to answers.unity.com
     // but if i look into how TriggerHapticPulse is defined, it seems to actually get cast to a (char) 
+    //
+    // This is called from TentacleSegment and PlayerScript 
     public void Vibrate(ushort lengthInMicroseconds)
     {
         // if running without headset

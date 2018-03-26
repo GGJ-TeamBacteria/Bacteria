@@ -310,7 +310,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -495,6 +495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_health: 5
+  gainHealthPerBacteria: 2
   player_health_gain: {fileID: 8300000, guid: 7dc63a4303db6bb4ca82e00e0894a0dc, type: 3}
   player_health_lose: {fileID: 8300000, guid: 3fbdc4e29929a154f86a8715e10a2673, type: 3}
   player_damage1: {fileID: 8300000, guid: 5f544e8719f1ef243a3a2cbc7849a261, type: 3}
@@ -502,6 +503,8 @@ MonoBehaviour:
   player_damage3: {fileID: 8300000, guid: e15fcf693cf67f84aa8bce01af875c64, type: 3}
   player_damage4: {fileID: 8300000, guid: 5c2c5ea9d9a876a42bb1473dcc0bd7cf, type: 3}
   lowHealthWarning: {fileID: 1612034408}
+  leftControllerButtonTrigger: {fileID: 747590533}
+  rightControllerButtonTrigger: {fileID: 1206302466}
 --- !u!82 &573407826
 AudioSource:
   m_ObjectHideFlags: 0

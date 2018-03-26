@@ -18,6 +18,12 @@ public class PlayerScript : MonoBehaviour {
     public AudioClip player_damage4;
     public GameObject lowHealthWarning;
 
+    // This is used for vibration so it can always refer to the SteamVR controller objects' ButtonTrigger.
+    // When using the VRTK simulator, we don't need to point this to the simulated controllers' ButtonTrigger
+    // since there is no simulation of vibration.
+    public ButtonTrigger leftControllerButtonTrigger;
+    public ButtonTrigger rightControllerButtonTrigger;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();

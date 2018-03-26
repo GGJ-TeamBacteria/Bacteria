@@ -13,6 +13,9 @@ public class Tentacle : MonoBehaviour
     public float tenticalExtendingSpeed;
     public GameObject playerGameObject;
 
+    // This is used for vibration so it can always refer to the SteamVR controller object's ButtonTrigger.
+    // When using the VRTK simulator, we don't need to point this to the simulated controller's ButtonTrigger
+    // since there is no simulation of vibration.
     public ButtonTrigger buttonTrigger;
 
     internal PlayerScript playerRef;
