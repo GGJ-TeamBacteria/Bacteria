@@ -15,6 +15,9 @@ public class ButtonTrigger : MonoBehaviour
     public AudioClip[] stretchAttackSounds;
     public AudioClip[] retractSounds;
 
+    // This is just used for testing vibrations out
+    public AudioClip[] vibrationTestPatterns;
+
     private AudioSource audioSource;
 
     private bool isExtended = false;
@@ -37,42 +40,14 @@ public class ButtonTrigger : MonoBehaviour
     }
 
 
-    private void Start()
-    {        
-    }
-
     void Update()
     {
-        // For testing without a VR system
-        if (Input.GetKeyDown("1"))
+        // Make tentacle auto-extend at start of level
+        if (!isExtended && Time.timeSinceLevelLoad > 0.5)
         {
-            Debug.Log("extend tentacle based on keypress 1");
             ExtendTentacle();
+            isExtended = true;
         }
-        else if (Input.GetKeyDown("2"))
-        {
-            Debug.Log("retract tentacle based on keypress 2");
-            RetractTentacle();
-        }
-    }
-
-    private void OnEnable()
-    {
-        // if running without headset
-        if (_controller == null)
-            return;
-
-        _controller = GetComponent<SteamVR_TrackedController>();
-        _controller.TriggerClicked += HandleTriggerClicked;
-    }
-
-    private void OnDisable()
-    {
-        // if running without headset
-        if (_controller == null)
-            return;
-
-        _controller.TriggerClicked -= HandleTriggerClicked;
     }
 
     private void ExtendTentacle()
@@ -88,31 +63,55 @@ public class ButtonTrigger : MonoBehaviour
         tentacle.OnPlayerStretchMortion(transform, reachDirection);
     }
 
+    // We decided not to allow extending/retracting the tentacle
+    //private void OnEnable()
+    //{
+    //    // if running without headset
+    //    if (_controller == null)
+    //        return;
+
+    //    _controller = GetComponent<SteamVR_TrackedController>();
+    //    _controller.TriggerClicked += HandleTriggerClicked;
+    //}
+
+    //private void OnDisable()
+    //{
+    //    // if running without headset
+    //    if (_controller == null)
+    //        return;
+
+    //    _controller.TriggerClicked -= HandleTriggerClicked;
+    //}
+
     private void RetractTentacle()
     {
-        audioSource = GetComponent<AudioSource>();
-        AudioClip retractSound = retractSounds[Random.Range(0, retractSounds.Length)];
-        audioSource.PlayOneShot(retractSound);
+        // We decided not to allow retracting the tentacle 
+        Debug.Log("tentacle retraction disabled");
 
-        Debug.Log("ButtonTrigger retracting tentacle");
-        tentacle.OnPlayerShrinkMortion();
+        //audioSource = GetComponent<AudioSource>();
+        //AudioClip retractSound = retractSounds[Random.Range(0, retractSounds.Length)];
+        //audioSource.PlayOneShot(retractSound);
+
+        //Debug.Log("ButtonTrigger retracting tentacle");
+        //tentacle.OnPlayerShrinkMortion();
     }
 
-    private void HandleTriggerClicked(object sender, ClickedEventArgs e)
-    {
-        Debug.Log("Controller trigger clicked");
+    // We decided not to allow retracting the tentacle
+    //private void HandleTriggerClicked(object sender, ClickedEventArgs e)
+    //{
+    //    Debug.Log("Controller trigger clicked");
 
-        if (isExtended)
-        {
-            RetractTentacle();
-            isExtended = false;
-        }
-        else
-        {
-            ExtendTentacle();
-            isExtended = true;
-        }
-        //       spawnedPrimitive.transform.position = transform.position;
-        //       spawnedPrimitive.transform.rotation = transform.rotation;
-    }
+    //    if (isExtended)
+    //    {
+    //        RetractTentacle();
+    //        isExtended = false;
+    //    }
+    //    else
+    //    {
+    //        ExtendTentacle();
+    //        isExtended = true;
+    //    }
+    //    //       spawnedPrimitive.transform.position = transform.position;
+    //    //       spawnedPrimitive.transform.rotation = transform.rotation;
+    //}
 }
