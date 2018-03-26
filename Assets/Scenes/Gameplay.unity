@@ -377,7 +377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   armPrefab: {fileID: 114208235255299224, guid: 3bdfdba51d36e1c44a96f3de57af9906,
     type: 2}
-  maxArmLength: 25
+  maxArmLength: 100
   distanceOfTentacles: 0.15
   currentSpeed: 3
   rotationSpeed: 3
@@ -1088,7 +1088,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   armPrefab: {fileID: 114208235255299224, guid: 3bdfdba51d36e1c44a96f3de57af9906,
     type: 2}
-  maxArmLength: 25
+  maxArmLength: 100
   distanceOfTentacles: 0.15
   currentSpeed: 3
   rotationSpeed: 3
