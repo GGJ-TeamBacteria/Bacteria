@@ -55,7 +55,7 @@ public class Tentacle : MonoBehaviour
 
         int currentHealth = playerRef.GetHealth();
 
-        int nextMaxLength = (int)(currentHealth * 1.5f);
+        int nextMaxLength = (int)(currentHealth * 1.2f);
         if (nextMaxLength <= maxArmLength)
         {
             currentMaxLength = nextMaxLength;
