@@ -17,12 +17,13 @@ public class TentacleSegment : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Antibiotic"))
+        if (other.CompareTag("PowerUp"))
         {
-            rootTentacle.buttonTrigger.VibrateForSomethingBad();
+            PowerUp gainedPowerUp = other.GetComponent<PowerUp>();
 
-            // Tell player to take damage from Antibiotic
-            rootTentacle.playerRef.TakeDamageAntibiotic();
+            // TODO: uncomment after implemented power up
+            //gainedPowerUp.Affect(Tentacle);
+
         }
         else if (other.CompareTag("BadBacteria"))
         {
