@@ -86,7 +86,7 @@ public class TentacleSegment : MonoBehaviour {
 
         isAnimating = false;
     }
-    float getSpeed()
+    public float getSpeed()
     {
         return speed;
     }
