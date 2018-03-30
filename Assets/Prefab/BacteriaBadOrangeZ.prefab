@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 4285713842976524}
   - component: {fileID: 114688318699716350}
   - component: {fileID: 114649216522096554}
+  - component: {fileID: 114128841510060278}
   - component: {fileID: 114161610584034278}
   - component: {fileID: 54549598885736474}
   - component: {fileID: 135137534968801420}
@@ -557,6 +558,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114128841510060278
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392160727420862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c7b4eca5f717490ea08ae60360d8311, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  sound: {fileID: 0}
 --- !u!114 &114161610584034278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -576,7 +590,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1392160727420862}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9047f5f66ed114fb08ecd549cfe685f2, type: 3}
   m_Name: 
@@ -605,7 +619,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1392160727420862}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.055103302
