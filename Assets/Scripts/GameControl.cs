@@ -41,6 +41,7 @@ public class GameControl : MonoBehaviour {
     {
 		for (int i = 0; i < maxHazard; i++)
         {
+            SpawnNewBacteria(BacteriaGood);
             SpawnNewBacteria(PowerUpExtend);
             SpawnNewBacteria(PowerUpHealth);
             SpawnNewBacteria(PowerUpSuper);
