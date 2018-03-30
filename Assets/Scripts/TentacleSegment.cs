@@ -11,14 +11,16 @@ public class TentacleSegment : MonoBehaviour {
     {
         if (other.CompareTag("Antibiotic"))
         {
-            rootTentacle.buttonTrigger.VibrateForSomethingBad();
+            // we decided to only vibrate for body hits not tentacle hits.
+            // hard to make tentacle hits feel natural, maybe because tentacle extends so far from controller.
+            // rootTentacle.buttonTrigger.VibrateForSomethingBad();
 
             // Tell player to take damage from Antibiotic
             rootTentacle.playerRef.TakeDamageAntibiotic();
         }
         else if (other.CompareTag("BadBacteria"))
         {
-            rootTentacle.buttonTrigger.VibrateForSomethingBad();
+            //rootTentacle.buttonTrigger.VibrateForSomethingBad();
 
             // Tell player to take damage from BadBacteria
             StartCoroutine("AttackedAnimation");
@@ -28,7 +30,6 @@ public class TentacleSegment : MonoBehaviour {
         }
         else if (other.CompareTag("GoodBacteria"))
         {
-            rootTentacle.buttonTrigger.VibrateForSomethingGood();
             StartCoroutine("AbsorbingAnimation");
 
             //Call GainHealth() from Player
@@ -38,7 +39,6 @@ public class TentacleSegment : MonoBehaviour {
         }
         else if (other.CompareTag("HeartWin"))
         {
-            rootTentacle.buttonTrigger.VibrateForSomethingGood();
             Destroy(other.gameObject);
         }
     }
