@@ -6,7 +6,9 @@ public class BacteriaShootProjectil : MonoBehaviour {
 	public int chanceOfFire; //out of 100. The percentage of shooting per wait time
 	public float waveWait;
 	public GameObject projectile;
+    public Transform projectileSpawn;
 	private float dice;
+   
 	void Start () {
 		StartCoroutine (Shoot ());
 	}
@@ -19,7 +21,7 @@ public class BacteriaShootProjectil : MonoBehaviour {
 
 			dice = Random.Range (-chanceOfFire, 100 - chanceOfFire);
 			if (dice < 0) {
-				Instantiate (projectile, transform.position, Quaternion.identity);
+				Instantiate (projectile, projectileSpawn.position, Quaternion.identity);
 			}
 		}
 	}

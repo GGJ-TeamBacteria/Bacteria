@@ -17,11 +17,11 @@ public class BounceByTentacles : MonoBehaviour {
     //detect collison
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Tentacle")
-        {
-            Debug.Log("Projectil hit tentacles");
-            Vector3 forceVector = GetComponent<Transform>().position - other.GetComponent<Transform>().position;
-            GetComponent<Rigidbody>().velocity = forceVector * Time.deltaTime * strength * other.GetComponent<TentacleSegment>().getSpeed();
-        }
+        //if (other.tag == "Tentacle")
+        //{
+        //    Debug.Log("Projectil hit tentacles");
+        //    Vector3 forceVector = GetComponent<Transform>().position - other.GetComponent<Transform>().position;
+        //    GetComponent<Rigidbody>().velocity = forceVector * Time.deltaTime * strength * other.GetComponent<TentacleSegment>().getSpeed();
+        //}
     }
 }

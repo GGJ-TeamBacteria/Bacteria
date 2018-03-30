@@ -668,9 +668,9 @@ GameObject:
   - component: {fileID: 114680337461396860}
   - component: {fileID: 114281161361647262}
   - component: {fileID: 82807583429833638}
-  - component: {fileID: 54874574890699420}
   - component: {fileID: 114455172619003642}
   - component: {fileID: 136090763017426750}
+  - component: {fileID: 54673286046199548}
   m_Layer: 0
   m_Name: ShootBacteria
   m_TagString: BadBacteria
@@ -1245,6 +1245,21 @@ GameObject:
   - component: {fileID: 4271169790268270}
   m_Layer: 0
   m_Name: transform89
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1749457306702062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4283448290865944}
+  m_Layer: 0
+  m_Name: Projectil Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2026,6 +2041,19 @@ Transform:
   m_Father: {fileID: 4016131680627506}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4283448290865944
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1749457306702062}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -2.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4825207772349856}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4286364082249810
 Transform:
   m_ObjectHideFlags: 1
@@ -2784,6 +2812,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4725500810525046}
+  - {fileID: 4283448290865944}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3106,7 +3135,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1688943436126774}
   m_Mesh: {fileID: 4300000, guid: 20c3d131d7f789b47858a355e9e0b6b8, type: 3}
---- !u!54 &54874574890699420
+--- !u!54 &54673286046199548
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -3115,7 +3144,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -3232,6 +3261,7 @@ MonoBehaviour:
   chanceOfFire: 15
   waveWait: 1
   projectile: {fileID: 1751223561606040, guid: b2ee485bd64444f1db8fd7f124d2eebb, type: 2}
+  projectileSpawn: {fileID: 4283448290865944}
 --- !u!114 &114455172619003642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3244,6 +3274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSources: []
+  destroyVFX: {fileID: 0}
 --- !u!114 &114680337461396860
 MonoBehaviour:
   m_ObjectHideFlags: 1
