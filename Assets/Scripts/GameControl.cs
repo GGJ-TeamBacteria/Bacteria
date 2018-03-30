@@ -10,6 +10,9 @@ public class GameControl : MonoBehaviour {
     public GameObject Antibiotic;
 	public GameObject BacteriaShoot;
     public GameObject Heart;
+    public GameObject PowerUpExtend;
+    public GameObject PowerUpSuper;
+    public GameObject PowerUpHealth;
 
     public int numOfBacteria; //total number of bad and good bacteria to start.
     public int ratioDifficulty; //how many good bacteria spawn with every one bad bacteria
@@ -38,8 +41,10 @@ public class GameControl : MonoBehaviour {
     {
 		for (int i = 0; i < maxHazard; i++)
         {
-            SpawnNewBacteria(BacteriaGood);
-		}
+            SpawnNewBacteria(PowerUpExtend);
+            SpawnNewBacteria(PowerUpHealth);
+            SpawnNewBacteria(PowerUpSuper);
+        }
 	}
 	void StartBacteriaBad(int maxHazard) {
 
