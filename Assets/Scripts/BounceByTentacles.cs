@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BounceByTentacles : MonoBehaviour {
+    float strength = 100;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +21,8 @@ public class BounceByTentacles : MonoBehaviour {
         {
             Debug.Log("Projectil hit tentacles");
             Vector3 forceVector = GetComponent<Transform>().position - other.GetComponent<Transform>().position;
-            GetComponent<Rigidbody>().velocity = forceVector * Time.deltaTime * 500;
+            Vector3 forceUnitVector = forceVector.normalized();
+            GetComponent<Rigidbody>().velocity = forceUnitVector * Time.deltaTime * strength;
         }
     }
 }
