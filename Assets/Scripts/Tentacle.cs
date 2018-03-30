@@ -12,6 +12,7 @@ public class Tentacle : MonoBehaviour
     public float minDisBetweenArmParts;
     public float tenticalExtendingSpeed;
     public GameObject playerGameObject;
+    public int superLongLength = 100;
 
     // This is used for vibration so it can always refer to the SteamVR controller object's ButtonTrigger.
     // When using the VRTK simulator, we don't need to point this to the simulated controller's ButtonTrigger
@@ -36,7 +37,7 @@ public class Tentacle : MonoBehaviour
     void Update()
     {
         // Change the max length depends on player health
-        CalcMaxLength();
+        AdjustLength();
 
         // Move the first segment towards controller movement
         MoveHand();
@@ -48,28 +49,19 @@ public class Tentacle : MonoBehaviour
     /// <summary>
     ///  Change the max length depends on player health
     /// </summary>
-    public void CalcMaxLength()
+    public void AdjustLength()
     {
         if (isShrinking)
             return;
 
-        int currentHealth = playerRef.GetHealth();
-
-        int nextMaxLength = (int)(currentHealth * 1.2f);
-        if (nextMaxLength <= maxArmLength)
-        {
-            currentMaxLength = nextMaxLength;
-        }
-
-        // Longer than max length
         if (armParts.Count > currentMaxLength)
         {
+            // Longer than max length
             Shorten(1);
         }
-
-        // Shorter than max length
-        if (armParts.Count > 0 && armParts.Count < currentMaxLength)
+        else if (armParts.Count > 0 && armParts.Count < currentMaxLength)
         {
+            // Shorter than max length
             // spawn the segment after the furthest segment
             Transform spawnPoint = armParts[armParts.Count - 1].transform;
             Vector3 direction = controller.forward;
@@ -124,7 +116,6 @@ public class Tentacle : MonoBehaviour
     public void OnPlayerShrinkMortion()
     {
         autoExtend = false;
-        //   print("set isShrinking true");
         isShrinking = true;
         Shorten(armParts.Count);
         isShrinking = false;
@@ -195,10 +186,37 @@ public class Tentacle : MonoBehaviour
     {
         return prevLocation + direction * distanceOfTentacles;
     }
-    
+
     // Power UP
 
-    public void ExtendMaxLength(int length) { }
-    public void PowerUpSuper(float duration) { }
-    public void PowerUpHealth(float duration) { }
+    public void ExtendMaxLength(int length)
+    {
+        // extend the tentacle parmanently
+        maxArmLength += length;
+
+        // extend the tentacle current length as well ( it can be longer than max length when it got power up )
+        currentMaxLength += length;
+    }
+
+    public void PowerUpSuper(float duration) {
+        StartCoroutine("ExtendLengthTemporary", duration);
+    }
+    public void PowerUpHealth(float duration) {
+        StartCoroutine("IncreaseHealthTemporary", duration);
+    }
+
+    IEnumerable ExtendLengthTemporary(float duration)
+    {
+        currentMaxLength = superLongLength;
+        yield return new WaitForSeconds(duration);
+        currentMaxLength = maxArmLength;
+    }
+
+    IEnumerable IncreaseHealthTemporary(float duration)
+    {
+        currentMaxLength = superLongLength;
+        yield return new WaitForSeconds(duration);
+        currentMaxLength = maxArmLength;
+    }
+
 }
