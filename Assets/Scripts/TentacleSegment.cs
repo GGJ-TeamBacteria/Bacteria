@@ -24,9 +24,9 @@ public class TentacleSegment : MonoBehaviour {
             // rootTentacle.buttonTrigger.VibrateForSomethingBad();
 
             PowerUp gainedPowerUp = other.GetComponent<PowerUp>();
-
-            // TODO: uncomment after implemented power up
-            //gainedPowerUp.Affect(Tentacle);
+            
+            // Get the gained power up effect
+            gainedPowerUp.AffectPlayer(rootTentacle);
         }
         else if (other.CompareTag("BadBacteria"))
         {
