@@ -32,9 +32,12 @@ public class GestureTrigger : MonoBehaviour
         print("model = '" + model + "'");
         if (model.IndexOf("Vive") >= 0)
         {
-                print("vive detected");
                 vive = true;
-        }        
+        }
+        if (vive)
+        {
+            print("vive detected");
+        }
     }
 
     // Update is called once per frame

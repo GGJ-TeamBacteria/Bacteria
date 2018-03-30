@@ -78,9 +78,6 @@ public class PlayerScript : MonoBehaviour {
         {
             Debug.Log("Health");
             GainHealth();
-
-            leftControllerButtonTrigger.VibrateForSomethingGood();
-            rightControllerButtonTrigger.VibrateForSomethingGood();
         }
 
         // Other is destroyed -- handled in Bacteria Scripts

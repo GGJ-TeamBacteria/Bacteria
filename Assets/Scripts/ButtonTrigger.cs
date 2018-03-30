@@ -26,20 +26,11 @@ public class ButtonTrigger : MonoBehaviour
 
     private SteamVR_TrackedController _controller;
 
-
-    public void VibrateForSomethingGood()
-    {
-        if (_controller == null)
-        {
-            Debug.Log("VibrateForSomethingGood not vibrating since no headset found");
-            return;
-        }
-
-        VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(_controller.controllerIndex), 0.5f, 0.1f, 0.01f);
-    }
-
+    // When player takes damage
     public void VibrateForSomethingBad()
     {
+        Debug.Log("Vibrating controllers since player lost health");
+
         if (_controller == null)
         {
             Debug.Log("VibrateForSomethingBad not vibrating since no headset found");
@@ -75,10 +66,6 @@ public class ButtonTrigger : MonoBehaviour
 
         // This is just used for testing vibrations out
         if (Input.GetKeyDown("1"))
-        {
-            VibrateForSomethingGood();
-        }
-        else if (Input.GetKeyDown("2"))
         {
             VibrateForSomethingBad();
         }
