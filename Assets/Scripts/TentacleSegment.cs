@@ -6,8 +6,8 @@ public class TentacleSegment : MonoBehaviour {
 
     internal Tentacle rootTentacle;
     private bool isAnimating;
-    Vector3 lastPosition = Vector3.zero;
-    float speed;
+    private Vector3 lastPosition = Vector3.zero;
+    private float speed;
 
     void FixedUpdate()
     {
