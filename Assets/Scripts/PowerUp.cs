@@ -6,12 +6,20 @@ public class PowerUp : MonoBehaviour {
 
     public enum PowerUpType { Extend, Super, Health};
 
-    public float m_Duration;
+    // Attribute value varies based on Type
+    // Extend: --
+    // Super: Duration of PowerUp
+    // Health: HP increase
+    public float m_Attribute; 
+
     public PowerUpType m_type;
 
 	// Use this for initialization
 	void Start () {
-		
+		if (m_type == PowerUpType.Extend)
+        {
+            m_Attribute = 0;
+        }
 	}
 	
 	// Update is called once per frame
@@ -19,9 +27,9 @@ public class PowerUp : MonoBehaviour {
 		
 	}
 
-    public float GetDuration()
+    public float GetAttribute()
     {
-        return m_Duration;
+        return m_Attribute;
     }
 
     public PowerUpType GetPowerUpType()
@@ -33,4 +41,5 @@ public class PowerUp : MonoBehaviour {
     {
         m_type = type;
     }
+   
 }
