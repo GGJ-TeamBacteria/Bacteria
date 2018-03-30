@@ -6,6 +6,14 @@ public class TentacleSegment : MonoBehaviour {
 
     internal Tentacle rootTentacle;
     private bool isAnimating;
+    Vector3 lastPosition = Vector3.zero;
+    float speed;
+
+    void FixedUpdate()
+    {
+        speed = (transform.position - lastPosition).magnitude;
+        lastPosition = transform.position;
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -77,6 +85,10 @@ public class TentacleSegment : MonoBehaviour {
         gameObject.transform.localScale *= 2.0f;
 
         isAnimating = false;
+    }
+    float getSpeed()
+    {
+        return speed;
     }
 }
 
