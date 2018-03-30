@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 82886859468819490}
   - component: {fileID: 114173613241764150}
   - component: {fileID: 135996395856651932}
-  - component: {fileID: 114052668288693588}
+  - component: {fileID: 114444462821100582}
   m_Layer: 0
-  m_Name: PowerUpExtend
+  m_Name: PowerUpHealth
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,10 +144,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 32415c512702a5841a28dc070acb89fc, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.31
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -231,19 +231,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114052668288693588
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1699311075652964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a28c386d9fd027c428397e1e20618f4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Attribute: 0
-  m_type: 0
 --- !u!114 &114173613241764150
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -257,6 +244,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSources: []
   destroyVFX: {fileID: 0}
+--- !u!114 &114444462821100582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1699311075652964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5430d3e0c5b6034d8744f1b3179b237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Health: 1
 --- !u!114 &114763483789312418
 MonoBehaviour:
   m_ObjectHideFlags: 1
