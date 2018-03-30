@@ -13,6 +13,7 @@ public class Tentacle : MonoBehaviour
     public float tenticalExtendingSpeed;
     public GameObject playerGameObject;
     public int superLongLength = 100;
+    public int minLength = 10;
 
     // This is used for vibration so it can always refer to the SteamVR controller object's ButtonTrigger.
     // When using the VRTK simulator, we don't need to point this to the simulated controller's ButtonTrigger
@@ -31,6 +32,7 @@ public class Tentacle : MonoBehaviour
     {
         armParts = new List<TentacleSegment>();
         playerRef = playerGameObject.GetComponentInChildren<PlayerScript>();
+        currentMaxLength = minLength;
     }
 
     // Update is called once per frame
@@ -61,11 +63,15 @@ public class Tentacle : MonoBehaviour
         }
         else if (armParts.Count > 0 && armParts.Count < currentMaxLength)
         {
-            // Shorter than max length
+            // Shorter than current max length
             // spawn the segment after the furthest segment
             Transform spawnPoint = armParts[armParts.Count - 1].transform;
             Vector3 direction = controller.forward;
             Extend(spawnPoint, direction);
+        }
+        else if (armParts.Count < minLength)
+        {
+            currentMaxLength = minLength;
         }
     }
 
