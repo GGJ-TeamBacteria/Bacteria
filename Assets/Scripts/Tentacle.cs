@@ -195,4 +195,10 @@ public class Tentacle : MonoBehaviour
     {
         return prevLocation + direction * distanceOfTentacles;
     }
+    
+    // Power UP
+
+    public void ExtendMaxLength(int length) { }
+    public void PowerUpSuper(float duration) { }
+    public void PowerUpHealth(float duration) { }
 }

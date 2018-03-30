@@ -6,17 +6,27 @@ public class TentacleSegment : MonoBehaviour {
 
     internal Tentacle rootTentacle;
     private bool isAnimating;
+    Vector3 lastPosition = Vector3.zero;
+    float speed;
+
+    void FixedUpdate()
+    {
+        speed = (transform.position - lastPosition).magnitude;
+        lastPosition = transform.position;
+    }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Antibiotic"))
+        if (other.CompareTag("PowerUp"))
         {
             // we decided to only vibrate for body hits not tentacle hits.
             // hard to make tentacle hits feel natural, maybe because tentacle extends so far from controller.
             // rootTentacle.buttonTrigger.VibrateForSomethingBad();
 
-            // Tell player to take damage from Antibiotic
-            rootTentacle.playerRef.TakeDamageAntibiotic();
+            PowerUp gainedPowerUp = other.GetComponent<PowerUp>();
+
+            // TODO: uncomment after implemented power up
+            //gainedPowerUp.Affect(Tentacle);
         }
         else if (other.CompareTag("BadBacteria"))
         {
@@ -77,6 +87,10 @@ public class TentacleSegment : MonoBehaviour {
         gameObject.transform.localScale *= 2.0f;
 
         isAnimating = false;
+    }
+    public float getSpeed()
+    {
+        return speed;
     }
 }
 
