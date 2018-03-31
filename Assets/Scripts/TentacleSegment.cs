@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TentacleSegment : MonoBehaviour {
+public class TentacleSegment : PoolableBehaviour
+{
 
     internal Tentacle rootTentacle;
     private bool isAnimating;
@@ -84,6 +85,15 @@ public class TentacleSegment : MonoBehaviour {
     public float getSpeed()
     {
         return speed;
+    }
+
+    protected override void OnPoolableEnable()
+    {
+    }
+
+    // to reset the velocity the object still have
+    protected override void OnPoolableDisable()
+    {
     }
 }
 

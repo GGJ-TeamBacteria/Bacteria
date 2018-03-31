@@ -12,7 +12,7 @@ public class Tentacle : MonoBehaviour
     public float minDisBetweenArmParts;
     public float tenticalExtendingSpeed;
     public GameObject playerGameObject;
-    public int superLongLength = 100;
+    public int superLongLength = 60;
     public int minLength = 10;
 
     // This is used for vibration so it can always refer to the SteamVR controller object's ButtonTrigger.
@@ -22,15 +22,16 @@ public class Tentacle : MonoBehaviour
 
     internal PlayerScript playerRef;
     private int currentMaxLength;
-    private List<TentacleSegment> armParts;
+    private List<PoolableBehaviour> armParts;
     private Transform controller;
     private bool isShrinking;
     private bool autoExtend;
+    private bool isExtendLengthRunning;
 
     // Use this for initialization
     void Start()
     {
-        armParts = new List<TentacleSegment>();
+        armParts = new List<PoolableBehaviour>();
         playerRef = playerGameObject.GetComponentInChildren<PlayerScript>();
         currentMaxLength = minLength;
     }
@@ -86,11 +87,10 @@ public class Tentacle : MonoBehaviour
         {
             if (armParts.Count > 1)
             {
-             //   print("destroying arm segment");
-                TentacleSegment target = armParts[armParts.Count - 1];
-
+                //   print("destroying arm segment");
+                PoolableBehaviour target = armParts[armParts.Count - 1];
                 armParts.Remove(target);
-                Destroy(target.gameObject);
+                target.SetActive(false);
             }
         }
     }
@@ -138,9 +138,15 @@ public class Tentacle : MonoBehaviour
             return;
 
         //print("tenatcle Extend");
-        TentacleSegment currentSegment = Instantiate(armPrefab, GetSegmentLocation(spawnPoint.position, direction), spawnPoint.rotation);
+        //TentacleSegment currentSegment = Instantiate(armPrefab, GetSegmentLocation(spawnPoint.position, direction), spawnPoint.rotation);
+
+        PoolableBehaviour currentSegment = PoolManager.instance.GetObjectFromPool(armPrefab);
+
+        // reset the position of the obj
+        currentSegment.transform.position = Vector3.zero;
+
         armParts.Add(currentSegment);
-        currentSegment.rootTentacle = this;
+        (currentSegment as TentacleSegment).rootTentacle = this;
 
     }
 
@@ -205,7 +211,8 @@ public class Tentacle : MonoBehaviour
     }
 
     public void PowerUpSuper(float duration) {
-        StartCoroutine("ExtendLengthTemporary", duration);
+        if (!isExtendLengthRunning)
+            StartCoroutine("ExtendLengthTemporary", duration);
     }
     public void PowerUpHealth(int health) {
         playerRef.GainHealth(health);
@@ -213,9 +220,11 @@ public class Tentacle : MonoBehaviour
 
     IEnumerator ExtendLengthTemporary(float duration)
     {
+        isExtendLengthRunning = true;
         currentMaxLength = superLongLength;
         yield return new WaitForSeconds(duration);
         currentMaxLength = maxArmLength;
+        isExtendLengthRunning = false;
     }
 
 }
