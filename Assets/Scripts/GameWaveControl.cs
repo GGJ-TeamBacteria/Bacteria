@@ -27,7 +27,7 @@ public class GameWaveControl : MonoBehaviour {
 
     private GameObject[] listOfBacterias;
 
-    private TextMesh waveStatusReadout;
+    public TextMesh waveStatusReadout;
 
     // Use this for initialization
     void Start () {
@@ -66,6 +66,8 @@ public class GameWaveControl : MonoBehaviour {
 
         for (int level = 1; level < NUMBER_OF_WAVE; level++)
         {
+            waveStatusReadout.text = "WAVE: " + level + "/" + NUMBER_OF_WAVE;
+
             //start of each wave
             startTime = Time.time - 2.0f;
             currentTime = Time.time;

@@ -366,6 +366,7 @@ MonoBehaviour:
   BacteriaShooter: {fileID: 1398765135925952, guid: ddfe785c77e1c49b492dbfbf5f92cf94,
     type: 2}
   worldSize: {x: 10, y: 10, z: 10}
+  waveStatusReadout: {fileID: 1096404231}
 --- !u!1 &286648828 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1587602180963074, guid: 1ca15cdb0430a854e8da4f12d5758071,
