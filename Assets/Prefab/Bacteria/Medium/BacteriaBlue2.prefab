@@ -3220,7 +3220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552291c1f689244a4801d4ea8889bc3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSources: []
+  audioSources:
+  - {fileID: 1149505159905694, guid: 92d9b02f38385e6419d92a8a5097df0c, type: 2}
   destroyVFX: {fileID: 1627543116356416, guid: ed98ae91fc81a7e45b5c2907fe794d84, type: 2}
 --- !u!114 &114400550799386356
 MonoBehaviour:

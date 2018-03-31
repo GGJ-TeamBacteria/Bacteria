@@ -9,31 +9,31 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1561603173900224}
+  m_RootGameObject: {fileID: 1341174125754842}
   m_IsPrefabParent: 1
---- !u!1 &1561603173900224
+--- !u!1 &1341174125754842
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4266382243761736}
-  - component: {fileID: 82104931834328462}
-  - component: {fileID: 114140237487008692}
+  - component: {fileID: 4801361754204196}
+  - component: {fileID: 82997870217385394}
+  - component: {fileID: 114985473241339204}
   m_Layer: 0
-  m_Name: BatDeath2
+  m_Name: BatDeath1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4266382243761736
+--- !u!4 &4801361754204196
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1561603173900224}
+  m_GameObject: {fileID: 1341174125754842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -41,16 +41,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &82104931834328462
+--- !u!82 &82997870217385394
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1561603173900224}
+  m_GameObject: {fileID: 1341174125754842}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6a90399dfc0379d479c1853248bb493d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a6a34bf8e553043478eb056eae4f6392, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -121,12 +121,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114140237487008692
+--- !u!114 &114985473241339204
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1561603173900224}
+  m_GameObject: {fileID: 1341174125754842}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b35fba8a00eb1aa45bb807ceca0a093d, type: 3}

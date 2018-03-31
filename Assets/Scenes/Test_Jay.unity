@@ -295,7 +295,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4848101741007424, guid: 34b66582854a9a5498c982447f230c73, type: 2}
       propertyPath: m_RootOrder
-      value: 19
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 114126107116864472, guid: 34b66582854a9a5498c982447f230c73,
         type: 2}
@@ -638,7 +638,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4041412676945184, guid: f5ad29ba32f4789439f77606d992ce87, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f5ad29ba32f4789439f77606d992ce87, type: 2}
@@ -698,7 +698,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4087705050308640, guid: c9e128589a1352b4c8f41160597c37ff, type: 2}
       propertyPath: m_RootOrder
-      value: 20
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 65506127754715154, guid: c9e128589a1352b4c8f41160597c37ff,
         type: 2}
@@ -802,6 +802,118 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9526e72b63b01423b963da12e4191b6e, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1368298088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1233150640066992, guid: 918504c7b89e0974ea19455b7124805b,
+    type: 2}
+  m_PrefabInternal: {fileID: 2099782170}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1368298090}
+  - component: {fileID: 1368298089}
+  m_Layer: 0
+  m_Name: Bacteria Death 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1368298089
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 82254835904707674, guid: 918504c7b89e0974ea19455b7124805b,
+    type: 2}
+  m_PrefabInternal: {fileID: 2099782170}
+  m_GameObject: {fileID: 1368298088}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a6a34bf8e553043478eb056eae4f6392, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!4 &1368298090
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4072036479511790, guid: 918504c7b89e0974ea19455b7124805b,
+    type: 2}
+  m_PrefabInternal: {fileID: 2099782170}
+  m_GameObject: {fileID: 1368298088}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.8402, y: -9.37231, z: 11.501082}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1566218420
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,7 +1012,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_health: 1
-  gainHealthPerBacteria: 2
   player_health_gain: {fileID: 8300000, guid: 7dc63a4303db6bb4ca82e00e0894a0dc, type: 3}
   player_health_lose: {fileID: 8300000, guid: 3fbdc4e29929a154f86a8715e10a2673, type: 3}
   player_damage1: {fileID: 8300000, guid: d67ea44b96963cf40a10f1bc04e16abd, type: 3}
@@ -908,6 +1019,7 @@ MonoBehaviour:
   player_damage3: {fileID: 8300000, guid: e15fcf693cf67f84aa8bce01af875c64, type: 3}
   player_damage4: {fileID: 8300000, guid: 5f544e8719f1ef243a3a2cbc7849a261, type: 3}
   lowHealthWarning: {fileID: 1993059030}
+  hitboxVisualizer: {fileID: 0}
   leftControllerButtonTrigger: {fileID: 0}
   rightControllerButtonTrigger: {fileID: 0}
 --- !u!82 &1566218426
@@ -1027,7 +1139,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4250897767607504, guid: 346b55b1235fa6a42890d0a59f055b9c, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 135172104814184782, guid: 346b55b1235fa6a42890d0a59f055b9c,
         type: 2}
@@ -1074,7 +1186,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4663621559044736, guid: 93aab6a20b42bd24481d998478bffe90, type: 2}
       propertyPath: m_RootOrder
-      value: 18
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 114091898208550758, guid: 93aab6a20b42bd24481d998478bffe90,
         type: 2}
@@ -1333,7 +1445,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4037427548661324, guid: cf14e49bf992d1841b347ad8703dd592, type: 2}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 136873515376231064, guid: cf14e49bf992d1841b347ad8703dd592,
         type: 2}
@@ -1389,4 +1501,50 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c360aba1678b34c43bbbaded8000e665, type: 3}
+  m_IsPrefabParent: 0
+--- !u!1001 &2099782170
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4072036479511790, guid: 918504c7b89e0974ea19455b7124805b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -10.8402
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072036479511790, guid: 918504c7b89e0974ea19455b7124805b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -9.37231
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072036479511790, guid: 918504c7b89e0974ea19455b7124805b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 11.501082
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072036479511790, guid: 918504c7b89e0974ea19455b7124805b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072036479511790, guid: 918504c7b89e0974ea19455b7124805b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072036479511790, guid: 918504c7b89e0974ea19455b7124805b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072036479511790, guid: 918504c7b89e0974ea19455b7124805b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4072036479511790, guid: 918504c7b89e0974ea19455b7124805b, type: 2}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1233150640066992, guid: 918504c7b89e0974ea19455b7124805b, type: 2}
+      propertyPath: m_Name
+      value: Bacteria Death 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 918504c7b89e0974ea19455b7124805b, type: 2}
   m_IsPrefabParent: 0
