@@ -81,7 +81,7 @@ public class ButtonTrigger : MonoBehaviour
         // Tentacle will point in direction that the controller is pointing.
         Vector3 reachDirection = Vector3.Normalize(transform.forward);
 
-        Debug.Log("ButtonTrigger extending tentacle");
+        //Debug.Log("ButtonTrigger extending tentacle");
         tentacle.OnPlayerStretchMortion(transform, reachDirection);
     }
 
