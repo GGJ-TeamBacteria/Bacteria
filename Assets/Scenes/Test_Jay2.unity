@@ -230,7 +230,7 @@ MonoBehaviour:
     type: 2}
   PowerUpHealth: {fileID: 1699311075652964, guid: beb0e2dc59a4387448388ab662a482b4,
     type: 2}
-  numOfBacteria: 50
+  numOfBacteria: 2
   ratioDifficulty: 1
   chanceOfAntibiotic: 1
   numOfShooter: 1

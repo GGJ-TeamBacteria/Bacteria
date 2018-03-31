@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d2a97dad1cb44cc69b19bfc083ccaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tumble: 1
+  tumble: 3
 --- !u!135 &135119533090010562
 SphereCollider:
   m_ObjectHideFlags: 1

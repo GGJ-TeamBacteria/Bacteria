@@ -2634,7 +2634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSources: []
-  destroyVFX: {fileID: 0}
+  destroyVFX: {fileID: 1627543116356416, guid: 84520745acb5dcd4b82624f3164557d9, type: 2}
 --- !u!114 &114591451525624390
 MonoBehaviour:
   m_ObjectHideFlags: 1

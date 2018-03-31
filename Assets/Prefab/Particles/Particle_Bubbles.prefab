@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4090256316548614}
   - component: {fileID: 114576307528879364}
   m_Layer: 0
-  m_Name: Particle_Death_Green
+  m_Name: Particle_Bubbles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

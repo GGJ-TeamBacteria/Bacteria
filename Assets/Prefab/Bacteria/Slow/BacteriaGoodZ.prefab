@@ -1440,7 +1440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSources: []
-  destroyVFX: {fileID: 1627543116356416, guid: 84520745acb5dcd4b82624f3164557d9, type: 2}
+  destroyVFX: {fileID: 1627543116356416, guid: ed98ae91fc81a7e45b5c2907fe794d84, type: 2}
 --- !u!114 &114626190417901434
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1477,4 +1477,4 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.044712078
-  m_Center: {x: 0, y: 0.019396162, z: -0.008750356}
+  m_Center: {x: 0, y: 0, z: 0}

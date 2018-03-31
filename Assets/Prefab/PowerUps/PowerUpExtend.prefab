@@ -265,8 +265,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552291c1f689244a4801d4ea8889bc3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSources: []
-  destroyVFX: {fileID: 0}
+  audioSources:
+  - {fileID: 0}
+  destroyVFX: {fileID: 1627543116356416, guid: 84520745acb5dcd4b82624f3164557d9, type: 2}
 --- !u!136 &136812299265129460
 CapsuleCollider:
   m_ObjectHideFlags: 1
