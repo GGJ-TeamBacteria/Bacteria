@@ -8,7 +8,7 @@ public class ShoBatMovement : MonoBehaviour {
 	private bool directionUp;
 	private int distanceCounter = 0;
 
-    GameObject cube;
+    
     public Transform center;
     public Vector3 axis = Vector3.right;
     public Vector3 desiredPosition;
@@ -21,8 +21,8 @@ public class ShoBatMovement : MonoBehaviour {
         //startingPosition = transform.position;
         //directionUp = true;
 
-        cube = GameObject.FindWithTag("MainCamera");
-        center = cube.transform;
+        
+        
         transform.position = (transform.position - center.position).normalized * radius + center.position;
         radius = 2.0f;
     }

@@ -16,6 +16,7 @@ public class GameWaveControl : MonoBehaviour {
     public GameObject BacteriaFastYellow;
     public GameObject BacteriaFastRed;
     public GameObject BacteriaFastPurple;
+    public GameObject BacteriaShooter;
 
     private static float SECONDS_PER_WAVE = 30;
     private static int NUMBER_OF_BATERIAS = 11;
@@ -56,6 +57,7 @@ public class GameWaveControl : MonoBehaviour {
     {
         int spawnWait = 3;
         int waveWait = 5;
+        //Instantiate(BacteriaShooter, new Vector3(0, 0, 10), Quaternion.identity);
         //yield return new WaitForSeconds(waveWait);
         float startTime;
         float currentTime;
