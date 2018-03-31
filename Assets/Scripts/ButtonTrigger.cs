@@ -37,7 +37,8 @@ public class ButtonTrigger : MonoBehaviour
             return;
         }
 
-        VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(_controller.controllerIndex), 1f, 0.4f, 0.001f);
+        // TEMPORARILY DISABLING VIBRATION TILL WE DEBUG PROBLEM WHERE VIBRATION IS TOO LONG
+        //VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(_controller.controllerIndex), 1f, 0.4f, 0.001f);
     }
 
 
