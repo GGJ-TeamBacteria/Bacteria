@@ -69,7 +69,7 @@ public class Tentacle : MonoBehaviour
             Vector3 direction = controller.forward;
             Extend(spawnPoint, direction);
         }
-        else if (armParts.Count < minLength)
+        else if (armParts.Count > 0 && armParts.Count < minLength)
         {
             currentMaxLength = minLength;
         }
@@ -207,18 +207,11 @@ public class Tentacle : MonoBehaviour
     public void PowerUpSuper(float duration) {
         StartCoroutine("ExtendLengthTemporary", duration);
     }
-    public void PowerUpHealth(float duration) {
-        StartCoroutine("IncreaseHealthTemporary", duration);
+    public void PowerUpHealth(int health) {
+        playerRef.GainHealth(health);
     }
 
-    IEnumerable ExtendLengthTemporary(float duration)
-    {
-        currentMaxLength = superLongLength;
-        yield return new WaitForSeconds(duration);
-        currentMaxLength = maxArmLength;
-    }
-
-    IEnumerable IncreaseHealthTemporary(float duration)
+    IEnumerator ExtendLengthTemporary(float duration)
     {
         currentMaxLength = superLongLength;
         yield return new WaitForSeconds(duration);

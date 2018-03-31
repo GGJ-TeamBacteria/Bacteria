@@ -28,6 +28,8 @@ public class TentacleSegment : MonoBehaviour {
             // Get the gained power up effect
             gainedPowerUp.AffectPlayer(rootTentacle);
 
+            StartCoroutine("AbsorbingAnimation");
+
             SelfDestroy otherScript = other.GetComponent<SelfDestroy>();
             otherScript.Death();
         }
@@ -36,7 +38,7 @@ public class TentacleSegment : MonoBehaviour {
             //rootTentacle.buttonTrigger.VibrateForSomethingBad();
 
             // Tell player to take damage from BadBacteria
-            StartCoroutine("AttackedAnimation");
+            StartCoroutine("AbsorbingAnimation");
             rootTentacle.playerRef.TakeDamageBacteria();
 			SelfDestroy otherScript = other.GetComponent<SelfDestroy>();
             otherScript.Death();
@@ -46,7 +48,6 @@ public class TentacleSegment : MonoBehaviour {
             StartCoroutine("AbsorbingAnimation");
 
             //Call GainHealth() from Player
-            rootTentacle.playerRef.GainHealth();
             SelfDestroy otherScript = other.GetComponent<SelfDestroy>();
             otherScript.Death();
         }
@@ -80,17 +81,6 @@ public class TentacleSegment : MonoBehaviour {
         isAnimating = false;
     }
 
-    IEnumerator AttackedAnimation()
-    {
-        isAnimating = true;
-
-        gameObject.transform.localScale /= 2.0f;
-        yield return new WaitForSeconds(0.3f);
-
-        gameObject.transform.localScale *= 2.0f;
-
-        isAnimating = false;
-    }
     public float getSpeed()
     {
         return speed;

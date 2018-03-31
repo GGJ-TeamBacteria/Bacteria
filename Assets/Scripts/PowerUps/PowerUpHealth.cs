@@ -9,7 +9,7 @@ public class PowerUpHealth : MonoBehaviour, PowerUp
     // Extend: --
     // Super: Duration of PowerUp
     // Health: HP increase
-    public float m_Health;
+    public int m_Health;
 
     // Use this for initialization
     void Start()
