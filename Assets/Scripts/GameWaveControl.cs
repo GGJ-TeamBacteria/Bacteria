@@ -27,6 +27,8 @@ public class GameWaveControl : MonoBehaviour {
 
     private GameObject[] listOfBacterias;
 
+    private TextMesh waveStatusReadout;
+
     // Use this for initialization
     void Start () {
         
