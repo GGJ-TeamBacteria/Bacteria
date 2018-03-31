@@ -28,6 +28,8 @@ public class TentacleSegment : MonoBehaviour {
             // Get the gained power up effect
             gainedPowerUp.AffectPlayer(rootTentacle);
 
+            StartCoroutine("AbsorbingAnimation");
+
             SelfDestroy otherScript = other.GetComponent<SelfDestroy>();
             otherScript.Death();
         }
