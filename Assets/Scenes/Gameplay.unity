@@ -329,6 +329,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!1 &286648828 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1587602180963074, guid: 1ca15cdb0430a854e8da4f12d5758071,
+    type: 2}
+  m_PrefabInternal: {fileID: 674453208}
 --- !u!1 &344376657 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1608201026466904, guid: ab686c87948603746b5d97b50618af28,
@@ -1206,6 +1211,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!1 &1228377622 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013941130086, guid: 1ca15cdb0430a854e8da4f12d5758071,
+    type: 2}
+  m_PrefabInternal: {fileID: 674453208}
 --- !u!1 &1377250545 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1384746914293964, guid: 1ca15cdb0430a854e8da4f12d5758071,
@@ -1239,12 +1249,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoPopulateObjectReferences: 1
-  actualBoundaries: {fileID: 0}
-  actualHeadset: {fileID: 0}
-  actualLeftController: {fileID: 0}
-  actualRightController: {fileID: 0}
-  modelAliasLeftController: {fileID: 0}
-  modelAliasRightController: {fileID: 0}
+  actualBoundaries: {fileID: 1228377622}
+  actualHeadset: {fileID: 286648828}
+  actualLeftController: {fileID: 628938545}
+  actualRightController: {fileID: 654427724}
+  modelAliasLeftController: {fileID: 1377250545}
+  modelAliasRightController: {fileID: 65246109}
   cachedSystemSDKInfo:
     baseTypeName: VRTK.SDK_BaseSystem
     fallbackTypeName: VRTK.SDK_FallbackSystem
