@@ -54,27 +54,29 @@ public class GameWaveControl : MonoBehaviour {
 
     IEnumerator spawnWave()
     {
-        int spawnWait = 1;
-        int waveWait = 5;
+        int spawnWait = 5;
+        int waveWait = 2;
         //yield return new WaitForSeconds(waveWait);
         float startTime;
         float currentTime;
 
         for (int level = 1; level < NUMBER_OF_WAVE; level++)
         {
+            //start of each wave
             startTime = Time.time - 2.0f;
             currentTime = Time.time;
             Debug.Log("Wave Start");
             while (currentTime - startTime < SECONDS_PER_WAVE)
             {
-                for (int i = 0; i < 30; i++)
-                {
+                //for (int i = 0; i < 30; i++)
+                //{
                     spawnObject(listOfBacterias[Random.Range(0, level)]); ;
                     yield return new WaitForSeconds(spawnWait);
-                }
-                yield return new WaitForSeconds(waveWait);
+                //}
+                
                 currentTime = Time.time;
             }
+            yield return new WaitForSeconds(waveWait);
             Debug.Log("Wave Ended");
         }
     }
