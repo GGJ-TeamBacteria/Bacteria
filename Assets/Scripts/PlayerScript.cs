@@ -17,6 +17,7 @@ public class PlayerScript : MonoBehaviour {
     public AudioClip player_damage3;
     public AudioClip player_damage4;
     public GameObject lowHealthWarning;
+    public HitboxVisualizer hitboxVisualizer;
 
     // This is used for vibration so it can always refer to the SteamVR controller objects' ButtonTrigger.
     // When using the VRTK simulator, we don't need to point this to the simulated controllers' ButtonTrigger
@@ -46,33 +47,37 @@ public class PlayerScript : MonoBehaviour {
         OnDeath();
     }
 
+    private void PlayerFeedbackForTakingDamage()
+    {
+        leftControllerButtonTrigger.VibrateForSomethingBad();
+        rightControllerButtonTrigger.VibrateForSomethingBad();
+        hitboxVisualizer.flashHitbox();
+    }
+
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collision");
+        Debug.Log("Collision with player hitbox by object tagged " + other.tag);
 
         if (other.CompareTag("Antibiotic"))
         {
             Debug.Log("Antibiotic");
             TakeDamageAntibiotic();
 
-            leftControllerButtonTrigger.VibrateForSomethingBad();
-            rightControllerButtonTrigger.VibrateForSomethingBad();
+            PlayerFeedbackForTakingDamage();
         }
         else if (other.CompareTag("BadBacteria"))
         {
             Debug.Log("BadBacteria");
             TakeDamageBacteria();
 
-            leftControllerButtonTrigger.VibrateForSomethingBad();
-            rightControllerButtonTrigger.VibrateForSomethingBad();
+            PlayerFeedbackForTakingDamage();
         }
         else if (other.CompareTag("Projectile"))
         {
             Debug.Log("Projectile");
             TakeDamageProjectile();
 
-            leftControllerButtonTrigger.VibrateForSomethingBad();
-            rightControllerButtonTrigger.VibrateForSomethingBad();
+            PlayerFeedbackForTakingDamage();
         }
         else
         {
