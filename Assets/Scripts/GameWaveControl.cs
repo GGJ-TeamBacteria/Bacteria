@@ -17,7 +17,7 @@ public class GameWaveControl : MonoBehaviour {
     public GameObject BacteriaFastRed;
     public GameObject BacteriaFastPurple;
 
-    private static float SECONDS_PER_WAVE = 20;
+    private static float SECONDS_PER_WAVE = 30;
     private static int NUMBER_OF_BATERIAS = 11;
     private static int NUMBER_OF_WAVE = 10;
     public Vector3 worldSize; //how big is the world x, y, z
@@ -54,7 +54,7 @@ public class GameWaveControl : MonoBehaviour {
 
     IEnumerator spawnWave()
     {
-        int spawnWait = 2;
+        int spawnWait = 3;
         int waveWait = 5;
         //yield return new WaitForSeconds(waveWait);
         float startTime;
