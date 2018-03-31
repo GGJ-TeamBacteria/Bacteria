@@ -64,7 +64,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4956159545534184}
-  - component: {fileID: 114234418882011790}
   - component: {fileID: 114184932177835522}
   - component: {fileID: 114472976670499892}
   - component: {fileID: 114772148652605204}
@@ -366,24 +365,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c7b4eca5f717490ea08ae60360d8311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
   sound: {fileID: 0}
---- !u!114 &114234418882011790
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1487643117412700}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9047f5f66ed114fb08ecd549cfe685f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  player_damage1: {fileID: 0}
-  player_damage2: {fileID: 0}
-  player_damage3: {fileID: 0}
-  player_damage4: {fileID: 0}
 --- !u!114 &114472976670499892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -408,7 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d2a97dad1cb44cc69b19bfc083ccaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tumble: 4
+  tumble: 1
 --- !u!135 &135119533090010562
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -420,4 +403,4 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.05335605
-  m_Center: {x: 0, y: -0.0033086538, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
