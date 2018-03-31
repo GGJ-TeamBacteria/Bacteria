@@ -192,8 +192,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 134313671}
-  - component: {fileID: 134313670}
   - component: {fileID: 134313672}
+  - component: {fileID: 134313673}
   m_Layer: 0
   m_Name: Game Control
   m_TagString: Untagged
@@ -201,41 +201,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &134313670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 134313669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 091aff6af06784441b6d39de6432bbd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BacteriaGood: {fileID: 1591408607559712, guid: f3911c9f8ea114f79a597661e804c13b,
-    type: 2}
-  BacteriaBadBlue: {fileID: 1647106212611458, guid: 9526e72b63b01423b963da12e4191b6e,
-    type: 2}
-  BacteriaBadOrange: {fileID: 1392160727420862, guid: bb05fc3835f63b24d8e3aa728a7104f7,
-    type: 2}
-  BacteriaBadPurple: {fileID: 1487643117412700, guid: 76991759cbd144720b92a4f1d1b84c13,
-    type: 2}
-  Antibiotic: {fileID: 1610821370550482, guid: 64f09d245bc9f4baeb469ea6008db1e0, type: 2}
-  BacteriaShoot: {fileID: 1398765135925952, guid: ddfe785c77e1c49b492dbfbf5f92cf94,
-    type: 2}
-  Heart: {fileID: 1972411436058238, guid: 852735c97e1c34326ae6b44bb8e85106, type: 2}
-  PowerUpExtend: {fileID: 1306406870432750, guid: 9596b1eb6d1437e459d2830f98dd9a73,
-    type: 2}
-  PowerUpSuper: {fileID: 1309373498125594, guid: dc051c8daf3254946a43c72939cd8890,
-    type: 2}
-  PowerUpHealth: {fileID: 1699311075652964, guid: beb0e2dc59a4387448388ab662a482b4,
-    type: 2}
-  numOfBacteria: 50
-  ratioDifficulty: 1
-  chanceOfAntibiotic: 1
-  numOfShooter: 1
-  waveWait: 1
-  worldSize: {x: 30, y: 15, z: 30}
 --- !u!4 &134313671
 Transform:
   m_ObjectHideFlags: 0
@@ -329,6 +294,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &134313673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 134313669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee52af2feddfd7459f1d14135095150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BacteriaGood: {fileID: 1591408607559712, guid: f3911c9f8ea114f79a597661e804c13b,
+    type: 2}
+  BacteriaBadBlue: {fileID: 0}
+  BacteriaBadOrange: {fileID: 0}
+  BacteriaBadPurple: {fileID: 0}
+  worldSize: {x: 30, y: 15, z: 30}
 --- !u!1 &286648828 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1587602180963074, guid: 1ca15cdb0430a854e8da4f12d5758071,
