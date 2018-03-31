@@ -378,7 +378,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552291c1f689244a4801d4ea8889bc3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSources: []
+  audioSources:
+  - {fileID: 1759415355117574, guid: f5ffb740ce27cd64abbae9bce1bfaed4, type: 2}
   destroyVFX: {fileID: 1627543116356416, guid: ed98ae91fc81a7e45b5c2907fe794d84, type: 2}
 --- !u!114 &114772148652605204
 MonoBehaviour:
