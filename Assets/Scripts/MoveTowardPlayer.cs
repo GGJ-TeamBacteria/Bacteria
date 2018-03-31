@@ -9,18 +9,40 @@ public class MoveTowardPlayer : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Instantiate (sound, transform.position, Quaternion.identity);
-		GameObject playerObject = GameObject.FindWithTag ("MainCamera");
+        Debug.Log("start");
+
+        if (sound != null)
+        {
+            Instantiate(sound, transform.position, Quaternion.identity);
+        }
+
+        Debug.Log("after sound check" + sound);
+
+        GameObject playerObject = GameObject.FindWithTag ("MainCamera");
 		Transform playerTransform;
-		playerTransform = playerObject.GetComponent <Transform>();
-		playerPosition = playerTransform.position;
-	
 
-		var heading = playerPosition - transform.position;
-		var distance = heading.magnitude;
-		var direction = heading / distance;
+        Debug.Log("got player" + playerObject);
 
-		GetComponent<Rigidbody> ().velocity = new Vector3 (direction.x, direction.y, direction.z) * speed * Time.deltaTime;
+        playerTransform = playerObject.GetComponent <Transform>();
+
+        Debug.Log("got player xform" + playerTransform.ToString());
+
+        playerPosition = playerTransform.position;
+
+        Debug.Log("got player position");
+
+
+        var heading = playerPosition - transform.position;
+
+        Debug.Log("Our heading is " + heading.ToString());
+
+        var distance = heading.magnitude;
+        Debug.Log("Our distance is " + distance.ToString());
+
+        var direction = heading / distance;
+        Debug.Log("Our direction is " + direction.ToString());
+
+        GetComponent<Rigidbody> ().velocity = new Vector3 (direction.x, direction.y, direction.z) * speed * Time.deltaTime;
 	}
 
 
