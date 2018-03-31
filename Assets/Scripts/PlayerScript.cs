@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class PlayerScript : MonoBehaviour {
 
     public int m_health = 3;
-    public int gainHealthPerBacteria = 2;
     AudioSource audioSource;
     AudioSource lowHealthAudioSource;
 
@@ -79,11 +78,6 @@ public class PlayerScript : MonoBehaviour {
 
             PlayerFeedbackForTakingDamage();
         }
-        else
-        {
-            Debug.Log("Health");
-            GainHealth();
-        }
 
         // Other is destroyed -- handled in Bacteria Scripts
     }
@@ -96,11 +90,11 @@ public class PlayerScript : MonoBehaviour {
         }
     }
 
-    public void GainHealth()
+    public void GainHealth(int gainHealth)
     {
         audioSource.clip = player_health_gain;
         audioSource.Play();
-        m_health += gainHealthPerBacteria;
+        m_health += gainHealth;
     }
 
     public void TakeDamageBacteria()

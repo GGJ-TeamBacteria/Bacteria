@@ -207,8 +207,8 @@ public class Tentacle : MonoBehaviour
     public void PowerUpSuper(float duration) {
         StartCoroutine("ExtendLengthTemporary", duration);
     }
-    public void PowerUpHealth(float duration) {
-        StartCoroutine("IncreaseHealthTemporary", duration);
+    public void PowerUpHealth(int health) {
+        playerRef.GainHealth(health);
     }
 
     IEnumerator ExtendLengthTemporary(float duration)
@@ -216,14 +216,6 @@ public class Tentacle : MonoBehaviour
         currentMaxLength = superLongLength;
         yield return new WaitForSeconds(duration);
         currentMaxLength = maxArmLength;
-    }
-
-    IEnumerator IncreaseHealthTemporary(float health)
-    {
-        //TODO
-        //curren = superLongLength;
-        yield return null;
-        //currentMaxLength = maxArmLength;
     }
 
 }
