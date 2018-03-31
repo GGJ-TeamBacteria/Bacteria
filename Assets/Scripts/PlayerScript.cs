@@ -18,6 +18,8 @@ public class PlayerScript : MonoBehaviour {
     public GameObject lowHealthWarning;
     public HitboxVisualizer hitboxVisualizer;
 
+    public TextMesh healthReadout;
+
     // This is used for vibration so it can always refer to the SteamVR controller objects' ButtonTrigger.
     // When using the VRTK simulator, we don't need to point this to the simulated controllers' ButtonTrigger
     // since there is no simulation of vibration.
@@ -33,6 +35,7 @@ public class PlayerScript : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+        healthReadout.text = "HEALTH: " + m_health;
 
         if (m_health == 1 && !lowHealthAudioSource.isPlaying)
         {
