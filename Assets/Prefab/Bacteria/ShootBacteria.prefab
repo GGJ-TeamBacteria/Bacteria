@@ -673,11 +673,11 @@ GameObject:
   - component: {fileID: 54673286046199548}
   m_Layer: 0
   m_Name: ShootBacteria
-  m_TagString: BadBacteria
+  m_TagString: Shooter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1401252960118552
 GameObject:
   m_ObjectHideFlags: 1
@@ -3258,7 +3258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c10a11346c214189ae5b3e11f6f0370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceOfFire: 5
+  chanceOfFire: 10
   waveWait: 1
   projectile: {fileID: 1751223561606040, guid: b2ee485bd64444f1db8fd7f124d2eebb, type: 2}
   projectileSpawn: {fileID: 4283448290865944}

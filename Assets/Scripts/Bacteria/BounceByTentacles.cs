@@ -17,11 +17,14 @@ public class BounceByTentacles : MonoBehaviour {
 		
 	}
     //detect collison
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision othercollision)
     {
-        if (other.tag == "Tentacle")
-        {
-            switch(Random.Range(1, 3))
+        Debug.Log("Collision");
+        //if (other.tag == "Tentacle")
+        //{
+            AudioSource audioSource = GetComponent<AudioSource>();
+            audioSource.mute = true;
+            switch (Random.Range(1, 3))
             {
                 case 1:
                     if (BounceSound1 != null)
@@ -37,6 +40,6 @@ public class BounceByTentacles : MonoBehaviour {
                     break;
               
             }
-        }
+        //}
     }
 }

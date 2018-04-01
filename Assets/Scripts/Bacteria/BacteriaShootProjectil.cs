@@ -12,7 +12,7 @@ public class BacteriaShootProjectil : MonoBehaviour {
 	void Start () {
 		StartCoroutine (Shoot ());
 	}
-	void setFireRate(int chance) {
+	public void setFireRate(int chance) {
 		chanceOfFire = chance;
 	}
 	IEnumerator Shoot () {

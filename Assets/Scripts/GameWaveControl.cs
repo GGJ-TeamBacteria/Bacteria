@@ -64,7 +64,7 @@ public class GameWaveControl : MonoBehaviour {
     {
         float spawnWait = 2.5f;
         int waveWait = 10;
-        Instantiate(BacteriaShooter, new Vector3(0, 0, 40), Quaternion.identity);
+        
         yield return new WaitForSeconds(waveWait);
         float startTime;
         float currentTime;
@@ -73,7 +73,15 @@ public class GameWaveControl : MonoBehaviour {
         for (int level = 1; level <= NUMBER_OF_WAVE; level++)
         {
             waveStatusReadout.text = "WAVE: " + level + "/" + NUMBER_OF_WAVE;
-
+            //shooter
+            if(level == 1 || level % 4 == 0)
+            {
+                Instantiate(BacteriaShooter, new Vector3(0, 0, 40), Quaternion.identity); //make it variables 
+                GameObject shooter = GameObject.FindWithTag("Shooter");
+                shooter.GetComponent<BacteriaShootProjectil>().setFireRate(90); //make it variables 
+                yield return new WaitForSeconds(3);
+                shooter.GetComponent<BacteriaShootProjectil>().setFireRate(10); //make it variables 
+            }
             //start of each wave
             startTime = Time.time - 2.0f;
             currentTime = Time.time;
@@ -157,7 +165,12 @@ public class GameWaveControl : MonoBehaviour {
         }
         if (Random.Range(0, 2) == 0)
         {
-            position = -position;
+            //restricted all bacterias to spawn from positive x direction only
+            if(axis != 'x')
+            {
+                position = -position;
+            }
+            
         }
         return position;
     }
