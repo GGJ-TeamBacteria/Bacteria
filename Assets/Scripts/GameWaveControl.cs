@@ -64,7 +64,7 @@ public class GameWaveControl : MonoBehaviour {
     {
         float spawnWait = 2.5f;
         int waveWait = 10;
-        Instantiate(BacteriaShooter, new Vector3(0, 0, 20), Quaternion.identity);
+        Instantiate(BacteriaShooter, new Vector3(0, 0, 40), Quaternion.identity);
         yield return new WaitForSeconds(waveWait);
         float startTime;
         float currentTime;

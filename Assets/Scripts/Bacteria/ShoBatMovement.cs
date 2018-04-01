@@ -18,7 +18,9 @@ public class ShoBatMovement : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        center = GameObject.FindWithTag("MainCamera").transform;
+        //GameObject playerObject = GameObject.FindWithTag("MainCamera");
+        //center = playerObject.GetComponent<Transform>();
+        
         //startingPosition = transform.position;
         //directionUp = true;
 
@@ -49,7 +51,7 @@ public class ShoBatMovement : MonoBehaviour {
         //	directionUp = !directionUp;
         //}
 
-        transform.RotateAround(center.position, axis, rotationSpeed * Time.deltaTime);
+        transform.RotateAround(new Vector3(0,0,0), axis, rotationSpeed * Time.deltaTime);
         //desiredPosition = (transform.position - center.position).normalized * radius + center.position;
         //transform.position = Vector3.MoveTowards(transform.position, desiredPosition, Time.deltaTime * radiusSpeed);
     }

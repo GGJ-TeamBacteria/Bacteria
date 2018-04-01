@@ -677,7 +677,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1401252960118552
 GameObject:
   m_ObjectHideFlags: 1
@@ -2808,7 +2808,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1398765135925952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4725500810525046}
@@ -3258,7 +3258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c10a11346c214189ae5b3e11f6f0370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chanceOfFire: 15
+  chanceOfFire: 5
   waveWait: 1
   projectile: {fileID: 1751223561606040, guid: b2ee485bd64444f1db8fd7f124d2eebb, type: 2}
   projectileSpawn: {fileID: 4283448290865944}
@@ -3273,8 +3273,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552291c1f689244a4801d4ea8889bc3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSources: []
-  destroyVFX: {fileID: 0}
+  audioSources:
+  - {fileID: 1341174125754842, guid: 351644f8d9b92466db3f71c4ec70b215, type: 2}
+  destroyVFX: {fileID: 1627543116356416, guid: ed98ae91fc81a7e45b5c2907fe794d84, type: 2}
 --- !u!114 &114680337461396860
 MonoBehaviour:
   m_ObjectHideFlags: 1

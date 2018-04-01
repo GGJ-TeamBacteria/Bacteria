@@ -21,8 +21,12 @@ public class BacteriaShootProjectil : MonoBehaviour {
 
 			dice = Random.Range (-chanceOfFire, 100 - chanceOfFire);
 			if (dice < 0) {
-				Instantiate (projectile, projectileSpawn.position, Quaternion.identity);
+                Fire();
 			}
 		}
 	}
+    public void Fire()
+    {
+        Instantiate(projectile, projectileSpawn.position, Quaternion.identity);
+    }
 }
