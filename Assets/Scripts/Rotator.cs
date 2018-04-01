@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Rotator : MonoBehaviour {
 
-    Vector3 origin = transform.position;
+
 
 	public float tumble;
     void Start()
@@ -14,7 +14,7 @@ public class Rotator : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		transform.RotateAround (origin, Vector3.right, tumble * Time.deltaTime);
-	}
+        transform.Rotate(new Vector3(15, 15, 15) * tumble * Time.deltaTime);
+    }
 		
 }

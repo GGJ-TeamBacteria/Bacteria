@@ -63,9 +63,9 @@ public class GameWaveControl : MonoBehaviour {
     IEnumerator spawnWave()
     {
         float spawnWait = 2.5f;
-        int waveWait = 5;
-        //Instantiate(BacteriaShooter, new Vector3(0, 0, 10), Quaternion.identity);
-        //yield return new WaitForSeconds(waveWait);
+        int waveWait = 10;
+        Instantiate(BacteriaShooter, new Vector3(0, 0, 20), Quaternion.identity);
+        yield return new WaitForSeconds(waveWait);
         float startTime;
         float currentTime;
 
@@ -78,6 +78,10 @@ public class GameWaveControl : MonoBehaviour {
             startTime = Time.time - 2.0f;
             currentTime = Time.time;
             Debug.Log("Wave Start");
+            if(level % 6 == 0)
+            {
+                Instantiate(BacteriaShooter, new Vector3(0, 0, 20), Quaternion.identity);
+            }
             while (currentTime - startTime < SECONDS_PER_WAVE)
             {
                 //for (int i = 0; i < 30; i++)

@@ -18,11 +18,12 @@ public class ShoBatMovement : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        center = GameObject.FindWithTag("MainCamera").transform;
         //startingPosition = transform.position;
         //directionUp = true;
 
-        
-        
+
+
         //transform.position = (transform.position - center.position).normalized * radius + center.position;
 
     }
