@@ -19,6 +19,7 @@ public class GameWaveControl : MonoBehaviour {
     public GameObject BacteriaShooter;
 
     public GameObject PowerUpSuper;
+    public GameObject PowerUpHealth;
 
     private static float SECONDS_PER_WAVE = 30;
     private static int NUMBER_OF_BATERIAS = 11;
@@ -59,7 +60,7 @@ public class GameWaveControl : MonoBehaviour {
 
     IEnumerator spawnWave()
     {
-        int spawnWait = 3;
+        float spawnWait = 3f;
         int waveWait = 5;
         //Instantiate(BacteriaShooter, new Vector3(0, 0, 10), Quaternion.identity);
         //yield return new WaitForSeconds(waveWait);
@@ -67,7 +68,7 @@ public class GameWaveControl : MonoBehaviour {
         float currentTime;
 
         int spawnCounter = 0;
-        for (int level = 1; level < NUMBER_OF_WAVE; level++)
+        for (int level = 1; level <= NUMBER_OF_WAVE; level++)
         {
             waveStatusReadout.text = "WAVE: " + level + "/" + NUMBER_OF_WAVE;
 
@@ -84,11 +85,11 @@ public class GameWaveControl : MonoBehaviour {
 
                 // Spawn the length-extension power ups after the player has got some
                 // experience with the original length
-                if (spawnCounter == 5)
+                if (spawnCounter == 7)
                 {
                     // One for left hand and one for right hand
-                    Instantiate(PowerUpSuper, new Vector3(-2.2f, 0f, 2f), Quaternion.identity);
-                    Instantiate(PowerUpSuper, new Vector3(2.2f, 0f, 2f), Quaternion.identity);
+                    Instantiate(PowerUpSuper, new Vector3(-2.2f, 0f, 1.9f), Quaternion.identity);
+                    Instantiate(PowerUpSuper, new Vector3(2.2f, 0f, 1.9f), Quaternion.identity);
                 }
 
                 yield return new WaitForSeconds(spawnWait);
@@ -98,6 +99,11 @@ public class GameWaveControl : MonoBehaviour {
             }
             yield return new WaitForSeconds(waveWait);
             Debug.Log("Wave Ended");
+            Instantiate(PowerUpHealth, new Vector3(-0.7f, 0f, 1.9f), Quaternion.identity);
+            Instantiate(PowerUpHealth, new Vector3(0.7f, 0f, 1.9f), Quaternion.identity);
+
+            // Each wave is harder
+            spawnWait = spawnWait - 0.2f;   
         }
     }
     
