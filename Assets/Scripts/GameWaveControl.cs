@@ -30,6 +30,8 @@ public class GameWaveControl : MonoBehaviour {
 
     private GameObject[] listOfBacterias;
 
+    private int gameOrigin = 0;
+
     public TextMesh waveStatusReadout;
 
     // Use this for initialization
@@ -109,20 +111,46 @@ public class GameWaveControl : MonoBehaviour {
     //spawn gameObject randomly at the edage for worldSize cube
     void spawnObject(GameObject gameObject)
     {
-        Instantiate(gameObject, new Vector3(randomPos('x'), randomPos('y'), randomPos('z')), Quaternion.identity);
+        Instantiate(gameObject, randomLocation(), Quaternion.identity);
+    }
+    //return a random Vector3 location with in world
+    Vector3 randomLocation()
+    {
+        Vector3 temp;
+        if (Random.Range(0, 2) == 0)
+        {
+            temp = new Vector3(randomPos('x', true), randomPos('y', false), randomPos('z', false));
+        }
+        else
+        {
+            temp = new Vector3(randomPos('x', false), randomPos('y', true), randomPos('z', false));
+        }
+        return temp;
     }
     //return a positive worldSize or negative worldSize for the axis parameter
-    float randomPos(char axis)
+    float randomPos(char axis, bool restricted)
     {
         float position;
-        switch (axis)
+        if (restricted)
         {
-            case 'x': position = Random.Range(worldSize.x, worldSizeOuter.x); break;
-            case 'y': position = Random.Range(worldSize.y, worldSizeOuter.y); break;
-            case 'z': position = Random.Range(worldSize.z, worldSizeOuter.z); break;
-            default: position = 0; break;
+            switch (axis)
+            {
+                case 'x': position = Random.Range(worldSize.x, worldSizeOuter.x); break;
+                case 'y': position = Random.Range(worldSize.y, worldSizeOuter.y); break;
+                case 'z': position = Random.Range(worldSize.z, worldSizeOuter.z); break;
+                default: position = 0; break;
+            }
         }
-        
+        else
+        {
+            switch (axis)
+            {
+                case 'x': position = Random.Range(gameOrigin, worldSizeOuter.x); break;
+                case 'y': position = Random.Range(gameOrigin, worldSizeOuter.y); break;
+                case 'z': position = Random.Range(gameOrigin, worldSizeOuter.z); break;
+                default: position = 0; break;
+            }
+        }
         if (Random.Range(0, 2) == 0)
         {
             position = -position;
