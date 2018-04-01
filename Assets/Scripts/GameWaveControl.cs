@@ -20,6 +20,7 @@ public class GameWaveControl : MonoBehaviour {
 
     public GameObject PowerUpSuper;
     public GameObject PowerUpHealth;
+    public GameObject PowerUpExtend;
 
     private static float SECONDS_PER_WAVE = 30;
     private static int NUMBER_OF_BATERIAS = 11;
@@ -73,7 +74,7 @@ public class GameWaveControl : MonoBehaviour {
         for (int level = 1; level <= NUMBER_OF_WAVE; level++)
         {
             waveStatusReadout.text = "WAVE: " + level + "/" + NUMBER_OF_WAVE;
-            //shooter
+            //shooter spawn at level 1 and every 4th level
             if(level == 1 || level % 4 == 0)
             {
                 Instantiate(BacteriaShooter, new Vector3(0, 0, 40), Quaternion.identity); //make it variables 
@@ -86,10 +87,6 @@ public class GameWaveControl : MonoBehaviour {
             startTime = Time.time - 2.0f;
             currentTime = Time.time;
             Debug.Log("Wave Start");
-            if(level % 6 == 0)
-            {
-                Instantiate(BacteriaShooter, new Vector3(0, 0, 20), Quaternion.identity);
-            }
             while (currentTime - startTime < SECONDS_PER_WAVE)
             {
                 //for (int i = 0; i < 30; i++)
@@ -97,9 +94,15 @@ public class GameWaveControl : MonoBehaviour {
                 spawnObject(listOfBacterias[Random.Range(0, level)]); 
                 spawnCounter++;
 
+                if (level == 2)
+                {
+                    // One for left hand and one for right hand
+                    Instantiate(PowerUpExtend, new Vector3(-2.2f, 0f, 1.9f), Quaternion.identity);
+                    Instantiate(PowerUpExtend, new Vector3(2.2f, 0f, 1.9f), Quaternion.identity);
+                }
                 // Spawn the length-extension power ups after the player has got some
                 // experience with the original length
-                if (spawnCounter == 8)
+                if (level == 4)
                 {
                     // One for left hand and one for right hand
                     Instantiate(PowerUpSuper, new Vector3(-2.2f, 0f, 1.9f), Quaternion.identity);

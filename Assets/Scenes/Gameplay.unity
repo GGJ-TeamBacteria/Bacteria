@@ -369,6 +369,8 @@ MonoBehaviour:
     type: 2}
   PowerUpHealth: {fileID: 1699311075652964, guid: beb0e2dc59a4387448388ab662a482b4,
     type: 2}
+  PowerUpExtend: {fileID: 1306406870432750, guid: 9596b1eb6d1437e459d2830f98dd9a73,
+    type: 2}
   worldSize: {x: 10, y: 10, z: 10}
   waveStatusReadout: {fileID: 1096404231}
 --- !u!1 &286648828 stripped
