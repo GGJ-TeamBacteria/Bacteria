@@ -20,10 +20,6 @@ public class TentacleSegment : PoolableBehaviour
     {
         if (other.CompareTag("PowerUp"))
         {
-            // we decided to only vibrate for body hits not tentacle hits.
-            // hard to make tentacle hits feel natural, maybe because tentacle extends so far from controller.
-            // rootTentacle.buttonTrigger.VibrateForSomethingBad();
-
             PowerUp gainedPowerUp = other.GetComponent<PowerUp>();
             
             // Get the gained power up effect
@@ -36,11 +32,7 @@ public class TentacleSegment : PoolableBehaviour
         }
         else if (other.CompareTag("BadBacteria"))
         {
-            //rootTentacle.buttonTrigger.VibrateForSomethingBad();
-
-            // Tell player to take damage from BadBacteria
             StartCoroutine("AbsorbingAnimation");
-            rootTentacle.playerRef.TakeDamageBacteria();
 			SelfDestroy otherScript = other.GetComponent<SelfDestroy>();
             otherScript.Death();
         }
@@ -48,7 +40,6 @@ public class TentacleSegment : PoolableBehaviour
         {
             StartCoroutine("AbsorbingAnimation");
 
-            //Call GainHealth() from Player
             SelfDestroy otherScript = other.GetComponent<SelfDestroy>();
             otherScript.Death();
         }

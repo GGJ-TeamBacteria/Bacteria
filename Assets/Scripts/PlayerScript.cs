@@ -126,25 +126,32 @@ public class PlayerScript : MonoBehaviour {
 
     void RandomDamageSound()
     {
-        switch (Random.Range(1, 5))
-        {
-            case 1:
-                audioSource.clip = player_damage1;
-                Debug.Log("DMG1");
-                break;
-            case 2:
-                audioSource.clip = player_damage2;
-                Debug.Log("DMG2");
-                break;
-            case 3:
-                audioSource.clip = player_damage3;
-                Debug.Log("DMG3");
-                break;
-            case 4:
-                audioSource.clip = player_damage4;
-                Debug.Log("DMG4");
-                break;
-        }
+
+        audioSource.clip = player_health_lose;
         audioSource.Play();
+        Debug.Log("Playing player_health_lose");
+        /*
+                switch (Random.Range(1, 5))
+                {
+                    case 1:
+                        audioSource.clip = player_damage1;
+                        Debug.Log("DMG1");
+                        break;
+                    case 2:
+                        audioSource.clip = player_damage2;
+                        Debug.Log("DMG2");
+                        break;
+                    case 3:
+                        audioSource.clip = player_damage3;
+                        Debug.Log("DMG3");
+                        break;
+                    case 4:
+                        audioSource.clip = player_damage4;
+                        Debug.Log("DMG4");
+                        break;
+                }
+                audioSource.Play();
+        */
     }
+
 }

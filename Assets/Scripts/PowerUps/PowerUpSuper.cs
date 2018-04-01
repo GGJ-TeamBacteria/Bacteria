@@ -14,7 +14,6 @@ public class PowerUpSuper : MonoBehaviour, PowerUp
     // Use this for initialization
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -26,6 +25,5 @@ public class PowerUpSuper : MonoBehaviour, PowerUp
     public void AffectPlayer(Tentacle tentacle)
     {
         tentacle.PowerUpSuper(m_Duration);
-
     }
 }

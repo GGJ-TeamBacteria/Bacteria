@@ -18,6 +18,8 @@ public class GameWaveControl : MonoBehaviour {
     public GameObject BacteriaFastPurple;
     public GameObject BacteriaShooter;
 
+    public GameObject PowerUpSuper;
+
     private static float SECONDS_PER_WAVE = 30;
     private static int NUMBER_OF_BATERIAS = 11;
     private static int NUMBER_OF_WAVE = 10;
@@ -64,6 +66,7 @@ public class GameWaveControl : MonoBehaviour {
         float startTime;
         float currentTime;
 
+        int spawnCounter = 0;
         for (int level = 1; level < NUMBER_OF_WAVE; level++)
         {
             waveStatusReadout.text = "WAVE: " + level + "/" + NUMBER_OF_WAVE;
@@ -76,8 +79,19 @@ public class GameWaveControl : MonoBehaviour {
             {
                 //for (int i = 0; i < 30; i++)
                 //{
-                    spawnObject(listOfBacterias[Random.Range(0, level)]); ;
-                    yield return new WaitForSeconds(spawnWait);
+                spawnObject(listOfBacterias[Random.Range(0, level)]); 
+                spawnCounter++;
+
+                // Spawn the length-extension power ups after the player has got some
+                // experience with the original length
+                if (spawnCounter == 5)
+                {
+                    // One for left hand and one for right hand
+                    Instantiate(PowerUpSuper, new Vector3(-2.2f, 0f, 2f), Quaternion.identity);
+                    Instantiate(PowerUpSuper, new Vector3(2.2f, 0f, 2f), Quaternion.identity);
+                }
+
+                yield return new WaitForSeconds(spawnWait);
                 //}
                 
                 currentTime = Time.time;

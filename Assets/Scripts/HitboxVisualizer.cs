@@ -43,7 +43,7 @@ public class HitboxVisualizer : MonoBehaviour
     {
         turnHitboxDisplayOn();
         Debug.Log("Queued coroutine at time " + Time.fixedTime);
-        coroutine = WaitAndTurnOffHitboxDisplay(1f);
+        coroutine = WaitAndTurnOffHitboxDisplay(2f);
         StartCoroutine(coroutine);
         Debug.Log("Done queueing coroutine at time " + Time.fixedTime);
     }
