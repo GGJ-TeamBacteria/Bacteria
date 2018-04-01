@@ -60,7 +60,7 @@ public class GameWaveControl : MonoBehaviour {
 
     IEnumerator spawnWave()
     {
-        float spawnWait = 3f;
+        float spawnWait = 2.5f;
         int waveWait = 5;
         //Instantiate(BacteriaShooter, new Vector3(0, 0, 10), Quaternion.identity);
         //yield return new WaitForSeconds(waveWait);
@@ -85,7 +85,7 @@ public class GameWaveControl : MonoBehaviour {
 
                 // Spawn the length-extension power ups after the player has got some
                 // experience with the original length
-                if (spawnCounter == 7)
+                if (spawnCounter == 8)
                 {
                     // One for left hand and one for right hand
                     Instantiate(PowerUpSuper, new Vector3(-2.2f, 0f, 1.9f), Quaternion.identity);
@@ -99,11 +99,10 @@ public class GameWaveControl : MonoBehaviour {
             }
             yield return new WaitForSeconds(waveWait);
             Debug.Log("Wave Ended");
-            Instantiate(PowerUpHealth, new Vector3(-0.7f, 0f, 1.9f), Quaternion.identity);
-            Instantiate(PowerUpHealth, new Vector3(0.7f, 0f, 1.9f), Quaternion.identity);
+            Instantiate(PowerUpHealth, new Vector3(-0.3f, 0f, 1.9f), Quaternion.identity);
 
             // Each wave is harder
-            spawnWait = spawnWait - 0.2f;   
+            spawnWait = spawnWait - 0.125f;   
         }
     }
     
