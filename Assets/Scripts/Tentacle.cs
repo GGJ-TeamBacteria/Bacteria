@@ -184,8 +184,17 @@ public class Tentacle : MonoBehaviour
         Transform prev = armParts[0].transform;
         for (int i = 1; i < armParts.Count; i++)
         {
-            armParts[i].transform.position = Vector3.Slerp(armParts[i].transform.position, 
-                GetSegmentLocation(prev.position, (prev.position - controller.position).normalized), 0.3f);
+            Vector3 current = armParts[i].transform.position;
+            Vector3 disiredLocation = GetSegmentLocation(prev.position, (prev.position - controller.position).normalized);
+            float dist = Vector3.Distance(current, disiredLocation);
+            float alpha = 0.3f;
+
+            if (dist > 0.5f)
+            {
+                alpha = 0.8f;
+            }
+
+            armParts[i].transform.position = Vector3.Slerp(current, disiredLocation, alpha);
 
             prev = armParts[i].transform;
         }
