@@ -20,26 +20,26 @@ public class BounceByTentacles : MonoBehaviour {
     void OnCollisionEnter(Collision othercollision)
     {
         Debug.Log("Collision");
-        //if (other.tag == "Tentacle")
-        //{
-            AudioSource audioSource = GetComponent<AudioSource>();
-            audioSource.mute = true;
-            switch (Random.Range(1, 3))
-            {
-                case 1:
-                    if (BounceSound1 != null)
-                    {
-                        Instantiate(BounceSound1, transform.position, Quaternion.identity);
-                    }
-                    break;
-                case 2:
-                    if (BounceSound2 != null)
-                    {
-                        Instantiate(BounceSound2, transform.position, Quaternion.identity);
-                    }
-                    break;
+        
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.mute = true;
+        switch (Random.Range(1, 3))
+        {
+            case 1:
+                if (BounceSound1 != null)
+                {
+                    Instantiate(BounceSound1, transform.position, Quaternion.identity);
+                }
+                break;
+            case 2:
+                if (BounceSound2 != null)
+                {
+                    Instantiate(BounceSound2, transform.position, Quaternion.identity);
+                }
+                break;
               
-            }
-        //}
+        }
+        Destroy(this, 5);
+        
     }
 }

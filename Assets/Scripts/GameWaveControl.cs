@@ -93,7 +93,7 @@ public class GameWaveControl : MonoBehaviour {
                 GameObject shooter = GameObject.FindWithTag("Shooter");
                 shooter.GetComponent<BacteriaShootProjectil>().setFireRate(90); //make it variables 
                 yield return new WaitForSeconds(5);
-                shooter.GetComponent<BacteriaShootProjectil>().setFireRate(10); //make it variables 
+                shooter.GetComponent<BacteriaShootProjectil>().setFireRate(9); //make it variables 
             }
             //spawn temp extend pill
             if (level == 2)
