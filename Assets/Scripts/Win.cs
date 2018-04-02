@@ -7,6 +7,7 @@ public class Win : MonoBehaviour {
 
 
 	void OnDestroy() {
-		SceneManager.LoadScene("Win", LoadSceneMode.Single);
+        GameObject.Find("Game Control").GetComponent<GameWaveControl>().StartGame();
+        //SceneManager.LoadScene("Win", LoadSceneMode.Single);
 	}
 }

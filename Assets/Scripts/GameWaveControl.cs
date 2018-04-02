@@ -24,7 +24,7 @@ public class GameWaveControl : MonoBehaviour {
 
     private static float SECONDS_PER_WAVE = 30;
     private static int NUMBER_OF_BATERIAS = 11;
-    private static int NUMBER_OF_WAVE = 10;
+    private static int NUMBER_OF_WAVE = 20;
     public Vector3 worldSize; //how big is the world x, y, z
     private int worldDifference = 5;
     private Vector3 worldSizeOuter;
@@ -34,15 +34,19 @@ public class GameWaveControl : MonoBehaviour {
     private int gameOrigin = 0;
 
     public TextMesh waveStatusReadout;
+    //public Color normalColor;
+    public Color attenColor;
 
     // Use this for initialization
     void Start () {
         
         worldSizeOuter = worldSize + new Vector3(worldDifference, worldDifference, worldDifference);
         addBatToList();
-
-        StartCoroutine (spawnWave());
-        
+        attenColor = Color.red;
+    }
+    public void StartGame()
+    {
+        StartCoroutine(spawnWave());
     }
     void addBatToList()
     {
@@ -65,28 +69,50 @@ public class GameWaveControl : MonoBehaviour {
     {
         float spawnWait = 2.5f;
         int waveWait = 10;
-        
-        yield return new WaitForSeconds(waveWait);
+        Color normalcolor = waveStatusReadout.color;
+
         float startTime;
         float currentTime;
+        //count down to wave
+        waveStatusReadout.color = attenColor;
+        for (int i = waveWait; i > 0; i--)
+        {
+            yield return new WaitForSeconds(1);
+            waveStatusReadout.text = "Starting in " + i;
+        }
+        waveStatusReadout.color = normalcolor;
 
         int spawnCounter = 0;
         for (int level = 1; level <= NUMBER_OF_WAVE; level++)
         {
             waveStatusReadout.text = "WAVE: " + level + "/" + NUMBER_OF_WAVE;
-            //shooter spawn at level 1 and every 4th level
-            if(level == 1 || level % 4 == 0)
+            //shooter spawn at every 3th level
+            if(level % 3 == 0)
             {
                 Instantiate(BacteriaShooter, new Vector3(0, 0, 40), Quaternion.identity); //make it variables 
                 GameObject shooter = GameObject.FindWithTag("Shooter");
                 shooter.GetComponent<BacteriaShootProjectil>().setFireRate(90); //make it variables 
-                yield return new WaitForSeconds(3);
+                yield return new WaitForSeconds(5);
                 shooter.GetComponent<BacteriaShootProjectil>().setFireRate(10); //make it variables 
             }
-            //start of each wave
+            //spawn temp extend pill
+            if (level == 2)
+            {
+                // One for left hand and one for right hand
+                //Instantiate(PowerUpExtend, new Vector3(-2.2f, 0f, 1.9f), Quaternion.identity);
+                //Instantiate(PowerUpExtend, new Vector3(2.2f, 0f, 1.9f), Quaternion.identity);
+            }
+            //Spawn the length-extension power ups after the player has got experience with the original length
+            if (level % 4 == 0)
+            {
+                // One for left hand and one for right hand
+                Instantiate(PowerUpSuper, new Vector3(-2.2f, 0f, 1.9f), Quaternion.identity);
+                Instantiate(PowerUpSuper, new Vector3(2.2f, 0f, 1.9f), Quaternion.identity);
+            }
+            //Start wave
+            Debug.Log("Wave Start");
             startTime = Time.time - 2.0f;
             currentTime = Time.time;
-            Debug.Log("Wave Start");
             while (currentTime - startTime < SECONDS_PER_WAVE)
             {
                 //for (int i = 0; i < 30; i++)
@@ -94,28 +120,26 @@ public class GameWaveControl : MonoBehaviour {
                 spawnObject(listOfBacterias[Random.Range(0, level)]); 
                 spawnCounter++;
 
-                if (level == 2)
-                {
-                    // One for left hand and one for right hand
-                    Instantiate(PowerUpExtend, new Vector3(-2.2f, 0f, 1.9f), Quaternion.identity);
-                    Instantiate(PowerUpExtend, new Vector3(2.2f, 0f, 1.9f), Quaternion.identity);
-                }
-                // Spawn the length-extension power ups after the player has got some
-                // experience with the original length
-                if (level == 4)
-                {
-                    // One for left hand and one for right hand
-                    Instantiate(PowerUpSuper, new Vector3(-2.2f, 0f, 1.9f), Quaternion.identity);
-                    Instantiate(PowerUpSuper, new Vector3(2.2f, 0f, 1.9f), Quaternion.identity);
-                }
-
                 yield return new WaitForSeconds(spawnWait);
                 //}
                 
                 currentTime = Time.time;
             }
-            yield return new WaitForSeconds(waveWait);
+            //wait untill all bacterias are destroy
+            while(GameObject.FindGameObjectWithTag("BadBacteria") != null)
+            {
+                yield return new WaitForSeconds(1);
+            }
             Debug.Log("Wave Ended");
+            yield return new WaitForSeconds(1); // buffer time
+            //display next wave text
+            waveStatusReadout.color = attenColor;
+            for (int i=waveWait; i > 0; i--)
+            {
+                yield return new WaitForSeconds(1);
+                waveStatusReadout.text = "next wave starting in " + i;
+            }
+            waveStatusReadout.color = normalcolor;
             Instantiate(PowerUpHealth, new Vector3(-0.3f, 0f, 1.9f), Quaternion.identity);
 
             // Each wave is harder
