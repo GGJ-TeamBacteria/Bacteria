@@ -210,8 +210,13 @@ public class Tentacle : MonoBehaviour
         return prevLocation + direction * distanceOfTentacles;
     }
 
-    // Power UP
+    public void InitializeTentacle()
+    {
+        currentMaxLength = minLength;
+        maxArmLength = minLength;
+    }
 
+    // Power UP
     public void ExtendMaxLength(int length)
     {
         // extend the tentacle parmanently
