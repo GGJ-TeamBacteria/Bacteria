@@ -44,6 +44,7 @@ public class GameWaveControl : MonoBehaviour {
         addBatToList();
         attenColor = Color.red;
     }
+    //Call this to start the game
     public void StartGame()
     {
         StartCoroutine(spawnWave());
@@ -145,6 +146,7 @@ public class GameWaveControl : MonoBehaviour {
             // Each wave is harder
             spawnWait = spawnWait - 0.125f;   
         }
+        winGame();
     }
     
     //spawn gameObject randomly at the edage for worldSize cube
@@ -205,4 +207,8 @@ public class GameWaveControl : MonoBehaviour {
 	void Update () {
 		
 	}
+    void winGame()
+    {
+
+    }
 }
