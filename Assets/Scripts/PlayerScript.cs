@@ -89,7 +89,8 @@ public class PlayerScript : MonoBehaviour {
     {
         if (m_health <= 0)
         {
-            SceneManager.LoadScene("GameOver");
+            GameObject gameController = GameObject.Find("Game Control");
+            gameController.GetComponent<GameWaveControl>().lostGame();
         }
     }
 

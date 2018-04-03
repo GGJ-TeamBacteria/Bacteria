@@ -207,7 +207,11 @@ public class GameWaveControl : MonoBehaviour {
 	void Update () {
 		
 	}
-    void winGame()
+    public void lostGame()
+    {
+
+    }
+    public void winGame()
     {
 
     }
