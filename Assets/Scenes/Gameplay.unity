@@ -365,7 +365,8 @@ MonoBehaviour:
     type: 2}
   BacteriaShooter: {fileID: 1398765135925952, guid: ddfe785c77e1c49b492dbfbf5f92cf94,
     type: 2}
-  PowerUpSuper: {fileID: 0}
+  PowerUpSuper: {fileID: 114591451525624390, guid: dc051c8daf3254946a43c72939cd8890,
+    type: 2}
   PowerUpHealth: {fileID: 1699311075652964, guid: beb0e2dc59a4387448388ab662a482b4,
     type: 2}
   PowerUpExtend: {fileID: 1648422272386656, guid: 667608e3816907346b57b4c77a7ce239,
