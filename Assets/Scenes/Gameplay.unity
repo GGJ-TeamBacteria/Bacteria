@@ -365,13 +365,13 @@ MonoBehaviour:
     type: 2}
   BacteriaShooter: {fileID: 1398765135925952, guid: ddfe785c77e1c49b492dbfbf5f92cf94,
     type: 2}
-  PowerUpSuper: {fileID: 114591451525624390, guid: dc051c8daf3254946a43c72939cd8890,
-    type: 2}
+  PowerUpSuper: {fileID: 0}
   PowerUpHealth: {fileID: 1699311075652964, guid: beb0e2dc59a4387448388ab662a482b4,
     type: 2}
   PowerUpExtend: {fileID: 1648422272386656, guid: 667608e3816907346b57b4c77a7ce239,
     type: 2}
-  playerReachRadius: 2
+  playerReachRadius: 0
+  powerUpExtendsSpawnRate: 10
   worldSize: {x: 10, y: 10, z: 10}
   waveStatusReadout: {fileID: 1096404231}
   attenColor: {r: 0.9044118, g: 0.0864511, b: 0.0864511, a: 0}
@@ -1860,7 +1860,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4110455673593156, guid: 852735c97e1c34326ae6b44bb8e85106, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4110455673593156, guid: 852735c97e1c34326ae6b44bb8e85106, type: 2}
       propertyPath: m_LocalRotation.z
@@ -1868,11 +1868,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4110455673593156, guid: 852735c97e1c34326ae6b44bb8e85106, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4110455673593156, guid: 852735c97e1c34326ae6b44bb8e85106, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110455673593156, guid: 852735c97e1c34326ae6b44bb8e85106, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 852735c97e1c34326ae6b44bb8e85106, type: 2}
