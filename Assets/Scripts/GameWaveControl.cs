@@ -23,6 +23,9 @@ public class GameWaveControl : MonoBehaviour {
     public GameObject PowerUpExtend;
 
     public float playerReachRadius;
+    
+    [Range(1.0f, 100.0f)]
+    public int powerUpExtendsSpawnRate = 10; // persentage for spawning power up extends
 
     private static float SECONDS_PER_WAVE = 30;
     private static int NUMBER_OF_BATERIAS = 11;
@@ -133,6 +136,13 @@ public class GameWaveControl : MonoBehaviour {
             //wait untill all bacterias are destroy
             while (GameObject.FindGameObjectWithTag("BadBacteria") != null)
             {
+
+                if (Random.Range(1, 100) < 10)
+                {
+                    Instantiate(PowerUpExtend, GetRandomPlaceAroundTarget(GameManager.instance.playerHead, playerReachRadius), Quaternion.identity);
+                }
+
+
                 yield return new WaitForSeconds(1);
             }
             Debug.Log("Wave Ended");
