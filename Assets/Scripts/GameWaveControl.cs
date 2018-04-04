@@ -18,9 +18,11 @@ public class GameWaveControl : MonoBehaviour {
     public GameObject BacteriaFastPurple;
     public GameObject BacteriaShooter;
 
-    public GameObject PowerUpSuper;
+    public PowerUpSuper PowerUpSuper;
     public GameObject PowerUpHealth;
     public GameObject PowerUpExtend;
+
+    public float playerReachRadius;
 
     private static float SECONDS_PER_WAVE = 30;
     private static int NUMBER_OF_BATERIAS = 11;
@@ -38,17 +40,19 @@ public class GameWaveControl : MonoBehaviour {
     public Color attenColor;
 
     // Use this for initialization
-    void Start () {
-        
+    void Start() {
+
         worldSizeOuter = worldSize + new Vector3(worldDifference, worldDifference, worldDifference);
         addBatToList();
         attenColor = Color.red;
     }
+
     //Call this to start the game
     public void StartGame()
     {
-        StartCoroutine(spawnWave());
+        StartCoroutine("spawnWave");
     }
+
     void addBatToList()
     {
         listOfBacterias = new GameObject[NUMBER_OF_BATERIAS];
@@ -63,7 +67,7 @@ public class GameWaveControl : MonoBehaviour {
         listOfBacterias[8] = BacteriaFastYellow;
         listOfBacterias[9] = BacteriaFastRed;
         listOfBacterias[10] = BacteriaFastPurple;
-        
+
     }
 
     IEnumerator spawnWave()
@@ -88,7 +92,7 @@ public class GameWaveControl : MonoBehaviour {
         {
             waveStatusReadout.text = "WAVE: " + level + "/" + NUMBER_OF_WAVE;
             //shooter spawn at every 3th level
-            if(level % 3 == 0)
+            if (level % 3 == 0)
             {
                 Instantiate(BacteriaShooter, new Vector3(0, 0, 40), Quaternion.identity); //make it variables 
                 GameObject shooter = GameObject.FindWithTag("Shooter");
@@ -118,16 +122,16 @@ public class GameWaveControl : MonoBehaviour {
             {
                 //for (int i = 0; i < 30; i++)
                 //{
-                spawnObject(listOfBacterias[Random.Range(0, level)]); 
+                spawnObject(listOfBacterias[Random.Range(0, level)]);
                 spawnCounter++;
 
                 yield return new WaitForSeconds(spawnWait);
                 //}
-                
+
                 currentTime = Time.time;
             }
             //wait untill all bacterias are destroy
-            while(GameObject.FindGameObjectWithTag("BadBacteria") != null)
+            while (GameObject.FindGameObjectWithTag("BadBacteria") != null)
             {
                 yield return new WaitForSeconds(1);
             }
@@ -135,7 +139,7 @@ public class GameWaveControl : MonoBehaviour {
             yield return new WaitForSeconds(1); // buffer time
             //display next wave text
             waveStatusReadout.color = attenColor;
-            for (int i=waveWait; i > 0; i--)
+            for (int i = waveWait; i > 0; i--)
             {
                 yield return new WaitForSeconds(1);
                 waveStatusReadout.text = "next wave starting in " + i;
@@ -144,11 +148,11 @@ public class GameWaveControl : MonoBehaviour {
             Instantiate(PowerUpHealth, new Vector3(-0.3f, 0f, 1.9f), Quaternion.identity);
 
             // Each wave is harder
-            spawnWait = spawnWait - 0.125f;   
+            spawnWait = spawnWait - 0.125f;
         }
         winGame();
     }
-    
+
     //spawn gameObject randomly at the edage for worldSize cube
     void spawnObject(GameObject gameObject)
     {
@@ -195,24 +199,52 @@ public class GameWaveControl : MonoBehaviour {
         if (Random.Range(0, 2) == 0)
         {
             //restricted all bacterias to spawn from positive x direction only
-            if(axis != 'x')
+            if (axis != 'x')
             {
                 position = -position;
             }
-            
+
         }
         return position;
     }
-	// Update is called once per frame
-	void Update () {
-		
-	}
-    public void lostGame()
-    {
+    // Update is called once per frame
+    void Update() {
 
+    }
+    public void stopWave()
+    {
+        StopCoroutine("spawnWave");
     }
     public void winGame()
     {
+        GameManager.instance.WinGame();
+    }
 
+    public void HelpPlayerToStart()
+    {
+        StartCoroutine("HelpPlayerToStartCoroutine");
+    }
+
+    public void StopHelpingPlayerToStart()
+    {
+        StopCoroutine("HelpPlayerToStartCoroutine");
+    }
+
+    IEnumerator HelpPlayerToStartCoroutine()
+    {
+        while (true)
+        {
+            Instantiate( PowerUpSuper, GetRandomPlaceAroundTarget(GameManager.instance.playerHead, playerReachRadius), Quaternion.identity);
+            yield return new WaitForSeconds(PowerUpSuper.m_Duration + 1.0f);
+        }
+    }
+
+    private Vector3 GetRandomPlaceAroundTarget(GameObject target, float radius)
+    {
+        return new Vector3(
+                     target.transform.position.x + (-radius * Mathf.Cos(Random.Range(0.1f, 1.0f)) * Mathf.Cos(Random.Range(0.1f, 1.0f))),
+                     target.transform.position.y + (radius * Mathf.Sin(Random.Range(0.1f, 1.0f))),
+                     target.transform.position.z + radius * Mathf.Cos(Random.Range(0.1f, 1.0f)) * Mathf.Sin(Random.Range(0.1f, 1.0f))
+                );
     }
 }

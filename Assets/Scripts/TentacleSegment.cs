@@ -43,10 +43,6 @@ public class TentacleSegment : PoolableBehaviour
             SelfDestroy otherScript = other.GetComponent<SelfDestroy>();
             otherScript.Death();
         }
-        else if (other.CompareTag("HeartWin"))
-        {
-            Destroy(other.gameObject);
-        }
     }
 
     IEnumerator AbsorbingAnimation()

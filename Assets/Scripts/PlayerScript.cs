@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerScript : MonoBehaviour {
 
     public int m_health = 3;
+    public int initalHealth = 15;
     AudioSource audioSource;
     AudioSource lowHealthAudioSource;
 
@@ -26,16 +27,24 @@ public class PlayerScript : MonoBehaviour {
     public ButtonTrigger leftControllerButtonTrigger;
     public ButtonTrigger rightControllerButtonTrigger;
 
+    public Tentacle leftTentacle;
+    public Tentacle rightTentacle;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         lowHealthAudioSource = lowHealthWarning.GetComponent<AudioSource>();
+
+        leftTentacle.playerRef = this;
+        rightTentacle.playerRef = this;
+        m_health = initalHealth;
     }
 
     // Update is called once per frame
     void Update ()
     {
-        healthReadout.text = "HEALTH: " + m_health;
+        if (healthReadout != null)
+            healthReadout.text = "HEALTH: " + m_health;
 
         if (m_health == 1 && !lowHealthAudioSource.isPlaying)
         {
@@ -89,9 +98,15 @@ public class PlayerScript : MonoBehaviour {
     {
         if (m_health <= 0)
         {
-            GameObject gameController = GameObject.Find("Game Control");
-            gameController.GetComponent<GameWaveControl>().lostGame();
+            GameManager.instance.LostGame();
         }
+    }
+
+    public void Initialize()
+    {
+        m_health = initalHealth;
+        leftTentacle.Initialize();
+        rightTentacle.Initialize();
     }
 
     public void GainHealth(int gainHealth)

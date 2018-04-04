@@ -7,11 +7,6 @@ public class Tentacle : MonoBehaviour
     public TentacleSegment armPrefab;
     public int maxArmLength;
     public float distanceOfTentacles;
-    public float currentSpeed;
-    public float rotationSpeed;
-    public float minDisBetweenArmParts;
-    public float tenticalExtendingSpeed;
-    public GameObject playerGameObject;
     public int superLongLength = 60;
     public int minLength = 10;
 
@@ -22,6 +17,7 @@ public class Tentacle : MonoBehaviour
     // since there is no simulation of vibration.
     public ButtonTrigger buttonTrigger;
 
+    // player ref will be set by the player who own this tentacle
     internal PlayerScript playerRef;
     private int currentMaxLength;
     private List<PoolableBehaviour> armParts;
@@ -34,7 +30,6 @@ public class Tentacle : MonoBehaviour
     void Start()
     {
         armParts = new List<PoolableBehaviour>();
-        playerRef = playerGameObject.GetComponentInChildren<PlayerScript>();
         currentMaxLength = minLength;
     }
 
@@ -210,7 +205,10 @@ public class Tentacle : MonoBehaviour
         return prevLocation + direction * distanceOfTentacles;
     }
 
-    public void InitializeTentacle()
+    /// <summary>
+    ///  Initialize this tentacle for starting a game again
+    /// </summary>
+    public void Initialize()
     {
         currentMaxLength = minLength;
         maxArmLength = minLength;
