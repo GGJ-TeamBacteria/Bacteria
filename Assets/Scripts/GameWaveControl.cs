@@ -33,12 +33,17 @@ public class GameWaveControl : MonoBehaviour {
     public Vector3 worldSize; //how big is the world x, y, z
     private int worldDifference = 5;
     private Vector3 worldSizeOuter;
+    public int waveWait = 10;
+    public int startWaveWait = 5;
+    
 
     private GameObject[] listOfBacterias;
 
     private int gameOrigin = 0;
 
     public TextMesh waveStatusReadout;
+    public TextMesh healthStatusReadout;
+    public Color normalcolor;
     //public Color normalColor;
     public Color attenColor;
 
@@ -47,12 +52,16 @@ public class GameWaveControl : MonoBehaviour {
 
         worldSizeOuter = worldSize + new Vector3(worldDifference, worldDifference, worldDifference);
         addBatToList();
+        normalcolor = waveStatusReadout.color;
         attenColor = Color.red;
+        healthStatusReadout.gameObject.SetActive(false);
+        waveStatusReadout.text = "Hit the heart to start.";
     }
 
     //Call this to start the game
     public void StartGame()
     {
+        healthStatusReadout.gameObject.SetActive(true);
         StartCoroutine("spawnWave");
     }
 
@@ -76,14 +85,15 @@ public class GameWaveControl : MonoBehaviour {
     IEnumerator spawnWave()
     {
         float spawnWait = 2.5f;
-        int waveWait = 10;
-        Color normalcolor = waveStatusReadout.color;
+        
+        healthStatusReadout.color = normalcolor;
+        waveStatusReadout.color = normalcolor;
 
         float startTime;
         float currentTime;
         //count down to wave
         waveStatusReadout.color = attenColor;
-        for (int i = waveWait; i > 0; i--)
+        for (int i = startWaveWait; i > 0; i--)
         {
             yield return new WaitForSeconds(1);
             waveStatusReadout.text = "Starting in " + i;
@@ -223,6 +233,12 @@ public class GameWaveControl : MonoBehaviour {
     public void stopWave()
     {
         StopCoroutine("spawnWave");
+        Destroy(GameObject.FindWithTag("Bad Bacteria"));
+        Destroy(GameObject.FindWithTag("Shooter"));
+        healthStatusReadout.color = attenColor;
+        waveStatusReadout.color = attenColor;
+        healthStatusReadout.text = "Health: 0. Game Over...";
+        waveStatusReadout.text = "Hit the heart to start.";
     }
     public void winGame()
     {
@@ -243,7 +259,8 @@ public class GameWaveControl : MonoBehaviour {
     {
         while (true)
         {
-            Instantiate( PowerUpSuper, GetRandomPlaceAroundTarget(GameManager.instance.playerHead, playerReachRadius), Quaternion.identity);
+            //Just commenting this part out for now to keep the long tentacle as a surprise in the game
+            //Instantiate( PowerUpSuper, GetRandomPlaceAroundTarget(GameManager.instance.playerHead, playerReachRadius), Quaternion.identity);
             yield return new WaitForSeconds(PowerUpSuper.m_Duration + 1.0f);
         }
     }

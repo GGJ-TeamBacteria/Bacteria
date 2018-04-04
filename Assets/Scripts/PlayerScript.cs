@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerScript : MonoBehaviour {
 
     public int m_health = 3;
-    public int initalHealth = 15;
+    public int initalHealth = 7;
     AudioSource audioSource;
     AudioSource lowHealthAudioSource;
 
