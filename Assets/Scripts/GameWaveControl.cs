@@ -123,13 +123,12 @@ public class GameWaveControl : MonoBehaviour {
             currentTime = Time.time;
             while (currentTime - startTime < SECONDS_PER_WAVE)
             {
-                //for (int i = 0; i < 30; i++)
-                //{
+                
                 spawnObject(listOfBacterias[Random.Range(0, level)]);
                 spawnCounter++;
 
                 yield return new WaitForSeconds(spawnWait);
-                //}
+                
 
                 currentTime = Time.time;
             }
