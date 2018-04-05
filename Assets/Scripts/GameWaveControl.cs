@@ -22,6 +22,8 @@ public class GameWaveControl : MonoBehaviour {
     public GameObject PowerUpHealth;
     public GameObject PowerUpExtend;
 
+    public GameObject Heart;
+
     public float playerReachRadius;
     
     [Range(1.0f, 100.0f)]
@@ -232,6 +234,7 @@ public class GameWaveControl : MonoBehaviour {
     }
     public void stopWave()
     {
+        Debug.Log("Game Over");
         StopCoroutine("spawnWave");
         Destroy(GameObject.FindWithTag("Bad Bacteria"));
         Destroy(GameObject.FindWithTag("Shooter"));
@@ -257,6 +260,7 @@ public class GameWaveControl : MonoBehaviour {
 
     IEnumerator HelpPlayerToStartCoroutine()
     {
+        Instantiate(Heart, new Vector3(3,2,0), Quaternion.Euler(0, 90, 0));
         while (true)
         {
             //Just commenting this part out for now to keep the long tentacle as a surprise in the game

@@ -11,8 +11,10 @@ public class GameStartObject : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<TentacleSegment>() != null)
+        {
+            Destroy(gameObject);
             GameManager.instance.StartGame();
-
+        }
     }
 
     public void Activate()
