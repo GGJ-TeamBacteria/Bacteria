@@ -29,13 +29,13 @@ public class GameWaveControl : MonoBehaviour {
     [Range(1.0f, 100.0f)]
     public int powerUpExtendsSpawnRate = 10; // persentage for spawning power up extends
 
-    private static float SECONDS_PER_WAVE = 30;
+    private static float SECONDS_PER_WAVE = 20;
     private static int NUMBER_OF_BATERIAS = 11;
     private static int NUMBER_OF_WAVE = 20;
     public Vector3 worldSize; //how big is the world x, y, z
     private int worldDifference = 5;
     private Vector3 worldSizeOuter;
-    public int waveWait = 10;
+    public int waveWait = 3;
     public int startWaveWait = 5;
     
 
@@ -105,6 +105,9 @@ public class GameWaveControl : MonoBehaviour {
         int spawnCounter = 0;
         for (int level = 1; level <= NUMBER_OF_WAVE; level++)
         {
+            if (level == 1)
+                continue;
+
             waveStatusReadout.text = "WAVE: " + level + "/" + NUMBER_OF_WAVE;
             //shooter spawn at every 3th level
             if (level % 3 == 0)
@@ -236,8 +239,10 @@ public class GameWaveControl : MonoBehaviour {
     {
         Debug.Log("Game Over");
         StopCoroutine("spawnWave");
-        Destroy(GameObject.FindWithTag("Bad Bacteria"));
-        Destroy(GameObject.FindWithTag("Shooter"));
+
+
+        //Destroy(GameObject.FindWithTag("Bad Bacteria"));
+        //Destroy(GameObject.FindWithTag("Shooter"));
         healthStatusReadout.color = attenColor;
         waveStatusReadout.color = attenColor;
         healthStatusReadout.text = "Health: 0. Game Over...";
@@ -260,7 +265,7 @@ public class GameWaveControl : MonoBehaviour {
 
     IEnumerator HelpPlayerToStartCoroutine()
     {
-        Instantiate(Heart, new Vector3(3,2,0), Quaternion.Euler(0, 90, 0));
+        //Instantiate(Heart, new Vector3(3,2,0), Quaternion.Euler(0, 90, 0));
         while (true)
         {
             //Just commenting this part out for now to keep the long tentacle as a surprise in the game

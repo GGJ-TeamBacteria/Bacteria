@@ -29,21 +29,26 @@ public class GameManager : Singleton<GameManager> {
 
     public void WinGame()
     {
-        player.Initialize();
         gameWaveControl.stopWave();
-        gameWaveControl.HelpPlayerToStart();
-        gameStartObject.Activate();
-
         BGMManager.instance.Play(BGM.Win);
+
+        //StartCoroutine("InitializeGame");
     }
 
     public void LostGame()
     {
-        player.Initialize();
         gameWaveControl.stopWave();
-        gameWaveControl.HelpPlayerToStart();
-        gameStartObject.Activate();
-
         BGMManager.instance.Play(BGM.Lose);
+
+        //StartCoroutine("InitializeGame");
+    }
+
+    IEnumerator InitializeGame()
+    {
+        yield return new WaitForSeconds(10.0f);
+
+        player.Initialize();
+        gameStartObject.Activate();
+        //gameWaveControl.HelpPlayerToStart();
     }
 }

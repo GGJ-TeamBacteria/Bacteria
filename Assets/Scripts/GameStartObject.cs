@@ -12,7 +12,7 @@ public class GameStartObject : MonoBehaviour {
     {
         if (other.GetComponent<TentacleSegment>() != null)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
             GameManager.instance.StartGame();
         }
     }

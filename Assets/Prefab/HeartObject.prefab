@@ -207,7 +207,6 @@ GameObject:
   - component: {fileID: 54803188282365896}
   - component: {fileID: 135380061363410886}
   - component: {fileID: 114172534276595856}
-  - component: {fileID: 114384809091573338}
   m_Layer: 0
   m_Name: HeartObject
   m_TagString: HeartWin
@@ -579,19 +578,6 @@ MonoBehaviour:
   SFX_Appear: {fileID: 1648279379612378, guid: cc70efeb194742c48a39497cf0e7563b, type: 2}
   SFX_Disappear: {fileID: 1049554031633208, guid: c93d14c9d5a1f3344bda53c8f984250b,
     type: 2}
---- !u!114 &114384809091573338
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1972411436058238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 552291c1f689244a4801d4ea8889bc3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSources: []
-  destroyVFX: {fileID: 0}
 --- !u!135 &135380061363410886
 SphereCollider:
   m_ObjectHideFlags: 1
