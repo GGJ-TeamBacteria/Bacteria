@@ -253,27 +253,6 @@ public class GameWaveControl : MonoBehaviour {
         GameManager.instance.WinGame();
     }
 
-    public void HelpPlayerToStart()
-    {
-        StartCoroutine("HelpPlayerToStartCoroutine");
-    }
-
-    public void StopHelpingPlayerToStart()
-    {
-        StopCoroutine("HelpPlayerToStartCoroutine");
-    }
-
-    IEnumerator HelpPlayerToStartCoroutine()
-    {
-        //Instantiate(Heart, new Vector3(3,2,0), Quaternion.Euler(0, 90, 0));
-        while (true)
-        {
-            //Just commenting this part out for now to keep the long tentacle as a surprise in the game
-            //Instantiate( PowerUpSuper, GetRandomPlaceAroundTarget(GameManager.instance.playerHead, playerReachRadius), Quaternion.identity);
-            yield return new WaitForSeconds(PowerUpSuper.m_Duration + 1.0f);
-        }
-    }
-
     private Vector3 GetRandomPlaceAroundTarget(GameObject target, float radius)
     {
         return new Vector3(
