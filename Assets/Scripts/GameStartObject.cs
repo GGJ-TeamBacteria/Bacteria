@@ -5,29 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class GameStartObject : MonoBehaviour {
 
+    public int level;
     public GameObject SFX_Appear;
     public GameObject SFX_Disappear;
 
+    public void Start()
+    {
+        TextMesh levelText = gameObject.GetComponentInChildren<TextMesh>();
+        levelText.text = "Level " + level;
+        transform.LookAt(GameManager.instance.playerHead.transform);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("kitakita");
         if (other.GetComponent<TentacleSegment>() != null)
         {
-            //Destroy(gameObject);
-            GameManager.instance.StartGame();
+            GameManager.instance.StartGame(level);
         }
     }
 
-    public void Activate()
-    {
-        gameObject.SetActive(true);
-        if (SFX_Appear != null)
-            Instantiate(SFX_Appear, transform.position, Quaternion.identity);
-    }
-
-    public void Deactivated()
-    {
-        gameObject.SetActive(false);
-        if (SFX_Disappear != null)
-            Instantiate(SFX_Disappear, transform.position, Quaternion.identity);
-    }
 }

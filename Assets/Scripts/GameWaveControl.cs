@@ -61,7 +61,7 @@ public class GameWaveControl : MonoBehaviour {
     }
 
     //Call this to start the game
-    public void StartGame()
+    public void StartGame(int level)
     {
         healthStatusReadout.gameObject.SetActive(true);
         StartCoroutine("spawnWave");

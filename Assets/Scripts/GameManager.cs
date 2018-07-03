@@ -10,12 +10,15 @@ public class GameManager : Singleton<GameManager> {
     public override void SingletonAwake() { }
 
     public PlayerScript player;
+    public int levelNumber;
     public GameWaveControl gameWaveControl;
     public GameStartObject gameStartObject;
     public GameObject playerHead;
     public float secForSpawningGameStartObj = 10.0f;
+    public GameObject menu;
 
     private GameState currentGameState;
+    private int playerProgress;
 
     public void Start()
     {
@@ -23,7 +26,7 @@ public class GameManager : Singleton<GameManager> {
         currentGameState = GameState.Menu;
     }
 
-    public void StartGame()
+    public void StartGame(int level)
     {
         // prevent a game starts again and again
         if (currentGameState == GameState.InGame)
@@ -31,8 +34,8 @@ public class GameManager : Singleton<GameManager> {
 
         currentGameState = GameState.InGame;
         player.Initialize();
-        gameWaveControl.StartGame();
-        gameStartObject.Deactivated();
+        gameWaveControl.StartGame(level);
+        menu.SetActive(false);
 
         BGMManager.instance.Play(BGM.Gameplay);
     }
@@ -63,7 +66,7 @@ public class GameManager : Singleton<GameManager> {
         {
             currentGameState = GameState.Menu;
             player.Initialize();
-            gameStartObject.Activate();
+            menu.SetActive(true);
         }
 
     }
